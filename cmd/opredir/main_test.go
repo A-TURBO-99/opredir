@@ -35,7 +35,7 @@ func captureStdout(t *testing.T, fn func() error) (string, error) {
 func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 	const destination = "https://redirect-marker.invalid/landing"
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if got := r.URL.Query().Get("amr"); got != destination {
+		if got := r.URL.Query().Get("inject"); got != destination {
 			t.Errorf("payload mismatch: got %q want %q", got, destination)
 		}
 		w.Header().Set("Location", destination)
@@ -64,14 +64,14 @@ func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 	output, err := captureStdout(t, func() error {
 		return runScan([]string{
 			"-d", srv.URL + "/redirect", "-dl", "0s", "-t", "2",
-			"-o", reportPath, "-param", "amr",
-			"--corpus", corpusPath, "--max-cases", "1",
+			"-o", reportPath, "-param", "inject", "--level", "3",
+			"--corpus", corpusPath,
 		})
 	})
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(output, "opredir v0.4.3 — Open Redirect Scanner") {
+	if !strings.Contains(output, "opredir v0.5.0 — Open Redirect Scanner") {
 		t.Fatalf("banner missing from standard output: %s", output)
 	}
 	if !strings.Contains(output, "VULNERABLE") || !strings.Contains(output, destination) {
@@ -99,13 +99,13 @@ func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 		t.Fatalf("expected exactly one confirmed finding: %s", b)
 	}
 	finding := report.ConfirmedFindings[0]
-	if finding.Classification != "confirmed_open_redirect" || finding.Parameter != "amr" || finding.PayloadResolved != destination || finding.StatusCode != http.StatusFound || finding.ResolvedDestination != destination {
+	if finding.Classification != "confirmed_open_redirect" || finding.Parameter != "inject" || finding.PayloadResolved != destination || finding.StatusCode != http.StatusFound || finding.ResolvedDestination != destination {
 		t.Fatalf("incomplete finding evidence: %#v", finding)
 	}
 }
 
 func TestRemovedFlagsAreNotAcceptedByScan(t *testing.T) {
-	for _, flagName := range []string{"--authorized", "--scope-host", "--verbose"} {
+	for _, flagName := range []string{"--authorized", "--scope-host", "--verbose", "--max-cases", "--family", "--mode", "--tls-insecure"} {
 		err := runScan([]string{"-d", "https://example.test", flagName})
 		if err == nil || !strings.Contains(err.Error(), "flag provided but not defined") {
 			t.Fatalf("expected %s to be removed, got %v", flagName, err)
@@ -114,10 +114,82 @@ func TestRemovedFlagsAreNotAcceptedByScan(t *testing.T) {
 }
 
 func TestRemovedFlagsAreNotAcceptedByRequestCommand(t *testing.T) {
-	for _, flagName := range []string{"--authorized", "--scope-host"} {
+	for _, flagName := range []string{"--authorized", "--scope-host", "--tls-insecure"} {
 		err := runRequest([]string{flagName})
 		if err == nil || !strings.Contains(err.Error(), "flag provided but not defined") {
 			t.Fatalf("expected %s to be removed from request command, got %v", flagName, err)
 		}
+	}
+}
+
+func TestRemovedScanOptionsAreRejected(t *testing.T) {
+	for _, oldOption := range []string{"--max-cases", "--family", "--mode", "--tls-insecure", "--quiet"} {
+		err := runScan([]string{"-d", "https://example.test", oldOption})
+		if err == nil || !strings.Contains(err.Error(), "flag provided but not defined") {
+			t.Fatalf("expected removed scan option %s to be rejected, got %v", oldOption, err)
+		}
+	}
+}
+
+func TestHideOptionAcceptedByScan(t *testing.T) {
+	// Parsing proceeds to target/payload loading; the `-hide` flag itself is accepted.
+	err := runScan([]string{"-d", "https://example.test", "-hide", "--parameters", "missing-parameters.txt"})
+	if err == nil || strings.Contains(err.Error(), "flag provided but not defined") {
+		t.Fatalf("expected -hide to be accepted, got %v", err)
+	}
+}
+
+func TestRemovedGenerateOptionsAreRejected(t *testing.T) {
+	for _, oldOption := range []string{"--max-cases", "--family", "--mode"} {
+		err := runGenerate([]string{"--url", "https://example.test", oldOption})
+		if err == nil || !strings.Contains(err.Error(), "flag provided but not defined") {
+			t.Fatalf("expected removed generate option %s to be rejected, got %v", oldOption, err)
+		}
+	}
+}
+
+func TestScanHideKeepsFindingInReportOnly(t *testing.T) {
+	const destination = "https://redirect-marker.invalid/hidden"
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Location", destination)
+		w.WriteHeader(http.StatusFound)
+	}))
+	defer srv.Close()
+
+	dir := t.TempDir()
+	corpus := model.PayloadCorpus{
+		Name: "hide-test", RecordType: "url_value_candidate", Count: 1,
+		Records: []model.PayloadRecord{{
+			ID: "HIDE-1", Payload: destination, RuntimeValue: destination,
+			RecordType: "url_value_candidate",
+		}},
+	}
+	corpusBytes, err := json.Marshal(corpus)
+	if err != nil {
+		t.Fatal(err)
+	}
+	corpusPath := filepath.Join(dir, "corpus.json")
+	if err := os.WriteFile(corpusPath, corpusBytes, 0o600); err != nil {
+		t.Fatal(err)
+	}
+	reportPath := filepath.Join(dir, "hidden-report.json")
+	output, err := captureStdout(t, func() error {
+		return runScan([]string{
+			"-d", srv.URL, "-dl", "0s", "-param", "inject", "-hide",
+			"--level", "3", "--corpus", corpusPath, "-o", reportPath,
+		})
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(output, "VULNERABLE") || strings.Contains(output, destination) {
+		t.Fatalf("finding was not hidden from stdout: %s", output)
+	}
+	b, err := os.ReadFile(reportPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(b), destination) || !strings.Contains(string(b), `"confirmed_findings_count": 1`) {
+		t.Fatalf("confirmed finding missing from report: %s", b)
 	}
 }
