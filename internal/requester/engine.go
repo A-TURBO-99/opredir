@@ -37,7 +37,6 @@ type Config struct {
 	Cookies      []string
 	TLSInsecure  bool
 	ScopeHosts   []string
-	Authorized   bool
 }
 
 // LoadCases reads newline-delimited JSON test cases, bounded by maxRequests.
@@ -77,14 +76,34 @@ func LoadCases(path string, maxRequests int) ([]model.TestCase, error) {
 	return cases, nil
 }
 
-// ValidateConfig enforces explicit authorization and scope restrictions before
+// ScopeHostsFromCases derives the exact allowed host set from the target_url
+// values in a generated case file. Request URLs are still required to retain
+// the same scheme, hostname and effective port as their corresponding target.
+func ScopeHostsFromCases(cases []model.TestCase) ([]string, error) {
+	seen := make(map[string]struct{}, len(cases))
+	hosts := make([]string, 0, len(cases))
+	for i, tc := range cases {
+		u, err := parseHTTPURL(tc.TargetURL)
+		if err != nil {
+			return nil, fmt.Errorf("case %s target_url: %w", caseLabel(tc, i), err)
+		}
+		host := strings.TrimSuffix(strings.ToLower(u.Hostname()), ".")
+		if _, ok := seen[host]; !ok {
+			seen[host] = struct{}{}
+			hosts = append(hosts, host)
+		}
+	}
+	if len(hosts) == 0 {
+		return nil, errors.New("no target hosts found in test cases")
+	}
+	return hosts, nil
+}
+
+// ValidateConfig enforces bounded execution and a target-derived host scope before
 // any network request is sent.
 func ValidateConfig(cfg Config) error {
-	if !cfg.Authorized {
-		return errors.New("active requests require --authorized acknowledgement")
-	}
 	if len(cfg.ScopeHosts) == 0 {
-		return errors.New("at least one --scope-host is required for active requests")
+		return errors.New("at least one target-derived scope host is required for active requests")
 	}
 	if cfg.Concurrency < 1 || cfg.Concurrency > 100 {
 		return errors.New("concurrency must be between 1 and 100")
@@ -107,7 +126,7 @@ func ValidateConfig(cfg Config) error {
 	for _, rule := range cfg.ScopeHosts {
 		rule = strings.TrimSpace(rule)
 		if rule == "" || strings.ContainsAny(rule, "/\\@?# 	\r\n") {
-			return fmt.Errorf("invalid --scope-host rule %q; supply a hostname only", rule)
+			return fmt.Errorf("invalid internal scope rule %q; supply a hostname only", rule)
 		}
 		if strings.Contains(rule, "*") && (!strings.HasPrefix(rule, "*.") || strings.Count(rule, "*") != 1 || len(rule) <= 2) {
 			return fmt.Errorf("invalid wildcard scope rule %q; use *.example.com", rule)
@@ -219,6 +238,13 @@ func caseLabel(tc model.TestCase, index int) string {
 // Run executes cases concurrently, observes a global rate limit and writes one
 // response record per case. HTTP redirects are captured, never followed.
 func Run(ctx context.Context, cases []model.TestCase, cfg Config, output io.Writer) (int, error) {
+	return RunWithCallback(ctx, cases, cfg, output, nil)
+}
+
+// RunWithCallback executes cases and invokes onResponse in completion order.
+// The callback runs from the single result-consumer goroutine, so callers may
+// safely update a live reporter and append findings without additional locks.
+func RunWithCallback(ctx context.Context, cases []model.TestCase, cfg Config, output io.Writer, onResponse func(model.ResponseRecord)) (int, error) {
 	if err := ValidateCases(cases, cfg); err != nil {
 		return 0, err
 	}
@@ -259,10 +285,15 @@ func Run(ctx context.Context, cases []model.TestCase, cfg Config, output io.Writ
 	enc.SetEscapeHTML(false)
 	count := 0
 	for rec := range results {
-		if err := enc.Encode(rec); err != nil {
-			return count, fmt.Errorf("write response JSONL: %w", err)
+		if output != nil {
+			if err := enc.Encode(rec); err != nil {
+				return count, fmt.Errorf("write response JSONL: %w", err)
+			}
 		}
 		count++
+		if onResponse != nil {
+			onResponse(rec)
+		}
 	}
 	return count, nil
 }

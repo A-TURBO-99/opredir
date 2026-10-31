@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.4.3] - 2026-10-31
+
+- Standardized the release package for Linux amd64 only; removed the Windows executable and Windows cross-build references from current release validation.
+
+- Removed the `--authorized` and `--scope-host` CLI options. Active-scan scope is still enforced internally from `-d` / `-l` targets, and each request URL must preserve the target authority.
+- Removed `--verbose`; default terminal output now shows confirmed Open Redirect findings only.
+- Connected the banner, Scan Plan, progress display, and streaming findings to the real scan workflow.
+- Added `-o FILE` / `--output FILE` for a detailed JSON report containing confirmed findings and supporting evidence only.
+- Added `requester.RunWithCallback` for immediate verification and live output as responses complete.
+- Added tests for callback delivery, target-derived scope, and confirmed-only UI output.
+
 ## [0.4.2] - 2026-10-31
 
 - Set the Go module path to `github.com/A-TURBO-99/opredir`.

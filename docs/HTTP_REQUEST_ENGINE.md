@@ -7,12 +7,12 @@ The request engine has one job: send pre-generated test cases to the exact endpo
 ## Execution sequence
 
 1. Read JSONL test cases (maximum 5,000 per invocation).
-2. Require an explicit authorization acknowledgement and at least one scope-host rule.
+2. Derive an exact host allowlist from each case's `target_url`; no separate scope-host CLI option is needed.
 3. Validate every case before sending any request:
    - `target_url` and `request_url` must be absolute HTTP(S) URLs.
    - URL credentials and request fragments are rejected.
    - Request scheme, hostname and effective port must match the original target URL.
-   - The target hostname must match an exact scope rule or a `*.example.com` subdomain rule.
+   - The target hostname must match the exact host derived from that case's `target_url`; scope is not expanded to sibling subdomains.
 4. Start a bounded worker pool.
 5. Apply a global rate limiter before each request.
 6. Send the request with a per-request timeout.
@@ -29,14 +29,14 @@ The output intentionally does not store request Authorization headers, request c
 
 ## Scope model
 
-`--scope-host` accepts exact hostnames/IPs or wildcard subdomain rules. A wildcard such as `*.example.com` matches `a.example.com` but not the apex `example.com`. URL authority validation is separate: even an in-scope host is rejected if the generated request URL changes the target scheme, hostname or effective port from the original `target_url`.
+The scope is derived internally from the target URLs in the supplied cases. Each request URL must retain the exact scheme, hostname and effective port of its corresponding `target_url`. A user-supplied target file is therefore the explicit list of hosts to test; the request engine does not expand subdomains.
 
-The scope check is a guardrail, not proof of authorization. The operator remains responsible for confirming written permission and program scope before running active tests.
+The derived scope check is a technical guardrail, not proof of authorization. The operator remains responsible for confirming written permission and program scope before running active tests.
 
 ## Known limitations
 
 - The current generator produces Query-Parameter GET test cases.
 - The request engine can send a method and request body if present in a JSONL test case, but there is not yet a general form/body parameter discovery module.
 - Duplicate Query Parameter test templates are preserved as separate research data; a dedicated ordered HPP case generator is still pending.
-- Redirect classification, relative `Location` resolution, origin/allowlist comparison and redirect-chain analysis are not implemented yet.
+- Redirect classification and relative `Location` resolution are handled by the Verification Engine. Multi-hop redirect-chain analysis is not implemented yet.
 - JavaScript/DOM redirects require a future browser-based engine.

@@ -6,6 +6,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"os/signal"
 	"path/filepath"
@@ -21,7 +22,7 @@ import (
 	"github.com/A-TURBO-99/opredir/internal/verifier"
 )
 
-const version = "0.4.2"
+const version = "0.4.3"
 const author = "A-TURBO-99"
 
 type stringList []string
@@ -70,35 +71,33 @@ func main() {
 }
 
 func usage() {
-	fmt.Printf(`opredir %s — Open Redirect detection and verification tool
+	fmt.Printf(`opredir %s — Open Redirect Scanner
 by %s
 
 Usage:
-  opredir -d DOMAIN -dl 500ms -t 4 --authorized [options]
-  opredir -l FILE -dl 1s -t 2 --authorized [options]
-  opredir scan -d DOMAIN --authorized [options]
-  opredir generate [options]                     Generate test cases only
-  opredir request [options]                      Send existing generated cases
-  opredir verify -in FILE [options]              Verify captured response JSONL
-  opredir ui-demo [--quiet|--json] [--verbose]    Preview the terminal UI with mock data
-  opredir version                                Print version
+  opredir -d DOMAIN [-dl 500ms] [-t 4] [-o report.json] [options]
+  opredir -l FILE   [-dl 1s]    [-t 2] [-o report.json] [options]
+  opredir scan [options]
+  opredir generate [options]              Generate test cases only
+  opredir request [options]               Send existing generated cases
+  opredir verify -in FILE [options]       Verify captured response JSONL
+  opredir ui-demo [--quiet|--json]        Preview terminal UI with mock data
+  opredir version                         Print version
 
 Target input:
   -d, --domain DOMAIN  One domain or endpoint URL. Bare domains default to HTTPS.
-  -l, --list FILE      Subdomains/endpoints, one per line; bare hosts default to HTTPS.
+  -l, --list FILE      Subdomains/endpoints, one per line.
 
-Traffic controls:
-  -dl, --delay DURATION Minimum delay between consecutive request starts (default 500ms; 0 disables).
-  -t, --threads N       Maximum concurrent HTTP workers (default 4; range 1..100).
+Scan controls:
+  -dl, --delay DURATION  Minimum delay between request starts (default 500ms; 0 disables).
+  -t, --threads N        Maximum concurrent HTTP workers (default 4; range 1..100).
+  -o, --output FILE      Detailed JSON report (default opredir-report.json).
+  --quiet                Print confirmed findings as plain text only.
+  --json                 Print confirmed findings and summary as JSONL.
 
-Compatibility:
-  -u DOMAIN             Legacy alias for -d.
-
-Safety defaults:
-  * Active scan/request require --authorized.
-  * Requests are sent only to hosts explicitly derived from -d/-l or provided scope.
-  * Redirects are never followed. Findings are verified from the first response.
-  * Default scan cap: 500 requests.
+The scanner derives its exact host scope from -d / -l, rejects request URLs
+whose authority differs from the target, and never follows HTTP redirects.
+Use only against systems you own or are explicitly authorized to test.
 
 Run "opredir <command> -h" for command options.
 `, version, author)
@@ -190,16 +189,14 @@ func runRequest(args []string) error {
 	fs := flag.NewFlagSet("request", flag.ContinueOnError)
 	fs.SetOutput(os.Stderr)
 	var casesPath, output, userAgent string
-	var scopeHosts, headerFlags, cookies stringList
-	var authorized, tlsInsecure bool
+	var headerFlags, cookies stringList
+	var tlsInsecure bool
 	var concurrency, maxRequests int
 	var rate float64
 	var delay, timeout time.Duration
 	var maxBody int64
 	fs.StringVar(&casesPath, "cases", "", "Generated JSONL test-case file (required)")
 	fs.StringVar(&output, "out", "responses.jsonl", "Response evidence JSONL output")
-	fs.BoolVar(&authorized, "authorized", false, "Acknowledge that all listed targets are explicitly authorized")
-	fs.Var(&scopeHosts, "scope-host", "Allowed exact host or wildcard *.example.com; repeatable and required")
 	fs.IntVar(&concurrency, "t", 4, "Maximum concurrent HTTP workers (1..100)")
 	fs.IntVar(&concurrency, "threads", 4, "Alias for -t")
 	fs.IntVar(&concurrency, "concurrency", 4, "Alias for -t")
@@ -219,12 +216,6 @@ func runRequest(args []string) error {
 	if casesPath == "" {
 		return errors.New("--cases is required")
 	}
-	if !authorized {
-		return errors.New("active network traffic requires --authorized")
-	}
-	if len(scopeHosts) == 0 {
-		return errors.New("active network traffic requires at least one --scope-host")
-	}
 	headers, err := requester.ParseHeaderFlags(headerFlags)
 	if err != nil {
 		return err
@@ -233,12 +224,16 @@ func runRequest(args []string) error {
 	if err != nil {
 		return err
 	}
-	cfg := requester.Config{Concurrency: concurrency, Delay: delay, RatePerSec: rate, Timeout: timeout, MaxRequests: maxRequests, MaxBodyBytes: maxBody, UserAgent: userAgent, Headers: headers, Cookies: cookies, TLSInsecure: tlsInsecure, ScopeHosts: scopeHosts, Authorized: authorized}
+	scopeHosts, err := requester.ScopeHostsFromCases(cases)
+	if err != nil {
+		return err
+	}
+	cfg := requester.Config{Concurrency: concurrency, Delay: delay, RatePerSec: rate, Timeout: timeout, MaxRequests: maxRequests, MaxBodyBytes: maxBody, UserAgent: userAgent, Headers: headers, Cookies: cookies, TLSInsecure: tlsInsecure, ScopeHosts: scopeHosts}
 	// Preflight runs before creating the output file or sending any request.
 	if err := requester.ValidateCases(cases, cfg); err != nil {
 		return err
 	}
-	if err := os.MkdirAll(filepath.Dir(output), 0o755); err != nil && filepath.Dir(output) != "." {
+	if err := ensureParent(output); err != nil {
 		return err
 	}
 	f, err := os.Create(output)
@@ -259,21 +254,19 @@ func runScan(args []string) error {
 	fs := flag.NewFlagSet("scan", flag.ContinueOnError)
 	fs.SetOutput(os.Stderr)
 	var domain, listPath, parametersPath, corpusPath, varsPath string
-	var attackerHost, allowedHost, mode, casesOut, responsesOut, findingsOut, userAgent string
+	var attackerHost, allowedHost, mode, outputPath, userAgent string
 	var familyFlags, headerFlags, cookies stringList
-	var authorized, tlsInsecure bool
+	var tlsInsecure, quiet, jsonMode bool
 	var maxCases, concurrency int
 	var rate float64
 	var delay, timeout time.Duration
 	var maxBody int64
 	fs.StringVar(&domain, "d", "", "One domain or endpoint URL (mutually exclusive with -l)")
 	fs.StringVar(&domain, "domain", "", "Alias for -d")
-	fs.StringVar(&domain, "u", "", "Legacy alias for -d")
 	fs.StringVar(&listPath, "l", "", "File containing subdomains or endpoint URLs, one per line (mutually exclusive with -d)")
 	fs.StringVar(&listPath, "list", "", "Alias for -l")
 	fs.DurationVar(&delay, "dl", 500*time.Millisecond, "Minimum delay between consecutive request starts; examples: 250ms, 1s; 0 disables")
 	fs.DurationVar(&delay, "delay", 500*time.Millisecond, "Alias for -dl")
-	fs.BoolVar(&authorized, "authorized", false, "Acknowledge that every listed target is explicitly authorized")
 	fs.StringVar(&parametersPath, "parameters", "data/parameters.txt", "Parameter names file")
 	fs.StringVar(&corpusPath, "corpus", "data/payloads/url_value_candidates.json", "Cleaned URL-value payload corpus")
 	fs.StringVar(&varsPath, "vars-json", "", "JSON object mapping runtime placeholders to values")
@@ -292,9 +285,10 @@ func runScan(args []string) error {
 	fs.Var(&headerFlags, "header", "Additional request header as 'Name: value'; repeatable")
 	fs.Var(&cookies, "cookie", "Cookie header value; repeatable")
 	fs.BoolVar(&tlsInsecure, "tls-insecure", false, "Skip TLS certificate verification (not recommended)")
-	fs.StringVar(&casesOut, "cases-out", "opredir-cases.jsonl", "Generated test-case JSONL")
-	fs.StringVar(&responsesOut, "responses-out", "opredir-responses.jsonl", "Captured HTTP response JSONL")
-	fs.StringVar(&findingsOut, "out", "opredir-findings.jsonl", "Verified findings JSONL")
+	fs.StringVar(&outputPath, "o", "opredir-report.json", "Detailed JSON report output file")
+	fs.StringVar(&outputPath, "output", "opredir-report.json", "Alias for -o")
+	fs.BoolVar(&quiet, "quiet", false, "Print confirmed findings as plain text only")
+	fs.BoolVar(&jsonMode, "json", false, "Print confirmed findings and summary as JSONL")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -302,10 +296,10 @@ func runScan(args []string) error {
 		return fmt.Errorf("unexpected positional arguments: %s", strings.Join(fs.Args(), " "))
 	}
 	if (domain == "") == (listPath == "") {
-		return errors.New("supply exactly one target source: -d DOMAIN (or --domain) or -l FILE")
+		return errors.New("supply exactly one target source: -d DOMAIN or -l FILE")
 	}
-	if !authorized {
-		return errors.New("active scanning requires --authorized acknowledgement")
+	if quiet && jsonMode {
+		return errors.New("--quiet and --json cannot be used together")
 	}
 	if maxCases < 1 || maxCases > 5000 {
 		return errors.New("--max-cases must be between 1 and 5000")
@@ -313,9 +307,10 @@ func runScan(args []string) error {
 	if mode != "auto" && mode != "append" && mode != "replace-all" && mode != "replace-first" {
 		return fmt.Errorf("unsupported --mode %q", mode)
 	}
-	if paths := []string{casesOut, responsesOut, findingsOut}; paths[0] == paths[1] || paths[0] == paths[2] || paths[1] == paths[2] {
-		return errors.New("--cases-out, --responses-out and --out must be different files")
-	}
+
+	options := ui.DetectOptions(os.Stdout, quiet, jsonMode)
+	reporter := ui.New(os.Stdout, options)
+	reporter.Header("opredir", version, author)
 
 	var targetURLs, scopeHosts []string
 	var err error
@@ -341,12 +336,12 @@ func runScan(args []string) error {
 	}
 	variables := map[string]string{"ATTACKER_HOST": attackerHost}
 	if varsPath != "" {
-		b, err := os.ReadFile(varsPath)
-		if err != nil {
-			return err
+		b, readErr := os.ReadFile(varsPath)
+		if readErr != nil {
+			return readErr
 		}
-		if err := json.Unmarshal(b, &variables); err != nil {
-			return fmt.Errorf("decode --vars-json: %w", err)
+		if decodeErr := json.Unmarshal(b, &variables); decodeErr != nil {
+			return fmt.Errorf("decode --vars-json: %w", decodeErr)
 		}
 		if variables == nil {
 			variables = make(map[string]string)
@@ -355,10 +350,10 @@ func runScan(args []string) error {
 			variables["ATTACKER_HOST"] = attackerHost
 		}
 	}
-
 	if len(targetURLs) > maxCases {
 		return fmt.Errorf("the target source contains %d targets but --max-cases is %d; increase --max-cases so every target receives at least one test", len(targetURLs), maxCases)
 	}
+
 	var allCases []model.TestCase
 	combinedStats := map[string]int{"generated": 0, "skipped_missing_placeholders": 0, "skipped_invalid_targets": 0}
 	baseQuota, extraQuota := maxCases/len(targetURLs), maxCases%len(targetURLs)
@@ -398,63 +393,78 @@ func runScan(args []string) error {
 	if len(allCases) == 0 {
 		return errors.New("no test cases generated; check the payload corpus and required --vars-json placeholders")
 	}
-	if err := writeJSONL(casesOut, allCases); err != nil {
-		return fmt.Errorf("write generated cases: %w", err)
-	}
 
 	headers, err := requester.ParseHeaderFlags(headerFlags)
 	if err != nil {
 		return err
 	}
-	cfg := requester.Config{Concurrency: concurrency, Delay: delay, RatePerSec: rate, Timeout: timeout, MaxRequests: maxCases, MaxBodyBytes: maxBody, UserAgent: userAgent, Headers: headers, Cookies: cookies, TLSInsecure: tlsInsecure, ScopeHosts: scopeHosts, Authorized: authorized}
+	cfg := requester.Config{Concurrency: concurrency, Delay: delay, RatePerSec: rate, Timeout: timeout, MaxRequests: maxCases, MaxBodyBytes: maxBody, UserAgent: userAgent, Headers: headers, Cookies: cookies, TLSInsecure: tlsInsecure, ScopeHosts: scopeHosts}
 	if err := requester.ValidateCases(allCases, cfg); err != nil {
 		return fmt.Errorf("scan preflight rejected before network traffic: %w", err)
 	}
-	if err := ensureParent(responsesOut); err != nil {
+	if err := ensureParent(outputPath); err != nil {
 		return err
 	}
-	responseFile, err := os.Create(responsesOut)
-	if err != nil {
-		return fmt.Errorf("create response output: %w", err)
+	if outputPath == "" {
+		return errors.New("-o output path cannot be empty")
 	}
+
+	payloadSet := "standard set"
+	if len(familyFlags) > 0 || parametersPath != "data/parameters.txt" || corpusPath != "data/payloads/url_value_candidates.json" {
+		payloadSet = "custom/filtered set"
+	}
+	sourceLabel := domain
+	if listPath != "" {
+		sourceLabel = listPath
+	}
+	plan := ui.Plan{TargetCount: len(targetURLs), TargetSource: sourceLabel, ParameterCount: len(parameters), PayloadCount: len(payloads), PayloadSet: payloadSet, RequestCount: len(allCases)}
+	reporter.ScanPlan(plan)
+	reporter.LoadingTargets(len(targetURLs))
+
+	started := time.Now()
+	findings := make([]verifier.Finding, 0)
+	scanned := 0
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
-	responseCount, runErr := requester.Run(ctx, allCases, cfg, responseFile)
-	closeErr := responseFile.Close()
+	responseCount, runErr := requester.RunWithCallback(ctx, allCases, cfg, io.Discard, func(rec model.ResponseRecord) {
+		scanned++
+		finding := verifier.VerifyRecord(rec)
+		if finding.Confirmed {
+			findings = append(findings, finding)
+			reporter.Result(ui.Result{
+				TargetURL: finding.TargetURL, FullURL: finding.RequestURL, Payload: finding.PayloadResolved,
+				Parameter: finding.Parameter, StatusCode: finding.StatusCode,
+				RedirectDestination: finding.ResolvedDestination, Classification: string(finding.Classification),
+				Confirmed: true, Reason: finding.Reason, DurationMS: rec.DurationMS,
+			})
+		}
+		reporter.Progress(scanned, len(allCases))
+	})
 	if runErr != nil {
 		return runErr
 	}
-	if closeErr != nil {
-		return fmt.Errorf("close response output: %w", closeErr)
+	if responseCount != len(allCases) {
+		return fmt.Errorf("scan incomplete: received %d of %d responses", responseCount, len(allCases))
 	}
-
-	responses, err := verifier.LoadResponses(responsesOut, maxCases)
-	if err != nil {
-		return err
-	}
-	findings := verifier.VerifyAll(responses)
-	if err := verifier.WriteFindings(findingsOut, findings); err != nil {
-		return err
-	}
-	counts := make(map[string]int)
-	confirmed := 0
-	for _, finding := range findings {
-		counts[string(finding.Classification)]++
-		if finding.Confirmed {
-			confirmed++
-		}
-	}
-	return printJSON(os.Stdout, map[string]any{
-		"tool": "opredir", "author": author, "version": version, "targets": targetURLs,
+	duration := time.Since(started)
+	report := map[string]any{
+		"tool": "opredir", "version": version, "author": author,
+		"generated_at": time.Now().UTC().Format(time.RFC3339),
+		"duration_ms":  duration.Milliseconds(),
+		"targets":      targetURLs, "target_count": len(targetURLs),
 		"parameters_loaded": len(parameters), "payload_records_selected": len(payloads),
-		"generation_stats": combinedStats, "cases_generated": len(allCases),
-		"responses_written": responseCount, "confirmed_findings": confirmed,
-		"classification_counts": counts, "cases_output": casesOut,
-		"responses_output": responsesOut, "findings_output": findingsOut,
-		"delay": delay.String(), "threads": concurrency,
-		"redirect_following": false, "scope_hosts": scopeHosts,
-		"note": "Confirmed findings require a 3xx Location or Refresh destination whose external hostname matches the tested value. Client-side candidates are not confirmed without browser verification.",
-	})
+		"requests_generated": len(allCases), "requests_completed": responseCount,
+		"threads": concurrency, "delay": delay.String(),
+		"confirmed_findings_count": len(findings), "confirmed_findings": findings,
+		"generation_stats":   combinedStats,
+		"redirect_following": false,
+		"note":               "Only findings verified by a matching external HTTP Location or Refresh destination are included. Non-confirmed candidates are intentionally omitted.",
+	}
+	if err := writeJSONFile(outputPath, report); err != nil {
+		return fmt.Errorf("write detailed report: %w", err)
+	}
+	reporter.Finish(ui.Summary{Duration: duration, Scanned: responseCount, Vulnerable: len(findings), NotConfirmed: responseCount - len(findings), ReportPath: outputPath})
+	return nil
 }
 
 func runVerify(args []string) error {
@@ -496,12 +506,11 @@ func runVerify(args []string) error {
 func runUIDemo(args []string) error {
 	fs := flag.NewFlagSet("ui-demo", flag.ContinueOnError)
 	fs.SetOutput(os.Stderr)
-	var quiet, jsonMode, verbose bool
+	var quiet, jsonMode bool
 	var reportPath string
 	var width int
 	fs.BoolVar(&quiet, "quiet", false, "Print one plain-text line per mock result")
 	fs.BoolVar(&jsonMode, "json", false, "Emit newline-delimited JSON events instead of terminal UI")
-	fs.BoolVar(&verbose, "verbose", false, "Show clean and non-confirmed mock results")
 	fs.StringVar(&reportPath, "report", "opredir-demo-report.html", "HTML mock report output path")
 	fs.IntVar(&width, "width", 0, "Override terminal width for preview (32..120)")
 	if err := fs.Parse(args); err != nil {
@@ -517,7 +526,7 @@ func runUIDemo(args []string) error {
 		return errors.New("--width must be between 32 and 120")
 	}
 
-	options := ui.DetectOptions(os.Stdout, quiet, jsonMode, verbose)
+	options := ui.DetectOptions(os.Stdout, quiet, jsonMode)
 	if width != 0 {
 		options.Width = width
 	}
@@ -565,7 +574,7 @@ func runUIDemo(args []string) error {
 	}
 	reporter.Finish(ui.Summary{
 		Duration: time.Since(start), Scanned: plan.RequestCount,
-		Vulnerable: len(vulnerableIndexes), Clean: plan.RequestCount - len(vulnerableIndexes),
+		Vulnerable: len(vulnerableIndexes), NotConfirmed: plan.RequestCount - len(vulnerableIndexes),
 		ReportPath: reportPath,
 	})
 	return nil
@@ -643,6 +652,21 @@ func writeJSONL(path string, cases []model.TestCase) error {
 		}
 	}
 	return nil
+}
+
+func writeJSONFile(path string, value any) error {
+	if err := ensureParent(path); err != nil {
+		return err
+	}
+	f, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	enc := json.NewEncoder(f)
+	enc.SetIndent("", "  ")
+	enc.SetEscapeHTML(false)
+	return enc.Encode(value)
 }
 
 func printJSON(w *os.File, v any) error {

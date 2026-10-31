@@ -1,2 +1,1 @@
-38b7d9039dbb12a4030b7f70b7bda2e5c33b23027722797e2fee4c1c4fb29fdb  dist/opredir-linux-amd64
-4819c2bbb6fb97b16280bebb94f20017a6c7177f42610e8f769780aea9160bcc  dist/opredir-windows-amd64.exe
+21279db1c1eeb8116d48686b38ecac168f5ce87ababefcabcdce70ffa34549a8  opredir-linux-amd64

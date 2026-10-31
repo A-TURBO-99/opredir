@@ -1,6 +1,6 @@
-# opredir 0.2.0 — Validation Report
+# opredir 0.4.3 — Validation Report
 
-Validation performed in the build container on 2026-10-31.
+Validation performed in the build container on 2026-10-31. This release is distributed and tested for Linux amd64 only.
 
 ## Static and unit checks
 
@@ -11,7 +11,7 @@ Validation performed in the build container on 2026-10-31.
 | `go test -race ./...` | Passed |
 | `go vet ./...` | Passed |
 | Linux amd64 build | Passed |
-| Windows amd64 cross-build | Passed |
+| Windows build | Not provided (Linux-only distribution) |
 | CLI version and usage | Passed |
 | `-d` scan input | Passed |
 | `-l` list input | Passed |
@@ -42,7 +42,7 @@ The mock server was local and ephemeral; no external destination was contacted.
 
 ## Scope controls
 
-- Scan requires `--authorized`.
+- CLI no longer exposes `--authorized` or `--scope-host`; exact host scope is derived from `-d` / `-l` targets.
 - `-d` derives one exact hostname scope.
 - `-l` derives exact hostname scope from each listed subdomain/endpoint; wildcard expansion is not performed.
 - The request engine still refuses any generated Request URL whose scheme, hostname or effective port differs from its Target URL.
@@ -55,6 +55,17 @@ The mock server was local and ephemeral; no external destination was contacted.
 - URL parsing uses Go `net/url`; differences with browser WHATWG parsing and complex IDN/IP normalization can remain inconclusive.
 - Multi-hop redirect chains are not followed or evaluated.
 - The full 724-payload corpus was not executed during the end-to-end test; the test used one local case to verify the complete pipeline safely.
+
+## CLI and UI update (0.4.3)
+
+The current build was revalidated after the CLI/reporting update. `cmd/opredir/main_test.go` runs a real loopback-only end-to-end scan: it confirms an injected external destination, checks the immediate terminal finding, and parses the detailed `-o` JSON report to verify the evidence fields. The same test suite confirms the removed flags are rejected.
+
+- Removed `--authorized`, `--scope-host`, and `--verbose` from the user-facing CLI.
+- Scope preflight remains active internally: request authority must match its original target authority.
+- Added `-o FILE` detailed JSON report; report includes confirmed findings only.
+- Connected the terminal banner, Scan Plan, progress, and streamed confirmed findings to the real scan workflow.
+- Added callback-based response verification and tests.
+- Default terminal output suppresses clean, reflected-only, and unconfirmed redirect cases.
 
 ## CLI flag update (0.4.0)
 

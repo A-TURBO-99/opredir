@@ -13,7 +13,7 @@ import (
 )
 
 func testConfig(host string) Config {
-	return Config{Concurrency: 2, RatePerSec: 100, Timeout: 2 * time.Second, MaxRequests: 10, MaxBodyBytes: 8, UserAgent: "opredir-test", ScopeHosts: []string{host}, Authorized: true, Headers: make(http.Header)}
+	return Config{Concurrency: 2, RatePerSec: 100, Timeout: 2 * time.Second, MaxRequests: 10, MaxBodyBytes: 8, UserAgent: "opredir-test", ScopeHosts: []string{host}, Headers: make(http.Header)}
 }
 
 func TestRunCapturesRedirectWithoutFollowing(t *testing.T) {
@@ -47,11 +47,47 @@ func TestRunCapturesRedirectWithoutFollowing(t *testing.T) {
 	}
 }
 
-func TestValidateConfigRequiresAuthorization(t *testing.T) {
+func TestRunWithCallbackReceivesResponses(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer srv.Close()
 	cfg := testConfig("127.0.0.1")
-	cfg.Authorized = false
-	if err := ValidateConfig(cfg); err == nil || !strings.Contains(err.Error(), "--authorized") {
-		t.Fatalf("expected explicit authorization requirement, got %v", err)
+	cases := []model.TestCase{{CaseID: "callback-1", TargetURL: srv.URL, RequestURL: srv.URL}}
+	called := 0
+	count, err := RunWithCallback(context.Background(), cases, cfg, nil, func(rec model.ResponseRecord) {
+		called++
+		if rec.CaseID != "callback-1" || rec.StatusCode != http.StatusOK {
+			t.Errorf("unexpected callback response: %#v", rec)
+		}
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if count != 1 || called != 1 {
+		t.Fatalf("count=%d callback calls=%d", count, called)
+	}
+}
+
+func TestValidateConfigDoesNotRequireCLIAuthorizationFlag(t *testing.T) {
+	cfg := testConfig("127.0.0.1")
+	if err := ValidateConfig(cfg); err != nil {
+		t.Fatalf("target-derived scope should be sufficient: %v", err)
+	}
+}
+
+func TestScopeHostsFromCases(t *testing.T) {
+	cases := []model.TestCase{
+		{TargetURL: "https://example.com/path", RequestURL: "https://example.com/path"},
+		{TargetURL: "https://api.example.com/", RequestURL: "https://api.example.com/"},
+		{TargetURL: "https://example.com/other", RequestURL: "https://example.com/other"},
+	}
+	hosts, err := ScopeHostsFromCases(cases)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(hosts) != 2 || hosts[0] != "example.com" || hosts[1] != "api.example.com" {
+		t.Fatalf("unexpected derived hosts: %#v", hosts)
 	}
 }
 

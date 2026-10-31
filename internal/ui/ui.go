@@ -14,7 +14,6 @@ import (
 type Options struct {
 	Quiet       bool
 	JSON        bool
-	Verbose     bool
 	Color       bool
 	Interactive bool
 	Width       int
@@ -43,12 +42,12 @@ type Result struct {
 }
 
 type Summary struct {
-	Duration   time.Duration `json:"duration"`
-	Scanned    int           `json:"scanned"`
-	Vulnerable int           `json:"vulnerable"`
-	Clean      int           `json:"clean"`
-	Other      int           `json:"other,omitempty"`
-	ReportPath string        `json:"report_path,omitempty"`
+	Duration     time.Duration `json:"duration"`
+	Scanned      int           `json:"scanned"`
+	Vulnerable   int           `json:"vulnerable"`
+	NotConfirmed int           `json:"not_confirmed"`
+	Other        int           `json:"other,omitempty"`
+	ReportPath   string        `json:"report_path,omitempty"`
 }
 
 type Reporter struct {
@@ -73,7 +72,7 @@ func New(out io.Writer, options Options) *Reporter {
 	return &Reporter{out: out, options: options, start: time.Now(), lastPct: -1}
 }
 
-func DetectOptions(out *os.File, quiet, jsonMode, verbose bool) Options {
+func DetectOptions(out *os.File, quiet, jsonMode bool) Options {
 	color, interactive := false, false
 	if out != nil {
 		if info, err := out.Stat(); err == nil && info.Mode()&os.ModeCharDevice != 0 {
@@ -81,7 +80,7 @@ func DetectOptions(out *os.File, quiet, jsonMode, verbose bool) Options {
 			color = os.Getenv("NO_COLOR") == "" && os.Getenv("TERM") != "dumb"
 		}
 	}
-	return Options{Quiet: quiet, JSON: jsonMode, Verbose: verbose, Color: color, Interactive: interactive, Width: terminalWidth()}
+	return Options{Quiet: quiet, JSON: jsonMode, Color: color, Interactive: interactive, Width: terminalWidth()}
 }
 
 func terminalWidth() int {
@@ -114,7 +113,7 @@ func (r *Reporter) ScanPlan(plan Plan) {
 		fmt.Sprintf("Targets      %s URLs  (%s)", comma(plan.TargetCount), plan.TargetSource),
 		fmt.Sprintf("Parameters   %s names", comma(plan.ParameterCount)),
 		fmt.Sprintf("Payloads     %s payloads  (%s)", comma(plan.PayloadCount), plan.PayloadSet),
-		fmt.Sprintf("Requests     %s total  (%s × %s × %s)", comma(plan.RequestCount), comma(plan.TargetCount), comma(plan.ParameterCount), comma(plan.PayloadCount)),
+		fmt.Sprintf("Requests     %s generated test cases", comma(plan.RequestCount)),
 	}
 	if r.options.Width < 58 {
 		fmt.Fprintln(r.out, r.paint("36;1", "Scan Plan"))
@@ -179,34 +178,26 @@ func (r *Reporter) Progress(scanned, total int) {
 }
 
 func (r *Reporter) Result(result Result) {
+	// Only confirmed findings are user-facing results. Unconfirmed redirects,
+	// reflections and clean responses remain available through internal logic.
+	if !result.Confirmed {
+		return
+	}
 	if r.options.JSON {
-		r.writeJSON(map[string]any{"type": "result", "result": result})
+		r.writeJSON(map[string]any{"type": "finding", "result": result})
 		return
 	}
 	if r.options.Quiet {
 		fmt.Fprintln(r.out, r.plainResult(result))
 		return
 	}
-	show := result.Confirmed || r.options.Verbose
-	if !show {
-		return
-	}
 	if r.lastPct >= 0 && r.options.Interactive {
 		fmt.Fprint(r.out, "\r\033[K")
 	}
-	if result.Confirmed {
-		fmt.Fprintf(r.out, "%s %s   %s\n", r.paint("31;1", "✖"), r.paint("31;1", "VULNERABLE"), result.FullURL)
-		fmt.Fprintf(r.out, "                  %s %s\n", r.paint("90", "payload:"), r.paint("90", result.Payload))
-		fmt.Fprintf(r.out, "                  %s %s\n", r.paint("90", "param:  "), r.paint("90", result.Parameter))
-		fmt.Fprintf(r.out, "                  %s %d → %s\n", r.paint("90", "status: "), result.StatusCode, result.RedirectDestination)
-	} else if result.Classification == "clean" {
-		fmt.Fprintf(r.out, "%s CLEAN         %s\n", r.paint("32", "✔"), result.FullURL)
-	} else {
-		fmt.Fprintf(r.out, "%s %-13s %s\n", r.paint("33", "!"), strings.ToUpper(result.Classification), result.FullURL)
-		if result.Reason != "" {
-			fmt.Fprintf(r.out, "                  %s %s\n", r.paint("90", "reason:"), r.paint("90", result.Reason))
-		}
-	}
+	fmt.Fprintf(r.out, "%s %s   %s\n", r.paint("31;1", "✖"), r.paint("31;1", "VULNERABLE"), result.FullURL)
+	fmt.Fprintf(r.out, "                  %s %s\n", r.paint("90", "payload:"), r.paint("90", result.Payload))
+	fmt.Fprintf(r.out, "                  %s %s\n", r.paint("90", "param:  "), r.paint("90", result.Parameter))
+	fmt.Fprintf(r.out, "                  %s %d → %s\n", r.paint("90", "status: "), result.StatusCode, result.RedirectDestination)
 	if r.lastPct >= 0 {
 		r.ProgressFromPct(result)
 	}
@@ -235,7 +226,7 @@ func (r *Reporter) Finish(summary Summary) {
 	fmt.Fprintf(r.out, "Done in %.2fs\n\n", summary.Duration.Seconds())
 	fmt.Fprintf(r.out, "  %-12s %s requests\n", "Scanned", comma(summary.Scanned))
 	fmt.Fprintf(r.out, "  %-12s %s\n", r.paint("31;1", "Vulnerable"), comma(summary.Vulnerable))
-	fmt.Fprintf(r.out, "  %-12s %s\n", r.paint("32", "Clean"), comma(summary.Clean))
+	fmt.Fprintf(r.out, "  %-12s %s\n", r.paint("32", "Not confirmed"), comma(summary.NotConfirmed))
 	if summary.Other > 0 {
 		fmt.Fprintf(r.out, "  %-12s %s\n", "Other", comma(summary.Other))
 	}
