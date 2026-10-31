@@ -1,0 +1,38 @@
+# Changelog
+
+## [0.4.2] - 2026-10-31
+
+- Set the Go module path to `github.com/A-TURBO-99/opredir`.
+- Updated internal imports for canonical GitHub module installation.
+- Added Git clone/build instructions and optional `go install` instructions.
+
+
+## 0.4.1 - Terminal UI preview
+
+- Added a separate terminal UI/output package in `internal/ui`.
+- Added `opredir ui-demo` with mock targets, payloads, streaming findings, progress display, summary and a clearly marked demo HTML report.
+- Added `--quiet`, `--json`, `--verbose`, `--width`, and `--report` options to the UI preview command.
+- Added terminal color detection (`NO_COLOR`, `TERM=dumb`) and disabled in-place progress updates for non-interactive output.
+- Kept the real `scan` workflow unchanged; UI-to-scanner integration is the next stage.
+
+## 0.4.0
+
+- Standardized scan flags: `-d` selects one domain/endpoint, `-l` selects a target list, `-dl` sets the minimum delay between request starts, and `-t` sets concurrent HTTP workers.
+- Renamed the short delay option from `-d` to `-dl` to avoid collision with the domain option.
+- Kept `-u` as a legacy alias for `-d`; long aliases `--domain`, `--list`, `--delay`, `--threads` and `--concurrency` remain available.
+- Updated help text, README examples, and version metadata.
+
+## 0.2.0
+
+- Added `opredir -d DOMAIN` and `opredir -l FILE` scan workflows.
+- Added target normalization for bare domains, subdomains and full HTTP(S) endpoints.
+- Added a Verification Engine for 3xx `Location` and `Refresh` response navigation.
+- Added conservative finding classifications for confirmed redirects, unconfirmed external redirects, same-origin/same-host redirects, reflection-only responses and client-side candidates.
+- Added `opredir verify --in responses.jsonl` for previously captured response files.
+- Added `payload_resolved` and payload-family evidence to response records.
+- Added tests for target-list loading and Verification Engine classification.
+- Active requests still require `--authorized`; scan scope is derived from `-d` or exact hosts in `-l`; redirects are never followed.
+
+## 0.1.0
+
+- Initial Go CLI, payload generator and bounded HTTP request engine.
