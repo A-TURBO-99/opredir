@@ -1,0 +1,58 @@
+id,family,technique,status,context,hypothesis
+ORX-0001,domain_allowlist_boundary,trusted-prefix-attacker-suffix,untested,query-parameter-url-value,"Tests validators that accept any hostname beginning with the allowlisted hostname. The parsed host remains under ATTACKER_HOST, not ALLOWED_HOST."
+ORX-0002,domain_allowlist_boundary,attacker-as-userinfo,untested,query-parameter-url-value,Tests whether validation mistakes userinfo for the actual host; browser URL parsing should identify ATTACKER_HOST as host.
+ORX-0003,domain_allowlist_boundary,attacker-as-userinfo-with-port,untested,query-parameter-url-value,Tests userinfo/port confusion; the host is the component after the final @.
+ORX-0004,domain_allowlist_boundary,allowed-host-as-userinfo-negative-control,untested,query-parameter-url-value,"Negative control: the parsed host should be ALLOWED_HOST, while ATTACKER_HOST is userinfo."
+ORX-0005,domain_allowlist_boundary,attacker-host-in-path-negative-control,untested,query-parameter-url-value,"Negative control: attacker marker occurs in path, not host."
+ORX-0006,domain_allowlist_boundary,attacker-host-in-query-negative-control,untested,query-parameter-url-value,"Negative control: attacker marker occurs in query, not host."
+ORX-0007,domain_allowlist_boundary,attacker-host-in-fragment-negative-control,untested,query-parameter-url-value,"Negative control: attacker marker occurs in fragment, not host."
+ORX-0008,domain_allowlist_boundary,trailing-dot-host,untested,query-parameter-url-value,"Tests trailing-dot canonicalization; compare canonical host, not raw string."
+ORX-0009,domain_allowlist_boundary,multiple-trailing-dots-host,untested,query-parameter-url-value,"Parser-specific malformed/edge candidate; retain as experimental, not a confirmed bypass."
+ORX-0010,domain_allowlist_boundary,explicit-default-port,untested,query-parameter-url-value,Tests normalization of an explicit default HTTPS port.
+ORX-0011,domain_allowlist_boundary,explicit-nondefault-port,untested,query-parameter-url-value,Tests origin comparison including effective port.
+ORX-0012,domain_allowlist_boundary,percent-encoded-dot-in-host,untested,query-parameter-url-value,Parser discrepancy probe; WHATWG host parsing may reject percent-encoded host bytes.
+ORX-0013,domain_allowlist_boundary,userinfo-open-bracket-parser-case,untested,query-parameter-url-value,Known parser-differential pattern; verify with the actual backend parser and a browser-compatible parser.
+ORX-0014,domain_allowlist_boundary,uppercase-host-and-scheme,untested,query-parameter-url-value,Tests case normalization of scheme and DNS hostname.
+ORX-0015,domain_allowlist_boundary,mixed-case-host-and-scheme,untested,query-parameter-url-value,Tests case-insensitive parsing of scheme and host.
+ORX-0016,fake_relative_and_scheme_semantics,scheme-without-double-slash,untested,query-parameter-url-value,Tests special-scheme parsing and resolution against a base URL; behavior depends on parser and base.
+ORX-0017,fake_relative_and_scheme_semantics,scheme-single-slash,untested,query-parameter-url-value,Tests parser normalization of a special scheme with one slash.
+ORX-0018,fake_relative_and_scheme_semantics,scheme-backslashes,untested,query-parameter-url-value,Tests WHATWG special-scheme backslash handling; ensure the JSON value is transported as intended.
+ORX-0019,fake_relative_and_scheme_semantics,scheme-mixed-slashes,untested,query-parameter-url-value,Tests mixed slash/backslash parsing differences.
+ORX-0020,fake_relative_and_scheme_semantics,protocol-relative,untested,query-parameter-url-value,Baseline network-path reference; scheme is inherited from the base URL.
+ORX-0021,fake_relative_and_scheme_semantics,three-leading-slashes,untested,query-parameter-url-value,Parser-dependent slash normalization candidate.
+ORX-0022,fake_relative_and_scheme_semantics,backslash-relative,untested,query-parameter-url-value,Tests backslash handling when a browser resolves a special URL.
+ORX-0023,fake_relative_and_scheme_semantics,slash-backslash-relative,untested,query-parameter-url-value,Tests mixed slash/backslash interpretation.
+ORX-0024,fake_relative_and_scheme_semantics,bare-host-negative-control,untested,query-parameter-url-value,Usually a relative path when resolved against a base URL; negative control for naive scanners.
+ORX-0025,fake_relative_and_scheme_semantics,www-host-negative-control,untested,query-parameter-url-value,"Usually a relative path, not an absolute external URL; negative control."
+ORX-0026,fake_relative_and_scheme_semantics,dot-relative-negative-control,untested,query-parameter-url-value,Relative path containing URL-looking text; should not be reported as external navigation.
+ORX-0027,fake_relative_and_scheme_semantics,parent-relative-negative-control,untested,query-parameter-url-value,Relative path containing URL-looking text; should resolve against the same origin.
+ORX-0049,ip_address_representation_runtime,ipv4-partial-decimal-class-a,untested,query-parameter-url-value,Generate from the configured tester-controlled IPv4; parser compatibility varies.
+ORX-0050,ip_address_representation_runtime,ipv4-partial-decimal-class-b,untested,query-parameter-url-value,Generate from the configured tester-controlled IPv4; parser compatibility varies.
+ORX-0051,ip_address_representation_runtime,ipv4-mixed-encoding,untested,query-parameter-url-value,Generate mixed hexadecimal/decimal/octal components from the same tester-controlled IPv4.
+ORX-0052,ip_address_representation_runtime,ipv4-binary-components,untested,query-parameter-url-value,Generate binary components from the tester-controlled IPv4; many URL parsers reject this form.
+ORX-0053,ip_address_representation_runtime,ipv4-dword,untested,query-parameter-url-value,Generate the unsigned 32-bit integer representation from the tester-controlled IPv4.
+ORX-0054,ip_address_representation_runtime,ipv4-dword-overflow,untested,query-parameter-url-value,Generate only as a parser research probe from the tester-controlled IPv4; browser support varies.
+ORX-0055,ip_address_representation_runtime,ipv6-mapped-ipv4,untested,query-parameter-url-value,Generate IPv4-mapped IPv6 form from the configured tester-controlled address.
+ORX-0056,ip_address_representation_runtime,ipv6-expanded,untested,query-parameter-url-value,Generate expanded IPv6 notation for the same controlled IPv6 destination.
+ORX-0057,ip_address_representation_runtime,ipv4-trailing-dot,untested,query-parameter-url-value,Tests trailing-dot treatment for a numeric host.
+ORX-0028,unicode_idna_normalization,ideographic-full-stop,untested,query-parameter-url-value,Tests U+3002 mapping in IDNA processing; requires a controlled domain and browser/parser observation.
+ORX-0029,unicode_idna_normalization,fullwidth-full-stop,untested,query-parameter-url-value,Tests U+FF0E mapping in IDNA processing.
+ORX-0030,unicode_idna_normalization,halfwidth-ideographic-full-stop,untested,query-parameter-url-value,Tests U+FF61 mapping in IDNA processing.
+ORX-0031,unicode_idna_normalization,zero-width-space-in-host,untested,query-parameter-url-value,Tests treatment of U+200B by validation and IDNA normalization; parser-specific.
+ORX-0032,unicode_idna_normalization,word-joiner-in-host,untested,query-parameter-url-value,Tests treatment of U+2060 by validation and IDNA normalization; parser-specific.
+ORX-0033,unicode_idna_normalization,soft-hyphen-in-host,untested,query-parameter-url-value,Tests treatment of U+00AD by validation and IDNA normalization; parser-specific.
+ORX-0034,unicode_idna_normalization,bom-in-host,untested,query-parameter-url-value,Tests treatment of U+FEFF by input normalization and URL parsing; parser-specific.
+ORX-0035,unicode_idna_normalization,line-separator-in-host-validation,untested,query-parameter-url-value,Regex/multiline validation probe; likely invalid as a browser hostname and should not be treated as a confirmed redirect.
+ORX-0036,unicode_idna_normalization,paragraph-separator-in-host-validation,untested,query-parameter-url-value,Regex/multiline validation probe; likely invalid as a browser hostname and should not be treated as a confirmed redirect.
+ORX-0037,unicode_idna_normalization,unicode-idn-runtime,untested,query-parameter-url-value,Runtime-generated IDN case; value must be an IDN domain controlled by the tester.
+ORX-0038,unicode_idna_normalization,punycode-idn-runtime,untested,query-parameter-url-value,ASCII A-label form of the same tester-controlled IDN; compare after IDNA processing.
+ORX-0039,url_parser_control_character,leading-space,untested,query-parameter-url-value,Tests leading-space trimming; raw transport may need safe query-component encoding.
+ORX-0040,url_parser_control_character,trailing-space,untested,query-parameter-url-value,Tests trailing-space trimming.
+ORX-0041,url_parser_control_character,leading-tab,untested,query-parameter-url-value,Tests tab stripping; send as encoded query data rather than a raw HTTP request-line control.
+ORX-0042,url_parser_control_character,leading-newline,untested,query-parameter-url-value,Tests newline handling in application-level decoding; never inject a raw line break into the HTTP request line.
+ORX-0043,url_parser_control_character,leading-carriage-return,untested,query-parameter-url-value,Tests CR handling after application decoding; transport-encode it.
+ORX-0044,url_parser_control_character,embedded-tab,untested,query-parameter-url-value,Tests embedded tab removal in URL parsing.
+ORX-0045,url_parser_control_character,embedded-newline,untested,query-parameter-url-value,Tests embedded newline removal in URL parsing; transport-encode it.
+ORX-0046,url_parser_control_character,percent-encoded-leading-tab,untested,query-parameter-url-value,Tests behavior after one decoding stage; record the application decode count.
+ORX-0047,url_parser_control_character,percent-encoded-leading-newline,untested,query-parameter-url-value,Tests behavior after one decoding stage; record the application decode count.
+ORX-0048,url_parser_control_character,percent-encoded-leading-carriage-return,untested,query-parameter-url-value,Tests behavior after one decoding stage; do not confuse with CRLF injection.

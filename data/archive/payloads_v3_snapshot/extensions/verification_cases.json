@@ -1,0 +1,73 @@
+{
+  "name": "Open Redirect Verification Cases",
+  "rules": [
+    "Do not classify based on status code alone.",
+    "Do not classify based on reflection in the body or Location substring alone.",
+    "Parse Location according to browser-compatible URL semantics relative to response URL.",
+    "Compare normalized scheme, hostname and effective port against the target origin and explicit allowlist.",
+    "Do not automatically follow redirects in the first request; collect each hop under controlled conditions.",
+    "Only use a tester-controlled marker host and IP."
+  ],
+  "cases": [
+    {
+      "id": "OR-V-001",
+      "case": "3xx-location-external-marker",
+      "expected": "confirmed_candidate_if_parsed_origin_is_unapproved",
+      "reason": "A 3xx with a parsed external Location to the unique controlled marker is strong server-side evidence."
+    },
+    {
+      "id": "OR-V-002",
+      "case": "200-body-reflection-only",
+      "expected": "not_open_redirect",
+      "reason": "Reflected URL text does not establish navigation."
+    },
+    {
+      "id": "OR-V-003",
+      "case": "302-location-same-origin-relative",
+      "expected": "not_open_redirect",
+      "reason": "Resolve the relative Location against the response URL and compare origin."
+    },
+    {
+      "id": "OR-V-004",
+      "case": "location-contains-marker-in-path-only",
+      "expected": "not_open_redirect",
+      "reason": "Marker in path/query/fragment is not the URL hostname."
+    },
+    {
+      "id": "OR-V-005",
+      "case": "location-host-is-allowed-host-userinfo-is-marker",
+      "expected": "not_open_redirect",
+      "reason": "The marker appears in userinfo; parsed host is still the allowed host."
+    },
+    {
+      "id": "OR-V-006",
+      "case": "location-host-is-marker-userinfo-is-allowed-host",
+      "expected": "external_redirect_candidate",
+      "reason": "The parsed host is the controlled marker host."
+    },
+    {
+      "id": "OR-V-007",
+      "case": "same-origin-first-hop-external-second-hop",
+      "expected": "record_chain_and_classify_final_destination",
+      "reason": "Capture each hop and final destination; preserve first-hop evidence."
+    },
+    {
+      "id": "OR-V-008",
+      "case": "meta-refresh-or-javascript-navigation",
+      "expected": "separate_client_side_redirect_finding",
+      "reason": "Requires browser verification; not a server-side Location redirect."
+    },
+    {
+      "id": "OR-V-009",
+      "case": "javascript-or-data-scheme",
+      "expected": "separate_scheme_sink_finding",
+      "reason": "Do not merge with ordinary HTTP(S) Open Redirect."
+    },
+    {
+      "id": "OR-V-010",
+      "case": "crlf-mutates-location-header",
+      "expected": "separate_header_injection_finding",
+      "reason": "Classify as header injection/response splitting candidate, not normal Open Redirect."
+    }
+  ]
+}

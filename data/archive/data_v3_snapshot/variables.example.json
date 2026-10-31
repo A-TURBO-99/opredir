@@ -1,0 +1,4 @@
+{
+  "ATTACKER_HOST": "marker.example.test",
+  "ALLOWED_HOST": "target.example.test"
+}

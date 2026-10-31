@@ -1,0 +1,14 @@
+evil.com
+evil.com/
+.evil.com
+/evil.com
+/evil.com/
+/.evil.com
+data:whitelisted.com;text/html;charset=UTF-8,<html><script>document.write(document.domain);</script><iframe/src=xxxxx>aaaa</iframe></html>
+/.google.com
+/google.com
+.google.com
+google.com
+google.com/.jpg
+google.com/whitelisted.com
+whitelisted.com.google.com

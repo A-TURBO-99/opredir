@@ -1,0 +1,193 @@
+{
+  "family": "unicode_idna_normalization",
+  "count": 11,
+  "payloads": [
+    {
+      "id": "ORX-0028",
+      "payload": "https://{{ATTACKER_HOST}}。/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}。/",
+      "technique": "ideographic-full-stop",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests U+3002 mapping in IDNA processing; requires a controlled domain and browser/parser observation.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0029",
+      "payload": "https://{{ATTACKER_HOST}}．/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}．/",
+      "technique": "fullwidth-full-stop",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests U+FF0E mapping in IDNA processing.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0030",
+      "payload": "https://{{ATTACKER_HOST}}｡/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}｡/",
+      "technique": "halfwidth-ideographic-full-stop",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests U+FF61 mapping in IDNA processing.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0031",
+      "payload": "https://{{ATTACKER_HOST}}​/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}​/",
+      "technique": "zero-width-space-in-host",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests treatment of U+200B by validation and IDNA normalization; parser-specific.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0032",
+      "payload": "https://{{ATTACKER_HOST}}⁠/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}⁠/",
+      "technique": "word-joiner-in-host",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests treatment of U+2060 by validation and IDNA normalization; parser-specific.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0033",
+      "payload": "https://{{ATTACKER_HOST}}­/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}­/",
+      "technique": "soft-hyphen-in-host",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests treatment of U+00AD by validation and IDNA normalization; parser-specific.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0034",
+      "payload": "https://{{ATTACKER_HOST}}﻿/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}﻿/",
+      "technique": "bom-in-host",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests treatment of U+FEFF by input normalization and URL parsing; parser-specific.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0035",
+      "payload": "https://{{ATTACKER_HOST}} {{ALLOWED_HOST}}/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}} {{ALLOWED_HOST}}/",
+      "technique": "line-separator-in-host-validation",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Regex/multiline validation probe; likely invalid as a browser hostname and should not be treated as a confirmed redirect.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0036",
+      "payload": "https://{{ATTACKER_HOST}} {{ALLOWED_HOST}}/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}} {{ALLOWED_HOST}}/",
+      "technique": "paragraph-separator-in-host-validation",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Regex/multiline validation probe; likely invalid as a browser hostname and should not be treated as a confirmed redirect.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0037",
+      "payload": "https://{{ATTACKER_IDN_UNICODE}}/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IDN_UNICODE}}/",
+      "technique": "unicode-idn-runtime",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Runtime-generated IDN case; value must be an IDN domain controlled by the tester.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0038",
+      "payload": "https://{{ATTACKER_IDN_PUNYCODE}}/",
+      "families": [
+        "unicode_idna_normalization"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IDN_PUNYCODE}}/",
+      "technique": "punycode-idn-runtime",
+      "context": "query-parameter-url-value",
+      "hypothesis": "ASCII A-label form of the same tester-controlled IDN; compare after IDNA processing.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    }
+  ]
+}

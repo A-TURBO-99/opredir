@@ -1,0 +1,68 @@
+{
+  "version": "3.0-cleaned",
+  "generated_date": "2026-10-31",
+  "source": "open_redirect_ai_integration_pack_v2/payloads/master_all_v2.json",
+  "source_records": 1003,
+  "legacy_records_preserved_unchanged": 946,
+  "extension_records": 57,
+  "unique_ids": 1003,
+  "unique_exact_payloads": 1003,
+  "classification_counts": {
+    "url_value_candidate": 724,
+    "client_side_navigation_probe": 36,
+    "request_context_template": 80,
+    "internal_host_negative_control": 3,
+    "header_injection_probe": 4,
+    "quarantined_corrupt_unicode": 151,
+    "raw_control_transport_probe": 5
+  },
+  "active_url_value_candidate_count": 724,
+  "auxiliary_test_assets": {
+    "query_parameter_pollution_cases.json": 10,
+    "transformation_recipes.json": 12,
+    "verification_cases.json": 10
+  },
+  "placeholder_contract": [
+    "ALLOWED_HOST",
+    "ALLOWED_URL",
+    "ATTACKER_HOST",
+    "ATTACKER_IDN_PUNYCODE",
+    "ATTACKER_IDN_UNICODE",
+    "ATTACKER_IPV4",
+    "ATTACKER_IPV4_BINARY",
+    "ATTACKER_IPV4_DECIMAL",
+    "ATTACKER_IPV4_DWORD",
+    "ATTACKER_IPV4_DWORD_OVERFLOW",
+    "ATTACKER_IPV4_HEX",
+    "ATTACKER_IPV4_MIXED",
+    "ATTACKER_IPV4_OCTAL",
+    "ATTACKER_IPV4_PARTIAL_A",
+    "ATTACKER_IPV4_PARTIAL_B",
+    "ATTACKER_IPV6_EXPANDED",
+    "ATTACKER_IPV6_MAPPED",
+    "ATTACKER_URL"
+  ],
+  "unknown_placeholders": [],
+  "all_records_untested_unless_evidence_exists": true,
+  "integrity_checks": {
+    "original_946_records_unchanged": true,
+    "unique_ids": true,
+    "unique_exact_payloads": true,
+    "all_records_assigned_exactly_one_record_type": true,
+    "active_candidates_exclude_replacement_character": true,
+    "active_candidates_exclude_literal_control_chars": true,
+    "active_candidates_exclude_request_context_records": true,
+    "active_candidates_exclude_js_data_scheme_families": true,
+    "all_placeholders_documented": true,
+    "hpp_cases_count_valid": true,
+    "transformation_recipes_count_valid": true,
+    "verification_cases_count_valid": true
+  },
+  "limitations": [
+    "Classification is static data triage, not runtime URL-parser validation.",
+    "The 724 URL-value candidates are untested candidates, not 724 confirmed bypasses.",
+    "Raw-control probes require a transport-specific test harness and may be normalized or rejected by clients.",
+    "Unicode entries containing U+FFFD are not recoverable and are quarantined rather than repaired.",
+    "Browser-specific and backend-specific outcomes require testing against documented fixtures."
+  ]
+}

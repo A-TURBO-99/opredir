@@ -1,0 +1,11 @@
+https://{{ATTACKER_HOST}}。/
+https://{{ATTACKER_HOST}}．/
+https://{{ATTACKER_HOST}}｡/
+https://{{ATTACKER_HOST}}​/
+https://{{ATTACKER_HOST}}⁠/
+https://{{ATTACKER_HOST}}­/
+https://{{ATTACKER_HOST}}﻿/
+https://{{ATTACKER_HOST}} {{ALLOWED_HOST}}/
+https://{{ATTACKER_HOST}} {{ALLOWED_HOST}}/
+https://{{ATTACKER_IDN_UNICODE}}/
+https://{{ATTACKER_IDN_PUNYCODE}}/

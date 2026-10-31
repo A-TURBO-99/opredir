@@ -1,0 +1,8 @@
+//evil。com
+https://evil。com
+http://evil。com
+//attacker。invalid/
+//attacker．invalid/
+//attacker｡invalid/
+/〱{{ATTACKER_HOST}}
+〱{{ATTACKER_HOST}}

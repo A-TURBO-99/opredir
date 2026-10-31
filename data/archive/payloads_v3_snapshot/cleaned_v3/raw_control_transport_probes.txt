@@ -1,0 +1,7 @@
+	https://{{ATTACKER_HOST}}/
+
+https://{{ATTACKER_HOST}}/
+https://{{ATTACKER_HOST}}/
+https://{{ATTACKER_HOST}}	/
+https://{{ATTACKER_HOST}}
+/

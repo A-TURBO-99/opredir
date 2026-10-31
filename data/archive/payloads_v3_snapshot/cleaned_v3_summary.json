@@ -1,0 +1,21 @@
+{
+  "version": "3.0-cleaned",
+  "source_records": 1003,
+  "counts": {
+    "url_value_candidate": 724,
+    "client_side_navigation_probe": 36,
+    "request_context_template": 80,
+    "internal_host_negative_control": 3,
+    "header_injection_probe": 4,
+    "quarantined_corrupt_unicode": 151,
+    "raw_control_transport_probe": 5
+  },
+  "auxiliary_counts": {
+    "query_parameter_pollution_cases.json": 10,
+    "transformation_recipes.json": 12,
+    "verification_cases.json": 10
+  },
+  "placeholder_unknown_count": 0,
+  "legacy_946_preserved_unchanged": true,
+  "all_payloads_tested": false
+}

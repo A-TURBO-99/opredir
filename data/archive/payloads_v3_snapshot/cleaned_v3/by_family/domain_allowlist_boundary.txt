@@ -1,0 +1,15 @@
+https://{{ALLOWED_HOST}}.{{ATTACKER_HOST}}/
+https://{{ALLOWED_HOST}}@{{ATTACKER_HOST}}/
+https://{{ALLOWED_HOST}}:443@{{ATTACKER_HOST}}/
+https://{{ATTACKER_HOST}}@{{ALLOWED_HOST}}/
+https://{{ALLOWED_HOST}}/{{ATTACKER_HOST}}
+https://{{ALLOWED_HOST}}/?next={{ATTACKER_HOST}}
+https://{{ALLOWED_HOST}}/#{{ATTACKER_HOST}}
+https://{{ATTACKER_HOST}}./
+https://{{ATTACKER_HOST}}../
+https://{{ATTACKER_HOST}}:443/
+https://{{ATTACKER_HOST}}:8443/
+https://{{ATTACKER_HOST}}%2e/
+https://{{ALLOWED_HOST}}[@{{ATTACKER_HOST}}/
+HTTPS://{{ATTACKER_HOST}}/
+hTtPs://{{ATTACKER_HOST}}/

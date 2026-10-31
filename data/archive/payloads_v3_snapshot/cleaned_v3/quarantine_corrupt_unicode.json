@@ -1,0 +1,3768 @@
+{
+  "name": "quarantine_corrupt_unicode",
+  "record_type": "quarantined_corrupt_unicode",
+  "count": 151,
+  "note": "Classification only; records remain untested unless explicitly documented otherwise.",
+  "records": [
+    {
+      "id": "OR-0441",
+      "payload": "<>//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "<>//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "<>//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0442",
+      "payload": "//;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0443",
+      "payload": "/////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0444",
+      "payload": "/////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0445",
+      "payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0446",
+      "payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0447",
+      "payload": "///\\;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///\\;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///\\;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0448",
+      "payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0449",
+      "payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0450",
+      "payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0451",
+      "payload": "//\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0452",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0453",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0454",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0455",
+      "payload": "/.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0456",
+      "payload": "/\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "backslash_and_slash_confusion",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0457",
+      "payload": "/〱Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/〱Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/〱Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0458",
+      "payload": ".Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": ".Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": ".Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0459",
+      "payload": "@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0460",
+      "payload": "\\/\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "backslash_and_slash_confusion",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "\\/\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "\\/\\/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0461",
+      "payload": "〱Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "〱Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "〱Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0462",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ%00｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ%00｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ%00｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0463",
+      "payload": "%01https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "%01https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "%01https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0465",
+      "payload": "////%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0466",
+      "payload": "///%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0467",
+      "payload": "//%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0468",
+      "payload": "/%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0475",
+      "payload": "////%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0476",
+      "payload": "///%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0477",
+      "payload": "//%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0478",
+      "payload": "/%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0492",
+      "payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0493",
+      "payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0494",
+      "payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0495",
+      "payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0496",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0497",
+      "payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0498",
+      "payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0499",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0503",
+      "payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0504",
+      "payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0505",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0506",
+      "payload": "/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0507",
+      "payload": "//%2f%2fⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//%2f%2fⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//%2f%2fⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0508",
+      "payload": "/%2f%2fⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%2f%2fⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/%2f%2fⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0532",
+      "payload": "//3H6k7lIAiqjfNeN@whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//3H6k7lIAiqjfNeN@{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//3H6k7lIAiqjfNeN@{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0533",
+      "payload": "//3H6k7lIAiqjfNeN@whitelisted.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//3H6k7lIAiqjfNeN@{{ALLOWED_HOST}}+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//3H6k7lIAiqjfNeN@{{ALLOWED_HOST}}+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0536",
+      "payload": "////%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0537",
+      "payload": "///%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0538",
+      "payload": "//%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0539",
+      "payload": "/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0548",
+      "payload": "////%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0549",
+      "payload": "///%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0550",
+      "payload": "//%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0551",
+      "payload": "/%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0559",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0560",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0566",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ%E3%80%82pw",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ%E3%80%82pw",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ%E3%80%82pw",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0625",
+      "payload": "/http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0626",
+      "payload": "/http:/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/http:/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/http:/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0627",
+      "payload": "http://;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0628",
+      "payload": "http://.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0629",
+      "payload": "http:/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http:/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http:/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0630",
+      "payload": "http:Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http:Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http:Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0639",
+      "payload": "http:%0a%0dⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http:%0a%0dⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http:%0a%0dⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0651",
+      "payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%23.whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%23.{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%23.{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0652",
+      "payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%2f%2f.whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%2f%2f.{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%2f%2f.{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0655",
+      "payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%3F.whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%3F.{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%3F.{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0680",
+      "payload": "http://3H6k7lIAiqjfNeN@whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://3H6k7lIAiqjfNeN@{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://3H6k7lIAiqjfNeN@{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0681",
+      "payload": "http://3H6k7lIAiqjfNeN@whitelisted.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://3H6k7lIAiqjfNeN@{{ALLOWED_HOST}}+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://3H6k7lIAiqjfNeN@{{ALLOWED_HOST}}+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0686",
+      "payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%5c%5c.whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%5c%5c.{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ%5c%5c.{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0689",
+      "payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80?@{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0690",
+      "payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ:80#@{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0707",
+      "payload": "//https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0708",
+      "payload": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0709",
+      "payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0710",
+      "payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0711",
+      "payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0712",
+      "payload": "https:Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https:Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https:Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0713",
+      "payload": "https://%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://%09/Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0716",
+      "payload": "https://%09/whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://%09/{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0718",
+      "payload": "https://%0a%0dⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://%0a%0dⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://%0a%0dⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0720",
+      "payload": "//https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0721",
+      "payload": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0722",
+      "payload": "https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0723",
+      "payload": "//https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0724",
+      "payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0725",
+      "payload": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0726",
+      "payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0727",
+      "payload": "/https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0728",
+      "payload": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0729",
+      "payload": "https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0730",
+      "payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0732",
+      "payload": "/https://%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0733",
+      "payload": "/https:/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https:/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https:/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0734",
+      "payload": "https://%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0735",
+      "payload": "https:/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "backslash_and_slash_confusion",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https:/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https:/%5cⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0740",
+      "payload": "/https://%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0741",
+      "payload": "https://%5cwhitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://%5c{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0772",
+      "payload": "//https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0773",
+      "payload": "/https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0774",
+      "payload": "https://:@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\@whitelisted.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://:@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\@{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://:@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\@{{ALLOWED_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0775",
+      "payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/whitelisted.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/{{ALLOWED_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0776",
+      "payload": "https://whitelisted.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}};@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://{{ALLOWED_HOST}};@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0777",
+      "payload": "https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0778",
+      "payload": "https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0779",
+      "payload": "https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0780",
+      "payload": "/https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0781",
+      "payload": "https:///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https:///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https:///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0782",
+      "payload": "//https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0783",
+      "payload": "https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0784",
+      "payload": "/https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0785",
+      "payload": "https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0786",
+      "payload": "/https:///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https:///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https:///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0787",
+      "payload": "/https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "/https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "/https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0788",
+      "payload": "https:///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https:///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https:///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0789",
+      "payload": "https://whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0808",
+      "payload": "https://whitelisted.com/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "https://{{ALLOWED_HOST}}/https://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0811",
+      "payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\twhitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\t{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\t{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0830",
+      "payload": "http://whitelisted.com%2eⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://{{ALLOWED_HOST}}%2eⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://{{ALLOWED_HOST}}%2eⓁ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0836",
+      "payload": "http://whitelisted.com:80%40Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://{{ALLOWED_HOST}}:80%40Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://{{ALLOWED_HOST}}:80%40Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0842",
+      "payload": "http://whitelisted.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://{{ALLOWED_HOST}}+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://{{ALLOWED_HOST}}+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0844",
+      "payload": "http://www.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\.whitelisted.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://www.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\.{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://www.Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\.{{ALLOWED_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0869",
+      "payload": "http://XY>.7d8T\\205pZM@whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://XY>.7d8T\\205pZM@{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://XY>.7d8T\\205pZM@{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0870",
+      "payload": "http://XY>.7d8T\\205pZM@whitelisted.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "http://XY>.7d8T\\205pZM@{{ALLOWED_HOST}}+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "http://XY>.7d8T\\205pZM@{{ALLOWED_HOST}}+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0893",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\twhitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "unicode_idn_or_confusables",
+        "control_whitespace_or_header_edge"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\t{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\t{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0895",
+      "payload": "////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0896",
+      "payload": "////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0897",
+      "payload": "///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0898",
+      "payload": "///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0899",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/whitelisted.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/{{ALLOWED_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0900",
+      "payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\@whitelisted.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\@{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ\\@{{ALLOWED_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0901",
+      "payload": "//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ//",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0902",
+      "payload": "//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0903",
+      "payload": "Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/whitelisted.com",
+      "families": [
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/{{ALLOWED_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/{{ALLOWED_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0904",
+      "payload": "whitelisted.com;@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "families": [
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "{{ALLOWED_HOST}};@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "{{ALLOWED_HOST}};@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0905",
+      "payload": "////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0906",
+      "payload": "///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0907",
+      "payload": "////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0908",
+      "payload": "///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0909",
+      "payload": "//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e%2f",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0910",
+      "payload": "////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0911",
+      "payload": "///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0912",
+      "payload": "//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f..",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0913",
+      "payload": "////whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "////{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0914",
+      "payload": "///whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "///{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0915",
+      "payload": "//whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2f%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0938",
+      "payload": "//whitelisted.com@https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables",
+        "dot_segment_or_path_normalization",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//{{ALLOWED_HOST}}@https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//{{ALLOWED_HOST}}@https:///Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/%2e%2e",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0940",
+      "payload": "//whitelisted.com+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@whitelisted.com/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "userinfo_and_authority_delimiters",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//{{ALLOWED_HOST}}+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@{{ALLOWED_HOST}}/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//{{ALLOWED_HOST}}+&@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ#+@{{ALLOWED_HOST}}/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0943",
+      "payload": "//XY>.7d8T\\205pZM@whitelisted.com@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//XY>.7d8T\\205pZM@{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//XY>.7d8T\\205pZM@{{ALLOWED_HOST}}@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0944",
+      "payload": "//XY>.7d8T\\205pZM@whitelisted.com+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "backslash_and_slash_confusion",
+        "userinfo_and_authority_delimiters",
+        "percent_or_escape_encoding",
+        "unicode_idn_or_confusables"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "//XY>.7d8T\\205pZM@{{ALLOWED_HOST}}+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "quarantined_corrupt_unicode",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Contains U+FFFD REPLACEMENT CHARACTER; original source character is unrecoverable.",
+      "runtime_value": "//XY>.7d8T\\205pZM@{{ALLOWED_HOST}}+@Ⓛ𝐨𝗰�𝕝ⅆ𝓸ⓜₐℹⓃ｡Ｐⓦ/",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ALLOWED_HOST"
+      ],
+      "unknown_placeholders": []
+    }
+  ]
+}

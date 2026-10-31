@@ -1,0 +1,66 @@
+{
+  "name": "Query Parameter Pollution Test Cases",
+  "note": "Request templates, not URL-value payloads. Use a raw/order-preserving query builder. Replace placeholders and URL-encode values once at the outer query layer.",
+  "cases": [
+    {
+      "id": "OR-HPP-001",
+      "name": "allowed-first-attacker-second",
+      "query_template": "{{PARAM}}={{ALLOWED_URL}}&{{PARAM}}={{ATTACKER_URL}}",
+      "purpose": "Determine whether the server uses first or last duplicate value."
+    },
+    {
+      "id": "OR-HPP-002",
+      "name": "attacker-first-allowed-second",
+      "query_template": "{{PARAM}}={{ATTACKER_URL}}&{{PARAM}}={{ALLOWED_URL}}",
+      "purpose": "Reverse order to distinguish first-value and last-value behavior."
+    },
+    {
+      "id": "OR-HPP-003",
+      "name": "duplicate-with-benign-middle",
+      "query_template": "{{PARAM}}={{ALLOWED_URL}}&x=1&{{PARAM}}={{ATTACKER_URL}}",
+      "purpose": "Check whether intervening parameters affect duplicate-key resolution."
+    },
+    {
+      "id": "OR-HPP-004",
+      "name": "case-variant-key",
+      "query_template": "{{PARAM}}={{ALLOWED_URL}}&{{PARAM_MIXED_CASE}}={{ATTACKER_URL}}",
+      "purpose": "Check parameter-name case sensitivity; this is not an exact duplicate on case-sensitive frameworks."
+    },
+    {
+      "id": "OR-HPP-005",
+      "name": "array-suffix",
+      "query_template": "{{PARAM}}[]={{ALLOWED_URL}}&{{PARAM}}[]={{ATTACKER_URL}}",
+      "purpose": "Check framework-specific array binding."
+    },
+    {
+      "id": "OR-HPP-006",
+      "name": "indexed-array",
+      "query_template": "{{PARAM}}[0]={{ALLOWED_URL}}&{{PARAM}}[1]={{ATTACKER_URL}}",
+      "purpose": "Check indexed parameter binding."
+    },
+    {
+      "id": "OR-HPP-007",
+      "name": "comma-joined-values",
+      "query_template": "{{PARAM}}={{ALLOWED_URL}},{{ATTACKER_URL}}",
+      "purpose": "Check application-specific comma splitting; not standard duplicate-key behavior."
+    },
+    {
+      "id": "OR-HPP-008",
+      "name": "semicolon-separator",
+      "query_template": "{{PARAM}}={{ALLOWED_URL}};{{PARAM}}={{ATTACKER_URL}}",
+      "purpose": "Check frameworks that optionally treat semicolon as a query separator."
+    },
+    {
+      "id": "OR-HPP-009",
+      "name": "encoded-parameter-name",
+      "query_template": "{{PARAM_PERCENT_ENCODED}}={{ATTACKER_URL}}",
+      "purpose": "Check whether parameter-name decoding changes key matching."
+    },
+    {
+      "id": "OR-HPP-010",
+      "name": "existing-value-plus-injected-duplicate",
+      "query_template": "{{ORIGINAL_QUERY}}&{{PARAM}}={{ATTACKER_URL}}",
+      "purpose": "Preserve the original query and append a duplicate key; compare original application behavior."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "name": "internal_host_negative_controls",
+  "record_type": "internal_host_negative_control",
+  "count": 3,
+  "note": "Classification only; records remain untested unless explicitly documented otherwise.",
+  "records": [
+    {
+      "id": "OR-0247",
+      "payload": "//localhost",
+      "families": [
+        "protocol_relative_or_slash_variation"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "//localhost",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "internal_host_negative_control",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Targets localhost; retain as internal/same-host negative-control input, not an external callback.",
+      "runtime_value": "//localhost",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0254",
+      "payload": "https://localhost",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "https://localhost",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "internal_host_negative_control",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Targets localhost; retain as internal/same-host negative-control input, not an external callback.",
+      "runtime_value": "https://localhost",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0255",
+      "payload": "http://localhost",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "http_https_scheme_or_absolute_url"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "http://localhost",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "internal_host_negative_control",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Targets localhost; retain as internal/same-host negative-control input, not an external callback.",
+      "runtime_value": "http://localhost",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [],
+      "unknown_placeholders": []
+    }
+  ]
+}

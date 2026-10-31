@@ -1,0 +1,12 @@
+https:{{ATTACKER_HOST}}/
+https:/{{ATTACKER_HOST}}/
+https:\\{{ATTACKER_HOST}}/
+https:/\{{ATTACKER_HOST}}/
+//{{ATTACKER_HOST}}/
+///{{ATTACKER_HOST}}/
+\\{{ATTACKER_HOST}}/
+/\{{ATTACKER_HOST}}/
+{{ATTACKER_HOST}}/path
+www.{{ATTACKER_HOST}}/path
+./https://{{ATTACKER_HOST}}/
+../https://{{ATTACKER_HOST}}/

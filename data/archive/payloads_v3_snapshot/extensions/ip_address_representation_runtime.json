@@ -1,0 +1,159 @@
+{
+  "family": "ip_address_representation_runtime",
+  "count": 9,
+  "payloads": [
+    {
+      "id": "ORX-0049",
+      "payload": "https://{{ATTACKER_IPV4_PARTIAL_A}}/",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IPV4_PARTIAL_A}}/",
+      "technique": "ipv4-partial-decimal-class-a",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Generate from the configured tester-controlled IPv4; parser compatibility varies.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0050",
+      "payload": "https://{{ATTACKER_IPV4_PARTIAL_B}}/",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IPV4_PARTIAL_B}}/",
+      "technique": "ipv4-partial-decimal-class-b",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Generate from the configured tester-controlled IPv4; parser compatibility varies.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0051",
+      "payload": "https://{{ATTACKER_IPV4_MIXED}}/",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IPV4_MIXED}}/",
+      "technique": "ipv4-mixed-encoding",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Generate mixed hexadecimal/decimal/octal components from the same tester-controlled IPv4.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0052",
+      "payload": "https://{{ATTACKER_IPV4_BINARY}}/",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IPV4_BINARY}}/",
+      "technique": "ipv4-binary-components",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Generate binary components from the tester-controlled IPv4; many URL parsers reject this form.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0053",
+      "payload": "https://{{ATTACKER_IPV4_DWORD}}/",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IPV4_DWORD}}/",
+      "technique": "ipv4-dword",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Generate the unsigned 32-bit integer representation from the tester-controlled IPv4.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0054",
+      "payload": "https://{{ATTACKER_IPV4_DWORD_OVERFLOW}}/",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IPV4_DWORD_OVERFLOW}}/",
+      "technique": "ipv4-dword-overflow",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Generate only as a parser research probe from the tester-controlled IPv4; browser support varies.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0055",
+      "payload": "https://[{{ATTACKER_IPV6_MAPPED}}]/",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://[{{ATTACKER_IPV6_MAPPED}}]/",
+      "technique": "ipv6-mapped-ipv4",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Generate IPv4-mapped IPv6 form from the configured tester-controlled address.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0056",
+      "payload": "https://[{{ATTACKER_IPV6_EXPANDED}}]/",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://[{{ATTACKER_IPV6_EXPANDED}}]/",
+      "technique": "ipv6-expanded",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Generate expanded IPv6 notation for the same controlled IPv6 destination.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0057",
+      "payload": "https://{{ATTACKER_IPV4}}./",
+      "families": [
+        "ip_address_representation_runtime"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_IPV4}}./",
+      "technique": "ipv4-trailing-dot",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests trailing-dot treatment for a numeric host.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    }
+  ]
+}

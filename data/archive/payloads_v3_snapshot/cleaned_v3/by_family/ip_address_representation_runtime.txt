@@ -1,0 +1,9 @@
+https://{{ATTACKER_IPV4_PARTIAL_A}}/
+https://{{ATTACKER_IPV4_PARTIAL_B}}/
+https://{{ATTACKER_IPV4_MIXED}}/
+https://{{ATTACKER_IPV4_BINARY}}/
+https://{{ATTACKER_IPV4_DWORD}}/
+https://{{ATTACKER_IPV4_DWORD_OVERFLOW}}/
+https://[{{ATTACKER_IPV6_MAPPED}}]/
+https://[{{ATTACKER_IPV6_EXPANDED}}]/
+https://{{ATTACKER_IPV4}}./
