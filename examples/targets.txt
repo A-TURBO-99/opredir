@@ -1,0 +1,4 @@
+# Add only domains/subdomains/endpoints explicitly authorized for testing
+api.example.test
+https://app.example.test/login?next=/home
+http://127.0.0.1:5000/redirect

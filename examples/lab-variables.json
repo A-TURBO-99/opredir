@@ -1,0 +1,4 @@
+{
+  "ATTACKER_HOST": "redirect-marker.invalid",
+  "ALLOWED_HOST": "127.0.0.1"
+}

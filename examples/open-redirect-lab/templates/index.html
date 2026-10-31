@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Redirect Training Lab</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: #101827; color: #e8eef8; }
+    main { max-width: 850px; margin: 48px auto; padding: 0 22px; }
+    h1 { margin-bottom: 8px; }
+    .muted { color: #a9b8cc; }
+    .panel { background: #1a2638; border: 1px solid #34445c; border-radius: 12px; padding: 22px; margin: 18px 0; }
+    code { background: #0c1420; padding: 3px 6px; border-radius: 5px; overflow-wrap: anywhere; }
+    input { width: min(100%, 580px); box-sizing: border-box; padding: 11px; border-radius: 7px; border: 1px solid #536782; background: #0c1420; color: #fff; }
+    button { padding: 11px 15px; border: 0; border-radius: 7px; background: #77a9ff; color: #101827; font-weight: 700; cursor: pointer; }
+    a { color: #9bc1ff; }
+    .warning { border-left: 4px solid #f0b44d; }
+    .safe { border-left: 4px solid #54c99a; }
+    form { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Open Redirect Training Lab</h1>
+  <p class="muted">A deliberately vulnerable local application for security testing practice.</p>
+
+  <section class="panel warning">
+    <h2>1. Vulnerable endpoint</h2>
+    <p><code>GET /redirect?url=DESTINATION</code></p>
+    <p>The application takes the <code>url</code> parameter and puts it directly into the HTTP <code>Location</code> response header. There is no destination validation.</p>
+    <form action="/redirect" method="get">
+      <input name="url" type="url" value="https://example.org" aria-label="External redirect destination" required>
+      <button type="submit">Test vulnerable redirect</button>
+    </form>
+  </section>
+
+  <section class="panel safe">
+    <h2>2. Safer comparison endpoint</h2>
+    <p><code>GET /safe-redirect?url=DESTINATION</code></p>
+    <p>This comparison route allows same-site paths such as <code>/</code> and rejects absolute external URLs. It is included so you can compare the HTTP responses.</p>
+    <form action="/safe-redirect" method="get">
+      <input name="url" type="text" value="/" aria-label="Local path" required>
+      <button type="submit">Test safe redirect</button>
+    </form>
+  </section>
+
+  <section class="panel">
+    <h2>3. Quick checks</h2>
+    <p>Health check: <a href="/healthz"><code>/healthz</code></a></p>
+    <p>Try the vulnerable route with an external destination and inspect the response. A typical result is <code>HTTP/1.1 302 FOUND</code> with a <code>Location: https://example.org</code> header.</p>
+  </section>
+  <p class="muted">Keep this lab on localhost. Do not expose the intentionally vulnerable service to a public network.</p>
+</main>
+</body>
+</html>
