@@ -5,7 +5,6 @@ Repository: https://github.com/A-TURBO-99/opredir
 
 `opredir` is a Go-based Open Redirect testing tool. Version **0.5.0** includes three cumulative payload-coverage levels, live confirmed-finding output, a conservative HTTP Verification Engine, and detailed JSON reporting.
 
-> Use only against systems you own or are explicitly authorized to test. The scanner derives its exact host scope from `-d` or the entries in `-l`; each generated request must preserve the target URL's scheme, hostname, and effective port. HTTP redirects are never followed.
 
 ## Installation
 
@@ -21,8 +20,6 @@ Optional install into `$(go env GOPATH)/bin`:
 go install github.com/A-TURBO-99/opredir/cmd/opredir@latest
 sudo install -m 755 "$(go env GOPATH)/bin/opredir" /usr/local/bin/opredir
 ```
-
-Supported runtime/distribution: Linux amd64. The project is packaged and tested for Linux only. Requirements for building from source: Go 1.23+. No third-party Go modules are required.
 
 ## Quick start
 
@@ -64,9 +61,7 @@ An existing regular file passed to `-param` is loaded as a wordlist; a non-path 
 
 The current default parameter list contains 169 names. Before placeholder-based records are skipped, that means up to 40,898, 81,627, or 122,356 generated requests per target, respectively. Records that require values not supplied through `--vars-json` are counted as `skipped_missing_placeholders` in the report's `generation_stats`; selecting Level 3 does not invent values for tester-controlled IP/IDN destinations.
 
-The query placement strategy is automatic: if the target URL already contains the selected parameter, all matching occurrences are replaced; otherwise the parameter is appended. HTTP TLS certificate verification is always enabled.
 
-A bare hostname defaults to HTTPS. Include a scheme when using HTTP or a non-default port, for example `http://127.0.0.1:5000/redirect`. Blank lines and `#` comments in target files are ignored; duplicate targets are removed. `-d` does not enumerate subdomains.
 
 ## Main options
 
