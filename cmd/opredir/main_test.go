@@ -35,7 +35,7 @@ func captureStdout(t *testing.T, fn func() error) (string, error) {
 func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 	const destination = "https://redirect-marker.invalid/landing"
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if got := r.URL.Query().Get("next"); got != destination {
+		if got := r.URL.Query().Get("amr"); got != destination {
 			t.Errorf("payload mismatch: got %q want %q", got, destination)
 		}
 		w.Header().Set("Location", destination)
@@ -44,10 +44,6 @@ func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 	defer srv.Close()
 
 	dir := t.TempDir()
-	parametersPath := filepath.Join(dir, "parameters.txt")
-	if err := os.WriteFile(parametersPath, []byte("next\n"), 0o600); err != nil {
-		t.Fatal(err)
-	}
 	corpus := model.PayloadCorpus{
 		Name: "integration-test", RecordType: "url_value_candidate", Count: 1,
 		Records: []model.PayloadRecord{{
@@ -68,7 +64,7 @@ func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 	output, err := captureStdout(t, func() error {
 		return runScan([]string{
 			"-d", srv.URL + "/redirect", "-dl", "0s", "-t", "2",
-			"-o", reportPath, "--parameters", parametersPath,
+			"-o", reportPath, "-param", "amr",
 			"--corpus", corpusPath, "--max-cases", "1",
 		})
 	})
@@ -103,7 +99,7 @@ func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 		t.Fatalf("expected exactly one confirmed finding: %s", b)
 	}
 	finding := report.ConfirmedFindings[0]
-	if finding.Classification != "confirmed_open_redirect" || finding.Parameter != "next" || finding.PayloadResolved != destination || finding.StatusCode != http.StatusFound || finding.ResolvedDestination != destination {
+	if finding.Classification != "confirmed_open_redirect" || finding.Parameter != "amr" || finding.PayloadResolved != destination || finding.StatusCode != http.StatusFound || finding.ResolvedDestination != destination {
 		t.Fatalf("incomplete finding evidence: %#v", finding)
 	}
 }

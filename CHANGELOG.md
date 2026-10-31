@@ -8,6 +8,8 @@
 - Removed `--verbose`; default terminal output now shows confirmed Open Redirect findings only.
 - Connected the banner, Scan Plan, progress display, and streaming findings to the real scan workflow.
 - Added `-o FILE` / `--output FILE` for a detailed JSON report containing confirmed findings and supporting evidence only.
+- Added `-param NAME|FILE` to test one named parameter or load a selected parameter list in both `scan` and `generate` workflows.
+- Added tests for literal parameter selection and file-based parameter selection.
 - Added `requester.RunWithCallback` for immediate verification and live output as responses complete.
 - Added tests for callback delivery, target-derived scope, and confirmed-only UI output.
 

@@ -1,6 +1,6 @@
-# opredir 0.4.3 — Validation Report
+# opredir 0.1.0 — Validation Report
 
-Validation performed in the build container on 2026-10-31. This release is distributed and tested for Linux amd64 only.
+Validation performed in the build container on 2026-10-31.
 
 ## Static and unit checks
 
@@ -11,66 +11,33 @@ Validation performed in the build container on 2026-10-31. This release is distr
 | `go test -race ./...` | Passed |
 | `go vet ./...` | Passed |
 | Linux amd64 build | Passed |
-| Windows build | Not provided (Linux-only distribution) |
-| CLI version and usage | Passed |
-| `-d` scan input | Passed |
-| `-l` list input | Passed |
+| Windows amd64 cross-build | Passed |
+| CLI `version` command | Passed |
+| CLI command help | Passed |
 
-## End-to-end scan test (loopback only)
+## Local end-to-end request test
 
-A temporary Python HTTP server bound to `127.0.0.1` accepted a generated request, read the `url` query parameter, and responded with a `302 Location` pointing to that exact supplied destination. The test was run twice: once using `-d http://127.0.0.1:<ephemeral-port>/redirect`, and once using a one-line `-l` file containing the same endpoint.
+A temporary HTTP server bound only to `127.0.0.1:18999` returned a `302` and a `Location` pointing to `https://redirect-marker.invalid/landing`.
 
-Both runs produced:
+`opredir generate` created one test case, and `opredir request` sent it with `--authorized --scope-host 127.0.0.1`.
 
-- one generated case and one captured response;
-- HTTP 302 with external `Location` matching the supplied payload host;
-- finding classification `confirmed_open_redirect`;
-- `confirmed: true` and `redirect_followed: false`.
+Observed result:
 
-The mock server was local and ephemeral; no external destination was contacted.
+- HTTP status: `302`
+- Captured Location: `https://redirect-marker.invalid/landing`
+- `redirect_followed`: `false`
+- Remote address: loopback (`127.0.0.1:18999`)
+- Exactly one request reached the mock server; the external Location was not requested.
 
-## Verification unit coverage
+## Scope guard tests
 
-- Matching external `Location` => confirmed.
-- Relative `Location` resolving to same origin => not confirmed.
-- External but uncorrelated `Location` => manual-review classification.
-- Matching `Refresh` header => confirmed refresh redirect.
-- Reflected payload with no navigation => reflection-only.
-- JavaScript navigation-looking body => unconfirmed browser candidate.
-- Same host with scheme change => not treated as external Open Redirect.
-- Request errors => request_error.
+- Request command without `--authorized`: rejected.
+- Target host outside `--scope-host`: rejected before network activity.
+- Request URL authority differing from `target_url`: rejected before network activity.
+- Custom `Host` header override: rejected.
 
-## Scope controls
-
-- CLI no longer exposes `--authorized` or `--scope-host`; exact host scope is derived from `-d` / `-l` targets.
-- `-d` derives one exact hostname scope.
-- `-l` derives exact hostname scope from each listed subdomain/endpoint; wildcard expansion is not performed.
-- The request engine still refuses any generated Request URL whose scheme, hostname or effective port differs from its Target URL.
-- HTTP redirects are not followed.
-
-## Not yet validated / limitations
+## Not yet validated
 
 - No live third-party targets were tested.
-- No browser automation or real DOM data-flow analysis is included.
-- URL parsing uses Go `net/url`; differences with browser WHATWG parsing and complex IDN/IP normalization can remain inconclusive.
-- Multi-hop redirect chains are not followed or evaluated.
-- The full 724-payload corpus was not executed during the end-to-end test; the test used one local case to verify the complete pipeline safely.
-
-## CLI and UI update (0.4.3)
-
-The current build was revalidated after the CLI/reporting update. `cmd/opredir/main_test.go` runs a real loopback-only end-to-end scan: it confirms an injected external destination, checks the immediate terminal finding, and parses the detailed `-o` JSON report to verify the evidence fields. The same test suite confirms the removed flags are rejected.
-
-- Removed `--authorized`, `--scope-host`, and `--verbose` from the user-facing CLI.
-- Scope preflight remains active internally: request authority must match its original target authority.
-- Added `-o FILE` detailed JSON report; report includes confirmed findings only.
-- Connected the terminal banner, Scan Plan, progress, and streamed confirmed findings to the real scan workflow.
-- Added callback-based response verification and tests.
-- Default terminal output suppresses clean, reflected-only, and unconfirmed redirect cases.
-
-## CLI flag update (0.4.0)
-
-- `-d` selects one domain/endpoint.
-- `-l` selects a file of subdomains/endpoints.
-- `-dl` sets the minimum delay between request starts.
-- `-t` sets the concurrent worker count.
-- Both `-d` and `-l` workflows were smoke-tested against a loopback-only HTTP redirect lab with `-dl 0s`; each produced one captured 302 response and a confirmed test finding.
+- The previous Flask lab was not launched in this container; Flask/Docker runtime was unavailable. The HTTP engine was tested against a loopback-only Go `httptest`/mock server.
+- No Open Redirect verdict is produced yet; the Verification Engine is the next development phase.

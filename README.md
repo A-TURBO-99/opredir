@@ -38,6 +38,20 @@ Scan a list of subdomains/endpoints (`targets.txt`, one item per line):
 ./opredir -l targets.txt -dl 1s -t 5 -o findings.json
 ```
 
+Test only one query parameter:
+
+```bash
+./opredir -d https://example.com/redirect -param amr
+```
+
+Or test only the parameter names listed in a file:
+
+```bash
+./opredir -l targets.txt -param selected-parameters.txt
+```
+
+An existing regular file passed to `-param` is loaded as a wordlist; a non-path value such as `amr` is treated as one literal parameter name. When `-param` is omitted, the default `data/parameters.txt` wordlist is used (or the path supplied with `--parameters`).
+
 A bare hostname defaults to HTTPS. Include a scheme when using HTTP or a non-default port, for example `http://127.0.0.1:5000/redirect`. Blank lines and `#` comments in target files are ignored; duplicate targets are removed. `-d` does not enumerate subdomains.
 
 ## Main options
@@ -52,7 +66,9 @@ A bare hostname defaults to HTTPS. Include a scheme when using HTTP or a non-def
 | `--quiet` | Plain-text confirmed findings only; suppress banner/progress/summary | off |
 | `--json` | Confirmed findings and final summary as JSONL on stdout | off |
 | `--max-cases N` | Maximum test requests (`1..5000`) | `500` |
-| `--parameters FILE` | Parameter names wordlist | `data/parameters.txt` |
+| `-param NAME` | Test only the named parameter (for example, `-param amr`) | all parameters |
+| `-param FILE` | Test only the parameter names listed in an existing file, one per line | — |
+| `--parameters FILE` | Default parameter names wordlist used when `-param` is omitted | `data/parameters.txt` |
 | `--corpus FILE` | URL-value payload corpus | `data/payloads/url_value_candidates.json` |
 | `--family NAME` | Filter payload family; repeatable | all eligible |
 | `--mode MODE` | `auto`, `append`, `replace-all`, `replace-first` | `auto` |

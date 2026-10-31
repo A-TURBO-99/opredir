@@ -72,3 +72,43 @@ func TestLoadRealCorpus(t *testing.T) {
 		t.Fatalf("expected 724 records, got %d", len(payloads))
 	}
 }
+
+func TestLoadParameterSelectionAcceptsSingleName(t *testing.T) {
+	got, err := LoadParameterSelection("amr", "missing-default-parameters.txt")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != 1 || got[0] != "amr" {
+		t.Fatalf("unexpected parameter selection: %#v", got)
+	}
+}
+
+func TestLoadParameterSelectionAcceptsFile(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "selected.txt")
+	if err := os.WriteFile(path, []byte("amr\nnext\n# comment\namr\n"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	got, err := LoadParameterSelection(path, "missing-default-parameters.txt")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != 2 || got[0] != "amr" || got[1] != "next" {
+		t.Fatalf("unexpected parameter file contents: %#v", got)
+	}
+}
+
+func TestLoadParameterSelectionUsesDefaultWhenOmitted(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "defaults.txt")
+	if err := os.WriteFile(path, []byte("next\n"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	got, err := LoadParameterSelection("", path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != 1 || got[0] != "next" {
+		t.Fatalf("unexpected default parameter selection: %#v", got)
+	}
+}

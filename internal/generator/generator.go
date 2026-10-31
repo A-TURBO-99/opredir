@@ -45,6 +45,32 @@ func LoadParameters(path string) ([]string, error) {
 	return values, nil
 }
 
+// LoadParameterSelection accepts either one literal parameter name or a path
+// to a parameter file. An existing regular file is loaded as a wordlist;
+// otherwise the value is treated as one parameter name. A missing path is
+// inherently ambiguous with a literal parameter name, so only existing files
+// are interpreted as wordlists.
+func LoadParameterSelection(selection, defaultPath string) ([]string, error) {
+	selection = strings.TrimSpace(selection)
+	if selection == "" {
+		return LoadParameters(defaultPath)
+	}
+	info, err := os.Stat(selection)
+	if err == nil {
+		if !info.Mode().IsRegular() {
+			return nil, fmt.Errorf("parameter selection %q is not a regular file", selection)
+		}
+		return LoadParameters(selection)
+	}
+	if !errors.Is(err, os.ErrNotExist) {
+		return nil, fmt.Errorf("inspect parameter selection %q: %w", selection, err)
+	}
+	if selection == "." || selection == ".." || strings.ContainsAny(selection, "\r\n\x00") {
+		return nil, fmt.Errorf("invalid parameter name %q", selection)
+	}
+	return []string{selection}, nil
+}
+
 // LoadPayloads reads only records eligible for Query-Parameter URL-value tests.
 func LoadPayloads(path string, families map[string]bool) ([]model.PayloadRecord, error) {
 	b, err := os.ReadFile(path)

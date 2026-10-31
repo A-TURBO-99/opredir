@@ -92,6 +92,7 @@ Scan controls:
   -dl, --delay DURATION  Minimum delay between request starts (default 500ms; 0 disables).
   -t, --threads N        Maximum concurrent HTTP workers (default 4; range 1..100).
   -o, --output FILE      Detailed JSON report (default opredir-report.json).
+  -param NAME|FILE       Test only one parameter, or load selected names from a file.
   --quiet                Print confirmed findings as plain text only.
   --json                 Print confirmed findings and summary as JSONL.
 
@@ -108,11 +109,12 @@ func runGenerate(args []string) error {
 	fs.SetOutput(os.Stderr)
 	var targets stringList
 	var families stringList
-	var urlsFile, parametersPath, corpusPath, varsPath, output, mode, attackerHost, allowedHost string
+	var urlsFile, parametersPath, parameterSelection, corpusPath, varsPath, output, mode, attackerHost, allowedHost string
 	var maxCases int
 	fs.Var(&targets, "url", "Target endpoint URL; repeatable")
 	fs.StringVar(&urlsFile, "urls-file", "", "File containing one target URL per line")
-	fs.StringVar(&parametersPath, "parameters", "data/parameters.txt", "Parameter names file")
+	fs.StringVar(&parametersPath, "parameters", "data/parameters.txt", "Default parameter names wordlist")
+	fs.StringVar(&parameterSelection, "param", "", "Only one parameter name, or a file containing selected parameter names")
 	fs.StringVar(&corpusPath, "corpus", "data/payloads/url_value_candidates.json", "Cleaned URL-value payload corpus")
 	fs.StringVar(&varsPath, "vars-json", "", "JSON object mapping placeholder names to values")
 	fs.StringVar(&attackerHost, "attacker-host", "", "Tester-controlled hostname for ATTACKER_HOST")
@@ -143,7 +145,7 @@ func runGenerate(args []string) error {
 	if len(targets) == 0 {
 		return errors.New("no target URLs supplied")
 	}
-	parameters, err := generator.LoadParameters(parametersPath)
+	parameters, err := generator.LoadParameterSelection(parameterSelection, parametersPath)
 	if err != nil {
 		return err
 	}
@@ -253,7 +255,7 @@ func runRequest(args []string) error {
 func runScan(args []string) error {
 	fs := flag.NewFlagSet("scan", flag.ContinueOnError)
 	fs.SetOutput(os.Stderr)
-	var domain, listPath, parametersPath, corpusPath, varsPath string
+	var domain, listPath, parametersPath, parameterSelection, corpusPath, varsPath string
 	var attackerHost, allowedHost, mode, outputPath, userAgent string
 	var familyFlags, headerFlags, cookies stringList
 	var tlsInsecure, quiet, jsonMode bool
@@ -267,7 +269,8 @@ func runScan(args []string) error {
 	fs.StringVar(&listPath, "list", "", "Alias for -l")
 	fs.DurationVar(&delay, "dl", 500*time.Millisecond, "Minimum delay between consecutive request starts; examples: 250ms, 1s; 0 disables")
 	fs.DurationVar(&delay, "delay", 500*time.Millisecond, "Alias for -dl")
-	fs.StringVar(&parametersPath, "parameters", "data/parameters.txt", "Parameter names file")
+	fs.StringVar(&parametersPath, "parameters", "data/parameters.txt", "Default parameter names wordlist")
+	fs.StringVar(&parameterSelection, "param", "", "Only one parameter name, or a file containing selected parameter names")
 	fs.StringVar(&corpusPath, "corpus", "data/payloads/url_value_candidates.json", "Cleaned URL-value payload corpus")
 	fs.StringVar(&varsPath, "vars-json", "", "JSON object mapping runtime placeholders to values")
 	fs.StringVar(&attackerHost, "attacker-host", "opredir-marker.invalid", "Marker hostname used for ATTACKER_HOST")
@@ -322,7 +325,7 @@ func runScan(args []string) error {
 	if err != nil {
 		return err
 	}
-	parameters, err := generator.LoadParameters(parametersPath)
+	parameters, err := generator.LoadParameterSelection(parameterSelection, parametersPath)
 	if err != nil {
 		return err
 	}
