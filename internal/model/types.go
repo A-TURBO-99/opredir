@@ -39,7 +39,7 @@ type TestCase struct {
 	PayloadSources               []string `json:"payload_sources"`
 	Transformation               string   `json:"transformation"`
 	EncodedValueOnce             string   `json:"encoded_value_once"`
-	PlacementMode                string   `json:"placement_mode"`
+	PlacementStrategy            string   `json:"placement_strategy"`
 	ExistingParameterOccurrences int      `json:"existing_parameter_occurrences"`
 	FragmentDropped              bool     `json:"fragment_dropped"`
 	Status                       string   `json:"status"`

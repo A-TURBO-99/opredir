@@ -3,7 +3,6 @@ package requester
 import (
 	"bufio"
 	"context"
-	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -35,7 +34,6 @@ type Config struct {
 	UserAgent    string
 	Headers      http.Header
 	Cookies      []string
-	TLSInsecure  bool
 	ScopeHosts   []string
 }
 
@@ -117,8 +115,8 @@ func ValidateConfig(cfg Config) error {
 	if cfg.Timeout <= 0 {
 		return errors.New("timeout must be positive")
 	}
-	if cfg.MaxRequests < 1 || cfg.MaxRequests > hardMaxRequests {
-		return fmt.Errorf("max requests must be between 1 and %d", hardMaxRequests)
+	if cfg.MaxRequests < 0 || cfg.MaxRequests > hardMaxRequests {
+		return fmt.Errorf("max requests must be 0 (unlimited) or between 1 and %d", hardMaxRequests)
 	}
 	if cfg.MaxBodyBytes < 0 || cfg.MaxBodyBytes > 1024*1024 {
 		return errors.New("max body bytes must be between 0 and 1048576")
@@ -144,7 +142,7 @@ func ValidateCases(cases []model.TestCase, cfg Config) error {
 	if err := ValidateConfig(cfg); err != nil {
 		return err
 	}
-	if len(cases) > cfg.MaxRequests {
+	if cfg.MaxRequests > 0 && len(cases) > cfg.MaxRequests {
 		return fmt.Errorf("case count %d exceeds configured max requests %d", len(cases), cfg.MaxRequests)
 	}
 	for i, tc := range cases {
@@ -256,7 +254,6 @@ func RunWithCallback(ctx context.Context, cases []model.TestCase, cfg Config, ou
 		IdleConnTimeout:       30 * time.Second,
 		TLSHandshakeTimeout:   cfg.Timeout,
 		ExpectContinueTimeout: time.Second,
-		TLSClientConfig:       &tls.Config{InsecureSkipVerify: cfg.TLSInsecure}, // #nosec G402: opt-in CLI flag only.
 	}
 	defer transport.CloseIdleConnections()
 	client := &http.Client{Transport: transport, Timeout: cfg.Timeout, CheckRedirect: func(_ *http.Request, _ []*http.Request) error { return http.ErrUseLastResponse }}

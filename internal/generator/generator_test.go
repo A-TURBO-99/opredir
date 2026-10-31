@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -10,7 +11,7 @@ import (
 )
 
 func TestBuildRequestURLReplacesDuplicateKeysAndPreservesOthers(t *testing.T) {
-	got, encoded, count, mode, dropped, err := BuildRequestURL("https://target.example/path?x=1&next=old&next=older&y=2#frag", "next", "https://marker.example/a b", "auto")
+	got, encoded, count, mode, dropped, err := BuildRequestURL("https://target.example/path?x=1&next=old&next=older&y=2#frag", "next", "https://marker.example/a b")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -29,7 +30,7 @@ func TestBuildRequestURLReplacesDuplicateKeysAndPreservesOthers(t *testing.T) {
 }
 
 func TestBuildRequestURLAppendMissingKey(t *testing.T) {
-	got, _, count, mode, _, err := BuildRequestURL("http://127.0.0.1:5000/redirect?keep=1", "url", "https://marker.invalid", "auto")
+	got, _, count, mode, _, err := BuildRequestURL("http://127.0.0.1:5000/redirect?keep=1", "url", "https://marker.invalid")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -47,7 +48,7 @@ func TestResolvePlaceholders(t *testing.T) {
 
 func TestGenerateFromRecord(t *testing.T) {
 	payload := model.PayloadRecord{ID: "P1", Payload: "https://evil.invalid", RuntimeValue: "https://{{ATTACKER_HOST}}", RecordType: "url_value_candidate", Families: []string{"direct"}}
-	cases, stats, err := Generate([]string{"http://127.0.0.1:5000/redirect"}, []string{"url", "next"}, []model.PayloadRecord{payload}, map[string]string{"ATTACKER_HOST": "marker.invalid"}, "auto", 10)
+	cases, stats, err := Generate([]string{"http://127.0.0.1:5000/redirect"}, []string{"url", "next"}, []model.PayloadRecord{payload}, map[string]string{"ATTACKER_HOST": "marker.invalid"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -64,7 +65,7 @@ func TestLoadRealCorpus(t *testing.T) {
 	if _, err := os.Stat(path); err != nil {
 		t.Skip("project corpus unavailable in isolated test")
 	}
-	payloads, err := LoadPayloads(path, nil)
+	payloads, err := LoadPayloads(path)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -74,11 +75,11 @@ func TestLoadRealCorpus(t *testing.T) {
 }
 
 func TestLoadParameterSelectionAcceptsSingleName(t *testing.T) {
-	got, err := LoadParameterSelection("amr", "missing-default-parameters.txt")
+	got, err := LoadParameterSelection("inject", "missing-default-parameters.txt")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(got) != 1 || got[0] != "amr" {
+	if len(got) != 1 || got[0] != "inject" {
 		t.Fatalf("unexpected parameter selection: %#v", got)
 	}
 }
@@ -86,14 +87,14 @@ func TestLoadParameterSelectionAcceptsSingleName(t *testing.T) {
 func TestLoadParameterSelectionAcceptsFile(t *testing.T) {
 	dir := t.TempDir()
 	path := filepath.Join(dir, "selected.txt")
-	if err := os.WriteFile(path, []byte("amr\nnext\n# comment\namr\n"), 0o600); err != nil {
+	if err := os.WriteFile(path, []byte("inject\nnext\n# comment\ninject\n"), 0o600); err != nil {
 		t.Fatal(err)
 	}
 	got, err := LoadParameterSelection(path, "missing-default-parameters.txt")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(got) != 2 || got[0] != "amr" || got[1] != "next" {
+	if len(got) != 2 || got[0] != "inject" || got[1] != "next" {
 		t.Fatalf("unexpected parameter file contents: %#v", got)
 	}
 }
@@ -110,5 +111,31 @@ func TestLoadParameterSelectionUsesDefaultWhenOmitted(t *testing.T) {
 	}
 	if len(got) != 1 || got[0] != "next" {
 		t.Fatalf("unexpected default parameter selection: %#v", got)
+	}
+}
+
+func TestSelectPayloadLevelsAreCumulative(t *testing.T) {
+	payloads := make([]model.PayloadRecord, 724)
+	for i := range payloads {
+		payloads[i].ID = fmt.Sprintf("P-%03d", i+1)
+	}
+	cases := []struct {
+		level int
+		want  int
+	}{{1, 242}, {2, 483}, {3, 724}}
+	for _, tc := range cases {
+		got, err := SelectPayloadLevel(payloads, tc.level)
+		if err != nil {
+			t.Fatalf("level %d: %v", tc.level, err)
+		}
+		if len(got) != tc.want {
+			t.Fatalf("level %d: got %d payloads, want %d", tc.level, len(got), tc.want)
+		}
+		if len(got) > 0 && got[0].ID != "P-001" {
+			t.Fatalf("level %d is not cumulative from the first payload", tc.level)
+		}
+	}
+	if _, err := SelectPayloadLevel(payloads, 0); err == nil {
+		t.Fatal("expected invalid level to be rejected")
 	}
 }

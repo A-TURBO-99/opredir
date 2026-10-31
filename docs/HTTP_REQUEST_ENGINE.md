@@ -6,7 +6,7 @@ The request engine has one job: send pre-generated test cases to the exact endpo
 
 ## Execution sequence
 
-1. Read JSONL test cases (maximum 5,000 per invocation).
+1. For the standalone `request` subcommand, read JSONL test cases (maximum 5,000 per invocation). The primary `scan` workflow generates and executes its complete selected matrix without a scan-wide case cap.
 2. Derive an exact host allowlist from each case's `target_url`; no separate scope-host CLI option is needed.
 3. Validate every case before sending any request:
    - `target_url` and `request_url` must be absolute HTTP(S) URLs.
@@ -15,7 +15,7 @@ The request engine has one job: send pre-generated test cases to the exact endpo
    - The target hostname must match the exact host derived from that case's `target_url`; scope is not expanded to sibling subdomains.
 4. Start a bounded worker pool.
 5. Apply a global rate limiter before each request.
-6. Send the request with a per-request timeout.
+6. Send the request with a per-request timeout. TLS certificate verification remains enabled; there is no insecure TLS override.
 7. Capture status, `Location`, selected response headers, duration, remote socket address and a bounded body preview.
 8. Serialize one JSONL record per test case.
 

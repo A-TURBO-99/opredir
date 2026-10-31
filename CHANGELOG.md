@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.0] - 2026-10-31
+
+- Added cumulative `--level 1|2|3` payload coverage to `scan` and `generate` (first third, first two thirds, or the full corpus).
+- Removed `--max-cases`; active scans and case generation now process the full selected parameter/payload matrix.
+- Confirmed findings are displayed as text by default; added `-hide` to suppress finding details on screen while retaining them in the `-o` report.
+- Removed the `--family` and `--mode` filters; payload selection is controlled by `--level` and query-parameter placement is automatic.
+- Removed `--tls-insecure`; TLS certificate verification is always enabled.
+- Updated the payload generator, request engine, CLI help, README, and regression tests for the revised behavior.
+
 ## [0.4.3] - 2026-10-31
 
 - Standardized the release package for Linux amd64 only; removed the Windows executable and Windows cross-build references from current release validation.

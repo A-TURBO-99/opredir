@@ -73,3 +73,18 @@ func TestDefaultUIShowsOnlyConfirmedFindings(t *testing.T) {
 		t.Fatalf("default UI must show confirmed findings only: %q", out.String())
 	}
 }
+
+func TestHideFindingsSuppressesResultButKeepsSummary(t *testing.T) {
+	var out bytes.Buffer
+	r := New(&out, Options{HideFindings: true, Width: 80})
+	r.Header("opredir", "0.5.0", "A-TURBO-99")
+	r.Result(Result{FullURL: "https://example.test/?next=x", Classification: "confirmed_open_redirect", Confirmed: true})
+	r.Finish(Summary{Scanned: 10, Vulnerable: 1, NotConfirmed: 9, ReportPath: "report.json"})
+	got := out.String()
+	if strings.Contains(got, "VULNERABLE") || strings.Contains(got, "?next=x") {
+		t.Fatalf("hidden finding appeared in output: %q", got)
+	}
+	if !strings.Contains(got, "report.json") || !strings.Contains(got, "Scanned") {
+		t.Fatalf("expected summary and report path to remain visible: %q", got)
+	}
+}

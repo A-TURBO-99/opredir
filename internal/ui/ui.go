@@ -12,11 +12,12 @@ import (
 )
 
 type Options struct {
-	Quiet       bool
-	JSON        bool
-	Color       bool
-	Interactive bool
-	Width       int
+	Quiet        bool
+	JSON         bool
+	HideFindings bool
+	Color        bool
+	Interactive  bool
+	Width        int
 }
 
 type Plan struct {
@@ -72,7 +73,7 @@ func New(out io.Writer, options Options) *Reporter {
 	return &Reporter{out: out, options: options, start: time.Now(), lastPct: -1}
 }
 
-func DetectOptions(out *os.File, quiet, jsonMode bool) Options {
+func DetectOptions(out *os.File, quiet, jsonMode, hideFindings bool) Options {
 	color, interactive := false, false
 	if out != nil {
 		if info, err := out.Stat(); err == nil && info.Mode()&os.ModeCharDevice != 0 {
@@ -80,7 +81,7 @@ func DetectOptions(out *os.File, quiet, jsonMode bool) Options {
 			color = os.Getenv("NO_COLOR") == "" && os.Getenv("TERM") != "dumb"
 		}
 	}
-	return Options{Quiet: quiet, JSON: jsonMode, Color: color, Interactive: interactive, Width: terminalWidth()}
+	return Options{Quiet: quiet, JSON: jsonMode, HideFindings: hideFindings, Color: color, Interactive: interactive, Width: terminalWidth()}
 }
 
 func terminalWidth() int {
@@ -180,7 +181,7 @@ func (r *Reporter) Progress(scanned, total int) {
 func (r *Reporter) Result(result Result) {
 	// Only confirmed findings are user-facing results. Unconfirmed redirects,
 	// reflections and clean responses remain available through internal logic.
-	if !result.Confirmed {
+	if !result.Confirmed || r.options.HideFindings {
 		return
 	}
 	if r.options.JSON {

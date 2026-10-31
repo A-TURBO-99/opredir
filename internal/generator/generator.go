@@ -72,7 +72,7 @@ func LoadParameterSelection(selection, defaultPath string) ([]string, error) {
 }
 
 // LoadPayloads reads only records eligible for Query-Parameter URL-value tests.
-func LoadPayloads(path string, families map[string]bool) ([]model.PayloadRecord, error) {
+func LoadPayloads(path string) ([]model.PayloadRecord, error) {
 	b, err := os.ReadFile(path)
 	if err != nil {
 		return nil, fmt.Errorf("read payload corpus: %w", err)
@@ -86,24 +86,29 @@ func LoadPayloads(path string, families map[string]bool) ([]model.PayloadRecord,
 		if rec.RecordType != "url_value_candidate" {
 			continue
 		}
-		if len(families) > 0 {
-			matched := false
-			for _, family := range rec.Families {
-				if families[family] {
-					matched = true
-					break
-				}
-			}
-			if !matched {
-				continue
-			}
-		}
 		out = append(out, rec)
 	}
 	if len(out) == 0 {
-		return nil, errors.New("no eligible URL-value candidates matched selection")
+		return nil, errors.New("no eligible URL-value candidates found")
 	}
 	return out, nil
+}
+
+// SelectPayloadLevel returns an ordered prefix of the corpus. Levels are
+// cumulative: level 1 selects the first third, level 2 the first two thirds,
+// and level 3 the complete corpus. Rounding is upward so every level includes
+// its full requested fraction.
+func SelectPayloadLevel(payloads []model.PayloadRecord, level int) ([]model.PayloadRecord, error) {
+	if level < 1 || level > 3 {
+		return nil, errors.New("level must be 1, 2, or 3")
+	}
+	count := (len(payloads)*level + 2) / 3
+	if count > len(payloads) {
+		count = len(payloads)
+	}
+	selected := make([]model.PayloadRecord, count)
+	copy(selected, payloads[:count])
+	return selected, nil
 }
 
 // ResolvePlaceholders replaces {{NAME}} tokens and reports missing variables.
@@ -156,7 +161,7 @@ func ValidateTargetURL(raw string) (*url.URL, error) {
 
 // BuildRequestURL inserts a query parameter while preserving unrelated raw
 // query segments and duplicate keys. The new value is encoded exactly once.
-func BuildRequestURL(target, parameter, value, mode string) (string, string, int, string, bool, error) {
+func BuildRequestURL(target, parameter, value string) (string, string, int, string, bool, error) {
 	u, err := ValidateTargetURL(target)
 	if err != nil {
 		return "", "", 0, "", false, err
@@ -173,43 +178,23 @@ func BuildRequestURL(target, parameter, value, mode string) (string, string, int
 			matches = append(matches, i)
 		}
 	}
-	effective := mode
-	if mode == "auto" {
-		if len(matches) > 0 {
-			effective = "replace-all"
-		} else {
-			effective = "append"
-		}
-	}
+
+	strategy := "append"
 	key := encodeQueryComponent(parameter)
 	encoded := encodeQueryComponent(value)
-	switch effective {
-	case "append":
+	if len(matches) == 0 {
 		segments = append(segments, key+"="+encoded)
-	case "replace-all":
-		if len(matches) == 0 {
-			segments = append(segments, key+"="+encoded)
-		} else {
-			for _, i := range matches {
-				rawKey := strings.SplitN(segments[i], "=", 2)[0]
-				segments[i] = rawKey + "=" + encoded
-			}
-		}
-	case "replace-first":
-		if len(matches) == 0 {
-			segments = append(segments, key+"="+encoded)
-		} else {
-			i := matches[0]
+	} else {
+		strategy = "replace-all"
+		for _, i := range matches {
 			rawKey := strings.SplitN(segments[i], "=", 2)[0]
 			segments[i] = rawKey + "=" + encoded
 		}
-	default:
-		return "", "", 0, "", false, fmt.Errorf("unsupported placement mode %q", mode)
 	}
 	u.RawQuery = strings.Join(segments, "&")
 	fragmentDropped := u.Fragment != "" || u.RawFragment != ""
 	u.Fragment, u.RawFragment = "", ""
-	return u.String(), encoded, len(matches), effective, fragmentDropped, nil
+	return u.String(), encoded, len(matches), strategy, fragmentDropped, nil
 }
 
 func encodeQueryComponent(value string) string {
@@ -217,8 +202,10 @@ func encodeQueryComponent(value string) string {
 	return strings.ReplaceAll(url.QueryEscape(value), "+", "%20")
 }
 
-// Generate builds JSONL-ready cases. maxCases <= 0 means no generated cases.
-func Generate(targets, parameters []string, payloads []model.PayloadRecord, variables map[string]string, mode string, maxCases int) ([]model.TestCase, map[string]int, error) {
+// Generate builds every eligible JSONL-ready test case for the supplied
+// targets, parameters and payloads. Request-count selection is handled by
+// payload levels before generation, not by an arbitrary case cap.
+func Generate(targets, parameters []string, payloads []model.PayloadRecord, variables map[string]string) ([]model.TestCase, map[string]int, error) {
 	stats := map[string]int{"generated": 0, "skipped_missing_placeholders": 0, "skipped_invalid_targets": 0}
 	var out []model.TestCase
 	for _, target := range targets {
@@ -240,10 +227,7 @@ func Generate(targets, parameters []string, payloads []model.PayloadRecord, vari
 				continue
 			}
 			for _, parameter := range parameters {
-				if maxCases > 0 && stats["generated"] >= maxCases {
-					return out, stats, nil
-				}
-				requestURL, encoded, occurrences, placement, fragmentDropped, err := BuildRequestURL(target, parameter, resolved, mode)
+				requestURL, encoded, occurrences, strategy, fragmentDropped, err := BuildRequestURL(target, parameter, resolved)
 				if err != nil {
 					stats["skipped_invalid_targets"]++
 					continue
@@ -255,7 +239,7 @@ func Generate(targets, parameters []string, payloads []model.PayloadRecord, vari
 					PayloadRaw: payload.Payload, PayloadTemplate: raw, PayloadResolved: resolved,
 					PayloadFamilies: payload.Families, PayloadSources: payload.Sources,
 					Transformation:   "none; query component percent-encoded once by request builder",
-					EncodedValueOnce: encoded, PlacementMode: placement,
+					EncodedValueOnce: encoded, PlacementStrategy: strategy,
 					ExistingParameterOccurrences: occurrences, FragmentDropped: fragmentDropped,
 					Status: "generated_not_sent",
 				})

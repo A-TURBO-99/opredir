@@ -124,3 +124,11 @@ func TestHeaderParserRejectsHostOverride(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestValidateConfigAllowsUncappedPrimaryScan(t *testing.T) {
+	cfg := testConfig("127.0.0.1")
+	cfg.MaxRequests = 0
+	if err := ValidateConfig(cfg); err != nil {
+		t.Fatalf("zero should disable the replay cap for the primary scanner: %v", err)
+	}
+}
