@@ -1,11 +1,8 @@
 # opredir
 
 **Open Redirect Scanner** · by **A-TURBO-99**  
-Repository: https://github.com/A-TURBO-99/opredir
 
 `opredir` is a Go-based Open Redirect testing tool. Version **0.4.3** includes the live terminal UI, a conservative HTTP Verification Engine, and detailed JSON reporting.
-
-> Use only against systems you own or are explicitly authorized to test. The scanner derives its exact host scope from `-d` or the entries in `-l`; each generated request must preserve the target URL's scheme, hostname, and effective port. HTTP redirects are never followed.
 
 ## Installation
 
@@ -22,7 +19,7 @@ go install github.com/A-TURBO-99/opredir/cmd/opredir@latest
 sudo install -m 755 "$(go env GOPATH)/bin/opredir" /usr/local/bin/opredir
 ```
 
-Supported runtime/distribution: Linux amd64. The project is packaged and tested for Linux only. Requirements for building from source: Go 1.23+. No third-party Go modules are required.
+
 
 ## Quick start
 
