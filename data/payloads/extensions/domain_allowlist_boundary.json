@@ -1,0 +1,261 @@
+{
+  "family": "domain_allowlist_boundary",
+  "count": 15,
+  "payloads": [
+    {
+      "id": "ORX-0001",
+      "payload": "https://{{ALLOWED_HOST}}.{{ATTACKER_HOST}}/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}.{{ATTACKER_HOST}}/",
+      "technique": "trusted-prefix-attacker-suffix",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests validators that accept any hostname beginning with the allowlisted hostname. The parsed host remains under ATTACKER_HOST, not ALLOWED_HOST.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0002",
+      "payload": "https://{{ALLOWED_HOST}}@{{ATTACKER_HOST}}/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}@{{ATTACKER_HOST}}/",
+      "technique": "attacker-as-userinfo",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests whether validation mistakes userinfo for the actual host; browser URL parsing should identify ATTACKER_HOST as host.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0003",
+      "payload": "https://{{ALLOWED_HOST}}:443@{{ATTACKER_HOST}}/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}:443@{{ATTACKER_HOST}}/",
+      "technique": "attacker-as-userinfo-with-port",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests userinfo/port confusion; the host is the component after the final @.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0004",
+      "payload": "https://{{ATTACKER_HOST}}@{{ALLOWED_HOST}}/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}@{{ALLOWED_HOST}}/",
+      "technique": "allowed-host-as-userinfo-negative-control",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Negative control: the parsed host should be ALLOWED_HOST, while ATTACKER_HOST is userinfo.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0005",
+      "payload": "https://{{ALLOWED_HOST}}/{{ATTACKER_HOST}}",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}/{{ATTACKER_HOST}}",
+      "technique": "attacker-host-in-path-negative-control",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Negative control: attacker marker occurs in path, not host.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0006",
+      "payload": "https://{{ALLOWED_HOST}}/?next={{ATTACKER_HOST}}",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}/?next={{ATTACKER_HOST}}",
+      "technique": "attacker-host-in-query-negative-control",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Negative control: attacker marker occurs in query, not host.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0007",
+      "payload": "https://{{ALLOWED_HOST}}/#{{ATTACKER_HOST}}",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}/#{{ATTACKER_HOST}}",
+      "technique": "attacker-host-in-fragment-negative-control",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Negative control: attacker marker occurs in fragment, not host.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0008",
+      "payload": "https://{{ATTACKER_HOST}}./",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}./",
+      "technique": "trailing-dot-host",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests trailing-dot canonicalization; compare canonical host, not raw string.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0009",
+      "payload": "https://{{ATTACKER_HOST}}../",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}../",
+      "technique": "multiple-trailing-dots-host",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Parser-specific malformed/edge candidate; retain as experimental, not a confirmed bypass.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0010",
+      "payload": "https://{{ATTACKER_HOST}}:443/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}:443/",
+      "technique": "explicit-default-port",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests normalization of an explicit default HTTPS port.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0011",
+      "payload": "https://{{ATTACKER_HOST}}:8443/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}:8443/",
+      "technique": "explicit-nondefault-port",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests origin comparison including effective port.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0012",
+      "payload": "https://{{ATTACKER_HOST}}%2e/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ATTACKER_HOST}}%2e/",
+      "technique": "percent-encoded-dot-in-host",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Parser discrepancy probe; WHATWG host parsing may reject percent-encoded host bytes.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0013",
+      "payload": "https://{{ALLOWED_HOST}}[@{{ATTACKER_HOST}}/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https://{{ALLOWED_HOST}}[@{{ATTACKER_HOST}}/",
+      "technique": "userinfo-open-bracket-parser-case",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Known parser-differential pattern; verify with the actual backend parser and a browser-compatible parser.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0014",
+      "payload": "HTTPS://{{ATTACKER_HOST}}/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "HTTPS://{{ATTACKER_HOST}}/",
+      "technique": "uppercase-host-and-scheme",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests case normalization of scheme and DNS hostname.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0015",
+      "payload": "hTtPs://{{ATTACKER_HOST}}/",
+      "families": [
+        "domain_allowlist_boundary"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "hTtPs://{{ATTACKER_HOST}}/",
+      "technique": "mixed-case-host-and-scheme",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests case-insensitive parsing of scheme and host.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "URL Payload Transformation Recipes",
+  "principle": "Apply one transformation at a time first. Track the stage and decode count. Do not generate all combinations blindly.",
+  "recipes": [
+    {
+      "id": "OR-TX-001",
+      "name": "outer-query-encode-once",
+      "operation": "application/x-www-form-urlencoded serialize the whole URL-valued parameter exactly once",
+      "purpose": "Correctly transport reserved characters in the outer HTTP query."
+    },
+    {
+      "id": "OR-TX-002",
+      "name": "percent-encode-structural-chars",
+      "operation": "Percent-encode selected characters (: / @ ? # [ ] \\ .) inside the parameter value",
+      "purpose": "Test selective decoding/validation differences; apply before outer query serialization."
+    },
+    {
+      "id": "OR-TX-003",
+      "name": "percent-encode-all-nonalphanumeric",
+      "operation": "Percent-encode every non-ASCII-alphanumeric byte using UTF-8",
+      "purpose": "Test application decode behavior."
+    },
+    {
+      "id": "OR-TX-004",
+      "name": "double-percent-encode-selected",
+      "operation": "Percent-encode a chosen encoded representation one additional time",
+      "purpose": "Test exactly one vs two server-side decoding passes."
+    },
+    {
+      "id": "OR-TX-005",
+      "name": "unicode-nfc",
+      "operation": "Normalize the hostname candidate to Unicode NFC",
+      "purpose": "Compare validator and URL parser normalization."
+    },
+    {
+      "id": "OR-TX-006",
+      "name": "unicode-nfd",
+      "operation": "Normalize the hostname candidate to Unicode NFD",
+      "purpose": "Compare canonical decomposition handling."
+    },
+    {
+      "id": "OR-TX-007",
+      "name": "unicode-nfkc",
+      "operation": "Normalize the hostname candidate to Unicode NFKC",
+      "purpose": "Probe compatibility normalization; do not assume the browser applies the same transform."
+    },
+    {
+      "id": "OR-TX-008",
+      "name": "unicode-uts46-idna",
+      "operation": "Generate Unicode U-label and ASCII Punycode A-label for the same tester-controlled IDN",
+      "purpose": "Compare IDNA processing while keeping the destination under tester control."
+    },
+    {
+      "id": "OR-TX-009",
+      "name": "decode-count-matrix",
+      "operation": "Run separate cases with 0, 1, and 2 application-level percent-decoding stages where the test harness can model them",
+      "purpose": "Identify decoding discrepancies without conflating transport encoding."
+    },
+    {
+      "id": "OR-TX-010",
+      "name": "runtime-ip-notation",
+      "operation": "Generate octal, hex, binary, partial-decimal, DWORD, overflow and IPv4-mapped IPv6 forms from the same controlled IP",
+      "purpose": "Test URL parser IP canonicalization; verify destination resolves to the same controlled endpoint."
+    },
+    {
+      "id": "OR-TX-011",
+      "name": "strip-normalization-characters",
+      "operation": "Insert one candidate ignorable character at a time (U+200B, U+2060, U+00AD, U+FEFF)",
+      "purpose": "Check whether validator normalization differs from the URL parser; keep each code point as a separate case."
+    },
+    {
+      "id": "OR-TX-012",
+      "name": "unicode-dot-separators",
+      "operation": "Replace ASCII dot with U+3002, U+FF0E or U+FF61 in separate cases",
+      "purpose": "Test IDNA dot mapping and validation consistency."
+    }
+  ]
+}

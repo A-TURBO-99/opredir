@@ -1,0 +1,210 @@
+{
+  "family": "fake_relative_and_scheme_semantics",
+  "count": 12,
+  "payloads": [
+    {
+      "id": "ORX-0016",
+      "payload": "https:{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https:{{ATTACKER_HOST}}/",
+      "technique": "scheme-without-double-slash",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests special-scheme parsing and resolution against a base URL; behavior depends on parser and base.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0017",
+      "payload": "https:/{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https:/{{ATTACKER_HOST}}/",
+      "technique": "scheme-single-slash",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests parser normalization of a special scheme with one slash.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0018",
+      "payload": "https:\\\\{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https:\\\\{{ATTACKER_HOST}}/",
+      "technique": "scheme-backslashes",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests WHATWG special-scheme backslash handling; ensure the JSON value is transported as intended.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0019",
+      "payload": "https:/\\{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "https:/\\{{ATTACKER_HOST}}/",
+      "technique": "scheme-mixed-slashes",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests mixed slash/backslash parsing differences.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0020",
+      "payload": "//{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "//{{ATTACKER_HOST}}/",
+      "technique": "protocol-relative",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Baseline network-path reference; scheme is inherited from the base URL.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0021",
+      "payload": "///{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "///{{ATTACKER_HOST}}/",
+      "technique": "three-leading-slashes",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Parser-dependent slash normalization candidate.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0022",
+      "payload": "\\\\{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "\\\\{{ATTACKER_HOST}}/",
+      "technique": "backslash-relative",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests backslash handling when a browser resolves a special URL.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0023",
+      "payload": "/\\{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "/\\{{ATTACKER_HOST}}/",
+      "technique": "slash-backslash-relative",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Tests mixed slash/backslash interpretation.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0024",
+      "payload": "{{ATTACKER_HOST}}/path",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "{{ATTACKER_HOST}}/path",
+      "technique": "bare-host-negative-control",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Usually a relative path when resolved against a base URL; negative control for naive scanners.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0025",
+      "payload": "www.{{ATTACKER_HOST}}/path",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "www.{{ATTACKER_HOST}}/path",
+      "technique": "www-host-negative-control",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Usually a relative path, not an absolute external URL; negative control.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0026",
+      "payload": "./https://{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "./https://{{ATTACKER_HOST}}/",
+      "technique": "dot-relative-negative-control",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Relative path containing URL-looking text; should not be reported as external navigation.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    },
+    {
+      "id": "ORX-0027",
+      "payload": "../https://{{ATTACKER_HOST}}/",
+      "families": [
+        "fake_relative_and_scheme_semantics"
+      ],
+      "sources": [
+        "open_redirect_pack_v2_authored_extension"
+      ],
+      "templated_payload": "../https://{{ATTACKER_HOST}}/",
+      "technique": "parent-relative-negative-control",
+      "context": "query-parameter-url-value",
+      "hypothesis": "Relative path containing URL-looking text; should resolve against the same origin.",
+      "status": "untested",
+      "confidence": "candidate",
+      "classification_note": "Candidate test input only. Results depend on the target framework, backend parser, decoding pipeline and browser URL parser; not a confirmed bypass."
+    }
+  ]
+}
