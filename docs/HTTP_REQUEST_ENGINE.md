@@ -6,7 +6,7 @@ The request engine has one job: send pre-generated test cases to the exact endpo
 
 ## Execution sequence
 
-1. For the standalone `request` subcommand, read JSONL test cases (maximum 5,000 per invocation). The primary `scan` workflow generates and executes its complete selected matrix without a scan-wide case cap.
+1. The root CLI generates the complete selected parameter/payload matrix and passes it to the request engine automatically. The optional `request` subcommand can replay an existing JSONL case file (bounded per invocation).
 2. Derive an exact host allowlist from each case's `target_url`; no separate scope-host CLI option is needed.
 3. Validate every case before sending any request:
    - `target_url` and `request_url` must be absolute HTTP(S) URLs.
@@ -21,7 +21,7 @@ The request engine has one job: send pre-generated test cases to the exact endpo
 
 ## Redirect behavior
 
-`http.Client.CheckRedirect` always returns `http.ErrUseLastResponse`. A `301`, `302`, `303`, `307` or `308` is returned to the engine as the first response. The engine never follows the `Location` header in this phase; that is essential so the verification phase can inspect the untrusted destination without making a second request to it.
+`http.Client.CheckRedirect` always returns `http.ErrUseLastResponse`. A `301`, `302`, `303`, `307` or `308` is returned to the engine as the first response. The engine never follows the `Location` header; the integrated verification stage inspects the untrusted destination without making a second request to it.
 
 ## Evidence and privacy
 

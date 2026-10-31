@@ -62,7 +62,7 @@ func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 	reportPath := filepath.Join(dir, "detailed-report.json")
 
 	output, err := captureStdout(t, func() error {
-		return runScan([]string{
+		return runCLI([]string{
 			"-d", srv.URL + "/redirect", "-dl", "0s", "-t", "2",
 			"-o", reportPath, "-param", "inject", "--level", "3",
 			"--corpus", corpusPath,
@@ -71,7 +71,7 @@ func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(output, "opredir v0.5.0 — Open Redirect Scanner") {
+	if !strings.Contains(output, "opredir v0.5.1 — Open Redirect Scanner") {
 		t.Fatalf("banner missing from standard output: %s", output)
 	}
 	if !strings.Contains(output, "VULNERABLE") || !strings.Contains(output, destination) {
@@ -104,9 +104,9 @@ func TestScanStreamsConfirmedFindingAndWritesDetailedReport(t *testing.T) {
 	}
 }
 
-func TestRemovedFlagsAreNotAcceptedByScan(t *testing.T) {
+func TestRemovedFlagsAreNotAcceptedByRootCLI(t *testing.T) {
 	for _, flagName := range []string{"--authorized", "--scope-host", "--verbose", "--max-cases", "--family", "--mode", "--tls-insecure"} {
-		err := runScan([]string{"-d", "https://example.test", flagName})
+		err := runCLI([]string{"-d", "https://example.test", flagName})
 		if err == nil || !strings.Contains(err.Error(), "flag provided but not defined") {
 			t.Fatalf("expected %s to be removed, got %v", flagName, err)
 		}
@@ -122,29 +122,20 @@ func TestRemovedFlagsAreNotAcceptedByRequestCommand(t *testing.T) {
 	}
 }
 
-func TestRemovedScanOptionsAreRejected(t *testing.T) {
+func TestRemovedLegacyOptionsAreRejectedByRootCLI(t *testing.T) {
 	for _, oldOption := range []string{"--max-cases", "--family", "--mode", "--tls-insecure", "--quiet"} {
-		err := runScan([]string{"-d", "https://example.test", oldOption})
+		err := runCLI([]string{"-d", "https://example.test", oldOption})
 		if err == nil || !strings.Contains(err.Error(), "flag provided but not defined") {
 			t.Fatalf("expected removed scan option %s to be rejected, got %v", oldOption, err)
 		}
 	}
 }
 
-func TestHideOptionAcceptedByScan(t *testing.T) {
+func TestHideOptionAcceptedByRootCLI(t *testing.T) {
 	// Parsing proceeds to target/payload loading; the `-hide` flag itself is accepted.
-	err := runScan([]string{"-d", "https://example.test", "-hide", "--parameters", "missing-parameters.txt"})
+	err := runCLI([]string{"-d", "https://example.test", "-hide", "--parameters", "missing-parameters.txt"})
 	if err == nil || strings.Contains(err.Error(), "flag provided but not defined") {
 		t.Fatalf("expected -hide to be accepted, got %v", err)
-	}
-}
-
-func TestRemovedGenerateOptionsAreRejected(t *testing.T) {
-	for _, oldOption := range []string{"--max-cases", "--family", "--mode"} {
-		err := runGenerate([]string{"--url", "https://example.test", oldOption})
-		if err == nil || !strings.Contains(err.Error(), "flag provided but not defined") {
-			t.Fatalf("expected removed generate option %s to be rejected, got %v", oldOption, err)
-		}
 	}
 }
 
@@ -174,7 +165,7 @@ func TestScanHideKeepsFindingInReportOnly(t *testing.T) {
 	}
 	reportPath := filepath.Join(dir, "hidden-report.json")
 	output, err := captureStdout(t, func() error {
-		return runScan([]string{
+		return runCLI([]string{
 			"-d", srv.URL, "-dl", "0s", "-param", "inject", "-hide",
 			"--level", "3", "--corpus", corpusPath, "-o", reportPath,
 		})
@@ -191,5 +182,20 @@ func TestScanHideKeepsFindingInReportOnly(t *testing.T) {
 	}
 	if !strings.Contains(string(b), destination) || !strings.Contains(string(b), `"confirmed_findings_count": 1`) {
 		t.Fatalf("confirmed finding missing from report: %s", b)
+	}
+}
+
+func TestTopLevelHelpDoesNotExposeRemovedSubcommands(t *testing.T) {
+	output, _ := captureStdout(t, func() error {
+		usage()
+		return nil
+	})
+	for _, removed := range []string{"opredir scan", "opredir generate", "opredir verify"} {
+		if strings.Contains(output, removed) {
+			t.Fatalf("removed subcommand %q still appears in help: %s", removed, output)
+		}
+	}
+	if !strings.Contains(output, "opredir -d DOMAIN") || !strings.Contains(output, "opredir -l FILE") {
+		t.Fatalf("root-level scan usage is missing: %s", output)
 	}
 }

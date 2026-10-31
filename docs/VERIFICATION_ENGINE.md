@@ -1,4 +1,4 @@
-# opredir Verification Engine (v0.2.0)
+# opredir Verification Engine (integrated)
 
 ## Inputs
 
@@ -26,3 +26,6 @@ The verifier consumes `ResponseRecord` JSONL produced by the HTTP request engine
 ## JSONL output
 
 Each finding includes classification, confirmed flag, confidence, evidence type, target/request URL, parameter, payload ID, resolved payload, raw and resolved destination, reason, and whether a redirect was followed (always false in this version).
+
+
+The verifier runs automatically as part of the primary `opredir -d ...` / `opredir -l ...` workflow. It is an internal engine, not a standalone CLI subcommand.

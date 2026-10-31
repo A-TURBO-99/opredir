@@ -1,1 +1,1 @@
-5c966d7d31bb3d94af5b76c27f8bb9250d97438099fdc6b56482e80123d79f97  dist/opredir-linux-amd64
+3a7b12d7b8994b517d632c0d8b57b2aa01ac9a156e14dcc6779ddf2f504cfcf2  dist/opredir-linux-amd64

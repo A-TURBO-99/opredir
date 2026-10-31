@@ -2,13 +2,8 @@
 package verifier
 
 import (
-	"bufio"
-	"encoding/json"
 	"errors"
-	"fmt"
 	"net/url"
-	"os"
-	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -143,71 +138,6 @@ func VerifyRecord(rec model.ResponseRecord) Finding {
 	}
 	f.Classification, f.Reason = NoRedirectObserved, "No external HTTP redirect was observed in the captured response. Client-side behavior may require a browser-based module."
 	return f
-}
-
-func VerifyAll(records []model.ResponseRecord) []Finding {
-	out := make([]Finding, 0, len(records))
-	for _, rec := range records {
-		out = append(out, VerifyRecord(rec))
-	}
-	return out
-}
-
-func LoadResponses(path string, maxRecords int) ([]model.ResponseRecord, error) {
-	if maxRecords < 1 {
-		return nil, errors.New("max records must be positive")
-	}
-	f, err := os.Open(path)
-	if err != nil {
-		return nil, fmt.Errorf("open response file: %w", err)
-	}
-	defer f.Close()
-	s := bufio.NewScanner(f)
-	s.Buffer(make([]byte, 64*1024), 4*1024*1024)
-	var records []model.ResponseRecord
-	line := 0
-	for s.Scan() {
-		line++
-		if strings.TrimSpace(s.Text()) == "" {
-			continue
-		}
-		var rec model.ResponseRecord
-		if err := json.Unmarshal(s.Bytes(), &rec); err != nil {
-			return nil, fmt.Errorf("decode response line %d: %w", line, err)
-		}
-		records = append(records, rec)
-		if len(records) > maxRecords {
-			return nil, fmt.Errorf("response count exceeds limit %d", maxRecords)
-		}
-	}
-	if err := s.Err(); err != nil {
-		return nil, fmt.Errorf("read responses: %w", err)
-	}
-	if len(records) == 0 {
-		return nil, errors.New("response file contains no records")
-	}
-	return records, nil
-}
-
-func WriteFindings(path string, findings []Finding) error {
-	if dir := filepath.Dir(path); dir != "." {
-		if err := os.MkdirAll(dir, 0o755); err != nil {
-			return err
-		}
-	}
-	f, err := os.Create(path)
-	if err != nil {
-		return fmt.Errorf("create findings file: %w", err)
-	}
-	defer f.Close()
-	enc := json.NewEncoder(f)
-	enc.SetEscapeHTML(false)
-	for _, finding := range findings {
-		if err := enc.Encode(finding); err != nil {
-			return fmt.Errorf("write finding: %w", err)
-		}
-	}
-	return nil
 }
 
 func expectedDestination(base *url.URL, raw string) (*url.URL, bool) {

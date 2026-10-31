@@ -22,7 +22,7 @@ import (
 	"github.com/A-TURBO-99/opredir/internal/verifier"
 )
 
-const version = "0.5.0"
+const version = "0.5.1"
 const author = "A-TURBO-99"
 
 type stringList []string
@@ -43,19 +43,13 @@ func main() {
 	case "help", "--help", "-h":
 		usage()
 		return
-	case "generate":
-		err = runGenerate(os.Args[2:])
 	case "request":
 		err = runRequest(os.Args[2:])
-	case "scan":
-		err = runScan(os.Args[2:])
-	case "verify":
-		err = runVerify(os.Args[2:])
 	case "ui-demo":
 		err = runUIDemo(os.Args[2:])
 	default:
 		if strings.HasPrefix(os.Args[1], "-") {
-			err = runScan(os.Args[1:])
+			err = runCLI(os.Args[1:])
 		} else {
 			usage()
 			err = fmt.Errorf("unknown command %q", os.Args[1])
@@ -77,10 +71,7 @@ by %s
 Usage:
   opredir -d DOMAIN [-dl 500ms] [-t 4] [-o report.json] [options]
   opredir -l FILE   [-dl 1s]    [-t 2] [-o report.json] [options]
-  opredir scan [options]
-  opredir generate [options]              Generate test cases only
-  opredir request [options]               Send existing generated cases
-  opredir verify -in FILE [options]       Verify captured response JSONL
+  opredir request [options]               Replay existing generated cases
   opredir ui-demo [--quiet|--json]        Preview terminal UI with mock data
   opredir version                         Print version
 
@@ -101,85 +92,8 @@ The scanner derives its exact host scope from -d / -l, rejects request URLs
 whose authority differs from the target, and never follows HTTP redirects.
 Use only against systems you own or are explicitly authorized to test.
 
-Run "opredir <command> -h" for command options.
+Run "opredir -h" for scan options or "opredir request -h" for replay options.
 `, version, author)
-}
-
-func runGenerate(args []string) error {
-	fs := flag.NewFlagSet("generate", flag.ContinueOnError)
-	fs.SetOutput(os.Stderr)
-	var targets stringList
-	var urlsFile, parametersPath, parameterSelection, corpusPath, varsPath, output, attackerHost, allowedHost string
-	var level int
-	fs.Var(&targets, "url", "Target endpoint URL; repeatable")
-	fs.StringVar(&urlsFile, "urls-file", "", "File containing one target URL per line")
-	fs.StringVar(&parametersPath, "parameters", "data/parameters.txt", "Default parameter names wordlist")
-	fs.StringVar(&parameterSelection, "param", "", "Only one parameter name, or a file containing selected parameter names")
-	fs.StringVar(&corpusPath, "corpus", "data/payloads/url_value_candidates.json", "Cleaned URL-value payload corpus")
-	fs.StringVar(&varsPath, "vars-json", "", "JSON object mapping placeholder names to values")
-	fs.StringVar(&attackerHost, "attacker-host", "", "Tester-controlled hostname for ATTACKER_HOST")
-	fs.StringVar(&allowedHost, "allowed-host", "", "Allowed hostname for ALLOWED_HOST")
-	fs.IntVar(&level, "level", 1, "Payload coverage level: 1=first third, 2=first two thirds, 3=all")
-	fs.StringVar(&output, "out", "generated-cases.jsonl", "Output JSONL file")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	if (len(targets) == 0) == (urlsFile == "") {
-		return errors.New("supply either --url (repeatable) or --urls-file")
-	}
-	if level < 1 || level > 3 {
-		return errors.New("--level must be 1, 2, or 3")
-	}
-	if urlsFile != "" {
-		lines, err := readLines(urlsFile)
-		if err != nil {
-			return err
-		}
-		targets = append(targets, lines...)
-	}
-	if len(targets) == 0 {
-		return errors.New("no target URLs supplied")
-	}
-	parameters, err := generator.LoadParameterSelection(parameterSelection, parametersPath)
-	if err != nil {
-		return err
-	}
-	payloads, err := generator.LoadPayloads(corpusPath)
-	if err != nil {
-		return err
-	}
-	payloads, err = generator.SelectPayloadLevel(payloads, level)
-	if err != nil {
-		return err
-	}
-	variables := make(map[string]string)
-	if varsPath != "" {
-		b, err := os.ReadFile(varsPath)
-		if err != nil {
-			return err
-		}
-		if err := json.Unmarshal(b, &variables); err != nil {
-			return fmt.Errorf("decode --vars-json: %w", err)
-		}
-	}
-	if attackerHost != "" {
-		variables["ATTACKER_HOST"] = attackerHost
-	}
-	if allowedHost != "" {
-		variables["ALLOWED_HOST"] = allowedHost
-	}
-	cases, stats, err := generator.Generate(targets, parameters, payloads, variables)
-	if err != nil {
-		return err
-	}
-	if len(cases) == 0 {
-		return errors.New("no cases generated; check target URLs and required payload placeholders")
-	}
-	if err := writeJSONL(output, cases); err != nil {
-		return err
-	}
-	summary := map[string]any{"tool": "opredir", "author": author, "version": version, "output": output, "level": level, "targets": len(targets), "parameters_loaded": len(parameters), "payload_records_selected": len(payloads), "requests_generated": len(cases), "stats": stats, "note": "Generated only; no HTTP requests were sent."}
-	return printJSON(os.Stdout, summary)
 }
 
 func runRequest(args []string) error {
@@ -245,8 +159,8 @@ func runRequest(args []string) error {
 	return printJSON(os.Stdout, map[string]any{"tool": "opredir", "author": author, "version": version, "cases_loaded": len(cases), "responses_written": count, "output": output, "delay": delay.String(), "threads": concurrency, "redirect_following": false, "scope_hosts": scopeHosts, "note": "Each response is captured without following HTTP redirects. Store evidence files securely."})
 }
 
-func runScan(args []string) error {
-	fs := flag.NewFlagSet("scan", flag.ContinueOnError)
+func runCLI(args []string) error {
+	fs := flag.NewFlagSet("opredir", flag.ContinueOnError)
 	fs.SetOutput(os.Stderr)
 	var domain, listPath, parametersPath, parameterSelection, corpusPath, varsPath string
 	var attackerHost, allowedHost, outputPath, userAgent string
@@ -450,42 +364,6 @@ func runScan(args []string) error {
 	return nil
 }
 
-func runVerify(args []string) error {
-	fs := flag.NewFlagSet("verify", flag.ContinueOnError)
-	fs.SetOutput(os.Stderr)
-	var input, output string
-	var maxRecords int
-	fs.StringVar(&input, "in", "", "Captured response JSONL file (required)")
-	fs.StringVar(&output, "out", "opredir-findings.jsonl", "Findings JSONL output")
-	fs.IntVar(&maxRecords, "max-records", 5000, "Maximum response records to verify")
-	if err := fs.Parse(args); err != nil {
-		return err
-	}
-	if input == "" {
-		return errors.New("verify requires --in FILE")
-	}
-	if input == output {
-		return errors.New("input and output files must be different")
-	}
-	responses, err := verifier.LoadResponses(input, maxRecords)
-	if err != nil {
-		return err
-	}
-	findings := verifier.VerifyAll(responses)
-	if err := verifier.WriteFindings(output, findings); err != nil {
-		return err
-	}
-	counts := make(map[string]int)
-	confirmed := 0
-	for _, finding := range findings {
-		counts[string(finding.Classification)]++
-		if finding.Confirmed {
-			confirmed++
-		}
-	}
-	return printJSON(os.Stdout, map[string]any{"tool": "opredir", "author": author, "version": version, "verified_records": len(responses), "confirmed_findings": confirmed, "classification_counts": counts, "output": output})
-}
-
 func runUIDemo(args []string) error {
 	fs := flag.NewFlagSet("ui-demo", flag.ContinueOnError)
 	fs.SetOutput(os.Stderr)
@@ -595,42 +473,6 @@ func mustHostname(raw string) string {
 func ensureParent(path string) error {
 	if dir := filepath.Dir(path); dir != "." {
 		if err := os.MkdirAll(dir, 0o755); err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-func readLines(path string) ([]string, error) {
-	b, err := os.ReadFile(path)
-	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", path, err)
-	}
-	var out []string
-	for _, line := range strings.Split(string(b), "\n") {
-		v := strings.TrimSpace(strings.TrimPrefix(line, "\ufeff"))
-		if v != "" && !strings.HasPrefix(v, "#") {
-			out = append(out, v)
-		}
-	}
-	return out, nil
-}
-
-func writeJSONL(path string, cases []model.TestCase) error {
-	if dir := filepath.Dir(path); dir != "." {
-		if err := os.MkdirAll(dir, 0o755); err != nil {
-			return err
-		}
-	}
-	f, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	enc := json.NewEncoder(f)
-	enc.SetEscapeHTML(false)
-	for _, tc := range cases {
-		if err := enc.Encode(tc); err != nil {
 			return err
 		}
 	}

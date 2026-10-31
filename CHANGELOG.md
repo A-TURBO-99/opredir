@@ -1,8 +1,16 @@
 # Changelog
 
+## [0.5.1] - 2026-11-01
+
+- Simplified the primary CLI: run scans directly with `opredir -d ...` or `opredir -l ...`; the `scan` subcommand is no longer exposed.
+- Removed the standalone `generate` and `verify` CLI subcommands. Payload generation and response verification remain automatic internal stages of the primary workflow.
+- Retained `request` only for replaying an existing JSONL test-case file, plus `ui-demo` and `version` utility commands.
+- Updated CLI help, README, validation documentation, and regression tests to match the simplified command structure.
+
+
 ## [0.5.0] - 2026-10-31
 
-- Added cumulative `--level 1|2|3` payload coverage to `scan` and `generate` (first third, first two thirds, or the full corpus).
+- Added cumulative `--level 1|2|3` payload coverage to the primary scan workflow (first third, first two thirds, or the full corpus).
 - Removed `--max-cases`; active scans and case generation now process the full selected parameter/payload matrix.
 - Confirmed findings are displayed as text by default; added `-hide` to suppress finding details on screen while retaining them in the `-o` report.
 - Removed the `--family` and `--mode` filters; payload selection is controlled by `--level` and query-parameter placement is automatic.
@@ -17,7 +25,7 @@
 - Removed `--verbose`; default terminal output now shows confirmed Open Redirect findings only.
 - Connected the banner, Scan Plan, progress display, and streaming findings to the real scan workflow.
 - Added `-o FILE` / `--output FILE` for a detailed JSON report containing confirmed findings and supporting evidence only.
-- Added `-param NAME|FILE` to test one named parameter or load a selected parameter list in both `scan` and `generate` workflows.
+- Added `-param NAME|FILE` to test one named parameter or load a selected parameter list in the primary scan workflow.
 - Added tests for literal parameter selection and file-based parameter selection.
 - Added `requester.RunWithCallback` for immediate verification and live output as responses complete.
 - Added tests for callback delivery, target-derived scope, and confirmed-only UI output.
@@ -35,7 +43,7 @@
 - Added `opredir ui-demo` with mock targets, payloads, streaming findings, progress display, summary and a clearly marked demo HTML report.
 - Added `--quiet`, `--json`, `--verbose`, `--width`, and `--report` options to the UI preview command.
 - Added terminal color detection (`NO_COLOR`, `TERM=dumb`) and disabled in-place progress updates for non-interactive output.
-- Kept the real `scan` workflow unchanged; UI-to-scanner integration is the next stage.
+- Kept the primary scan workflow unchanged; UI-to-scanner integration was the next stage at that release.
 
 ## 0.4.0
 
@@ -50,7 +58,7 @@
 - Added target normalization for bare domains, subdomains and full HTTP(S) endpoints.
 - Added a Verification Engine for 3xx `Location` and `Refresh` response navigation.
 - Added conservative finding classifications for confirmed redirects, unconfirmed external redirects, same-origin/same-host redirects, reflection-only responses and client-side candidates.
-- Added `opredir verify --in responses.jsonl` for previously captured response files.
+- Added an earlier standalone response-file verification workflow (the standalone interface is removed in v0.5.1; verification now runs automatically during scanning).
 - Added `payload_resolved` and payload-family evidence to response records.
 - Added tests for target-list loading and Verification Engine classification.
 - Active requests still require `--authorized`; scan scope is derived from `-d` or exact hosts in `-l`; redirects are never followed.

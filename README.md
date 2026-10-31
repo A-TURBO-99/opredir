@@ -3,8 +3,9 @@
 **Open Redirect Scanner** · by **A-TURBO-99**  
 Repository: https://github.com/A-TURBO-99/opredir
 
-`opredir` is a Go-based Open Redirect testing tool. Version **0.5.0** includes three cumulative payload-coverage levels, live confirmed-finding output, a conservative HTTP Verification Engine, and detailed JSON reporting.
+`opredir` is a Go-based Open Redirect testing tool. Version **0.5.1** runs the complete scan directly from the root command, includes three cumulative payload-coverage levels, live confirmed-finding output, automatic HTTP verification, and detailed JSON reporting.
 
+> Use only against systems you own or are explicitly authorized to test. The scanner derives its exact host scope from `-d` or the entries in `-l`; each generated request must preserve the target URL's scheme, hostname, and effective port. HTTP redirects are never followed.
 
 ## Installation
 
@@ -20,6 +21,8 @@ Optional install into `$(go env GOPATH)/bin`:
 go install github.com/A-TURBO-99/opredir/cmd/opredir@latest
 sudo install -m 755 "$(go env GOPATH)/bin/opredir" /usr/local/bin/opredir
 ```
+
+Supported runtime/distribution: Linux amd64. The project is packaged and tested for Linux only. Requirements for building from source: Go 1.23+. No third-party Go modules are required.
 
 ## Quick start
 
@@ -61,7 +64,9 @@ An existing regular file passed to `-param` is loaded as a wordlist; a non-path 
 
 The current default parameter list contains 169 names. Before placeholder-based records are skipped, that means up to 40,898, 81,627, or 122,356 generated requests per target, respectively. Records that require values not supplied through `--vars-json` are counted as `skipped_missing_placeholders` in the report's `generation_stats`; selecting Level 3 does not invent values for tester-controlled IP/IDN destinations.
 
+The query placement strategy is automatic: if the target URL already contains the selected parameter, all matching occurrences are replaced; otherwise the parameter is appended. HTTP TLS certificate verification is always enabled.
 
+A bare hostname defaults to HTTPS. Include a scheme when using HTTP or a non-default port, for example `http://127.0.0.1:5000/redirect`. Blank lines and `#` comments in target files are ignored; duplicate targets are removed. `-d` does not enumerate subdomains.
 
 ## Main options
 
@@ -85,17 +90,17 @@ The current default parameter list contains 169 names. Before placeholder-based 
 | `--timeout DURATION` | Per-request timeout | `10s` |
 | `--rate N` | Additional maximum request rate (requests/second); `0` disables | `0` |
 | `--max-body-bytes N` | Maximum response-body preview bytes; does not limit request count | `8192` |
-| `--user-agent VALUE` | HTTP User-Agent | `opredir/0.5.0` |
+| `--user-agent VALUE` | HTTP User-Agent | `opredir/0.5.1` |
 | `--header 'Name: value'` | Additional request header; repeatable | — |
 | `--cookie 'name=value'` | Cookie value; repeatable | — |
 
-There is no scan-wide case-count cap: the scan generates the complete matrix for the chosen payload level and parameter selection. The separate `request` subcommand retains `--max-requests` as a bounded control for replaying an existing JSONL case file; `verify` retains `--max-records` for loading evidence files.
+There is no scan-wide case-count cap: the root command generates and executes the complete matrix for the chosen payload level and parameter selection. The separate `request` subcommand retains `--max-requests` as a bounded control for replaying an existing JSONL case file.
 
 The `--authorized` and `--scope-host` command-line options are not used. Scope is derived automatically from the targets supplied with `-d` or `-l`. The old `--verbose` option is removed. TLS certificate verification cannot be disabled from the CLI.
 
 ## Terminal output
 
-On a normal scan, the banner and Scan Plan appear first, followed by loading/progress updates. Confirmed findings are displayed as text by default and streamed immediately in this format:
+On a normal run, the banner and Scan Plan appear first, followed by loading/progress updates. Confirmed findings are displayed as text by default and streamed immediately in this format:
 
 ```text
 ✖ VULNERABLE   https://example.com/redirect?next=...
@@ -123,22 +128,13 @@ Unconfirmed candidates and clean responses are deliberately omitted from the rep
 
 ## Verification model and limitations
 
-The Verification Engine confirms a finding only when a 3xx `Location` or recognized `Refresh` destination points to an external hostname matching the destination supplied in the tested parameter. It resolves relative `Location` values against the request URL and does not follow redirects.
+The internal Verification Engine automatically checks each response and confirms a finding only when a 3xx `Location` or recognized `Refresh` destination points to an external hostname matching the destination supplied in the tested parameter. It resolves relative `Location` values against the request URL and does not follow redirects. Verification is part of the main run; there is no separate `verify` command.
 
 The current scanner primarily generates Query-Parameter GET cases. When a parameter already exists in the target URL, all its matching occurrences are replaced; when absent, it is appended. Browser-only/DOM-based redirects need browser verification and are not reported as confirmed. It also does not enumerate subdomains; provide them explicitly in `-l`. Browser WHATWG parsing differences, complex IDN normalization, and multi-hop redirect chains are not fully covered.
 
-## Advanced subcommands
+## Additional utility command
 
-Generate test cases without sending network traffic:
-
-```bash
-./opredir generate \
-  --url 'https://example.com/redirect' \
-  --parameters data/parameters.txt \
-  --out generated-cases.jsonl
-```
-
-Send existing cases and save raw response evidence (host scope is derived from each case's `target_url`):
+Replay a previously generated JSONL test-case file and save raw response evidence:
 
 ```bash
 ./opredir request \
@@ -147,11 +143,7 @@ Send existing cases and save raw response evidence (host scope is derived from e
   --out responses.jsonl
 ```
 
-Verify saved responses independently:
-
-```bash
-./opredir verify --in responses.jsonl --out findings.jsonl
-```
+This is an optional replay feature. The normal workflow does not require pre-generated files: use `opredir -d ...` or `opredir -l ...` to generate, send, and verify test cases automatically.
 
 Preview the terminal design using mock data only:
 

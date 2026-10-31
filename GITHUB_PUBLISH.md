@@ -7,14 +7,14 @@ From the project root, after reviewing the changes:
 ```bash
 git status
 git add .
-git commit -m "opredir v0.5.0: payload levels, hide option, and CLI cleanup"
-git tag v0.5.0
+git commit -m "opredir v0.5.1: root CLI workflow and subcommand cleanup"
+git tag v0.5.1
 git push origin main --tags
 ```
 
 If your default branch is not `main`, replace `main` with the actual branch name.
 
-After the `v0.5.0` tag is pushed, users can install the latest tagged release with:
+After the `v0.5.1` tag is pushed, users can install the latest tagged release with:
 
 ```bash
 go install github.com/A-TURBO-99/opredir/cmd/opredir@latest

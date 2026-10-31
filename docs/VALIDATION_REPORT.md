@@ -1,6 +1,6 @@
-# opredir 0.1.0 — Validation Report
+# opredir 0.5.1 — Validation Report
 
-Validation performed in the build container on 2026-10-31.
+Validation is performed locally against the source in this release package.
 
 ## Static and unit checks
 
@@ -11,33 +11,19 @@ Validation performed in the build container on 2026-10-31.
 | `go test -race ./...` | Passed |
 | `go vet ./...` | Passed |
 | Linux amd64 build | Passed |
-| Windows amd64 cross-build | Passed |
-| CLI `version` command | Passed |
-| CLI command help | Passed |
+| Root CLI help (`opredir -h`) | Passed |
+| Version command (`opredir version`) | Passed |
 
-## Local end-to-end request test
+## CLI shape
 
-A temporary HTTP server bound only to `127.0.0.1:18999` returned a `302` and a `Location` pointing to `https://redirect-marker.invalid/landing`.
+The primary workflow is invoked directly with `opredir -d ...` or `opredir -l ...`. The standalone `scan`, `generate`, and `verify` subcommands are not exposed. Payload generation and redirect verification remain internal stages of the automatic workflow. The optional `request` command is retained only for replaying an existing JSONL test-case file; `ui-demo` uses mock data only.
 
-`opredir generate` created one test case, and `opredir request` sent it with `--authorized --scope-host 127.0.0.1`.
+## Automated local integration tests
 
-Observed result:
+The Go integration tests start loopback-only HTTP test servers, issue requests through the root CLI handler, confirm a matching external redirect response, and check that confirmed findings are printed by default. A separate test checks that `-hide` suppresses finding details on the console while keeping the finding in the detailed report.
 
-- HTTP status: `302`
-- Captured Location: `https://redirect-marker.invalid/landing`
-- `redirect_followed`: `false`
-- Remote address: loopback (`127.0.0.1:18999`)
-- Exactly one request reached the mock server; the external Location was not requested.
-
-## Scope guard tests
-
-- Request command without `--authorized`: rejected.
-- Target host outside `--scope-host`: rejected before network activity.
-- Request URL authority differing from `target_url`: rejected before network activity.
-- Custom `Host` header override: rejected.
-
-## Not yet validated
+## Scope and limits
 
 - No live third-party targets were tested.
-- The previous Flask lab was not launched in this container; Flask/Docker runtime was unavailable. The HTTP engine was tested against a loopback-only Go `httptest`/mock server.
-- No Open Redirect verdict is produced yet; the Verification Engine is the next development phase.
+- Requests remain restricted to the exact target authority, and HTTP redirects are not followed.
+- Browser-only/DOM-based redirects are not confirmed by the HTTP engine.

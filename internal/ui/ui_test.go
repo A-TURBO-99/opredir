@@ -77,7 +77,7 @@ func TestDefaultUIShowsOnlyConfirmedFindings(t *testing.T) {
 func TestHideFindingsSuppressesResultButKeepsSummary(t *testing.T) {
 	var out bytes.Buffer
 	r := New(&out, Options{HideFindings: true, Width: 80})
-	r.Header("opredir", "0.5.0", "A-TURBO-99")
+	r.Header("opredir", "0.5.1", "A-TURBO-99")
 	r.Result(Result{FullURL: "https://example.test/?next=x", Classification: "confirmed_open_redirect", Confirmed: true})
 	r.Finish(Summary{Scanned: 10, Vulnerable: 1, NotConfirmed: 9, ReportPath: "report.json"})
 	got := out.String()
