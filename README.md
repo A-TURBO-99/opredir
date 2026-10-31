@@ -38,7 +38,7 @@ Scan a list of subdomains/endpoints (`targets.txt`, one item per line):
 Test only one query parameter:
 
 ```bash
-./opredir -d https://example.com/redirect -param amr
+./opredir -d https://example.com/redirect -param inject
 ```
 
 Or test only the parameter names listed in a file:
@@ -47,7 +47,7 @@ Or test only the parameter names listed in a file:
 ./opredir -l targets.txt -param selected-parameters.txt
 ```
 
-An existing regular file passed to `-param` is loaded as a wordlist; a non-path value such as `amr` is treated as one literal parameter name. When `-param` is omitted, the default `data/parameters.txt` wordlist is used (or the path supplied with `--parameters`).
+An existing regular file passed to `-param` is loaded as a wordlist; a non-path value such as `inject` is treated as one literal parameter name. When `-param` is omitted, the default `data/parameters.txt` wordlist is used (or the path supplied with `--parameters`).
 
 A bare hostname defaults to HTTPS. Include a scheme when using HTTP or a non-default port, for example `http://127.0.0.1:5000/redirect`. Blank lines and `#` comments in target files are ignored; duplicate targets are removed. `-d` does not enumerate subdomains.
 
@@ -63,7 +63,7 @@ A bare hostname defaults to HTTPS. Include a scheme when using HTTP or a non-def
 | `--quiet` | Plain-text confirmed findings only; suppress banner/progress/summary | off |
 | `--json` | Confirmed findings and final summary as JSONL on stdout | off |
 | `--max-cases N` | Maximum test requests (`1..5000`) | `500` |
-| `-param NAME` | Test only the named parameter (for example, `-param amr`) | all parameters |
+| `-param NAME` | Test only the named parameter (for example, `-param inject`) | all parameters |
 | `-param FILE` | Test only the parameter names listed in an existing file, one per line | — |
 | `--parameters FILE` | Default parameter names wordlist used when `-param` is omitted | `data/parameters.txt` |
 | `--corpus FILE` | URL-value payload corpus | `data/payloads/url_value_candidates.json` |
@@ -146,15 +146,6 @@ go run ./cmd/opredir ui-demo
 ```
 
 `ui-demo` never sends network traffic and its findings are explicitly mock data.
-
-## Development checks
-
-```bash
-gofmt -w ./cmd ./internal
-go test ./...
-go test -race ./...
-go vet ./...
-```
 
 ## Project layout
 
