@@ -1,5 +1,7 @@
 # opredir
 
+
+
 **Open Redirect Scanner** · by **A-TURBO-99**  
 Repository: https://github.com/A-TURBO-99/opredir
 
